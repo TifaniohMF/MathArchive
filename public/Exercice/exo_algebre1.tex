@@ -1,10 +1,15 @@
 \documentclass[a4paper,12pt,french]{article}
 
+% ====== IMPORTATION DES PACKAGES ======
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
+\usepackage{lmodern}
 \usepackage[margin=2cm]{geometry}
 \usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
 
 \date{}
 \author{}
@@ -237,6 +242,128 @@ Dans toute la suite, sauf mention explicite du contraire, $\mathbb{K}$ désigner
     \item Donnez une base du $\mathbb{R}$-espace vectoriel $V = \{( a, a, b)| a, b \in \mathbb{R}\}$.
     \item Soit le $\mathbb{Q}$-espace vectoriel $V = \mathbb{Q}^{3}$ et $W \subseteq V$ le sous-espace engendré par $E = \{(1, 2, 3), (2, 3, 4), (3, 5, 7)\}$. Montrez que $E$ n’est pas une base de $V$ mais que $\{(1, 2, 3), (2, 3, 4)\}$ en est une.
     \item Montrez que l’ensemble suivant est un R-espace vectoriel : $V = \{ f : \mathbb{N} \rightarrow \mathbb{R} | \exists S \subseteq \mathbb{N} \mbox{ fini, pour tout } n \in \mathbb{N} \backslash S, f (n) = 0\}$. Trouvez une base de $V$.
+\end{enumerate}
+
+\section{Théorie des groupes et homomorphisme des groupes}
+\subsection{Exercice}
+\begin{enumerate}
+    \item Pour chacune des opérations binaires sur Z suivantes laquelle est associative ? laquelle est commutative ? laquelle admet un identité ?
+    \begin{itemize}
+        \item[i)] $(x, y) \mapsto x - y$;
+        \item[ii)] $(x, y) \mapsto x y$;
+        \item[iii)] $x \star y:= xy - x - y + 2$.
+    \end{itemize}
+    \item Considérons le rectangle R défini par $(x, y) \in \mathbb{R}^{2} : | x | \leq n; |y| \leq m$ où $n$ et $m$ sont des entiers naturels non nuls distincts. Montrer que les quatre symétries de R suivantes forment un groupe avec la loi de composition des applications :
+    \begin{itemize}
+        \item[a)] L’identité $e : (x, y) \mapsto (x, y)$;
+        \item[b)] La réflexion $r_{1} : (x, y) \mapsto (x, -y)$;
+        \item[c)] La réflexion $r_{2} : (x, y) \mapsto (- x, y)$;
+        \item[d)] La rotation d’angle $\pi$ et de centre $(0, 0) r_{3} : (x, y) \mapsto (- x, -y)$. Ecrire le table de Cayley de ce groupe. Le groupe est-il abélien ?
+    \end{itemize}
+    \item Pour chacune des structures suivantes, déterminer si c’est un groupe ou pas :
+    \begin{itemize}
+        \item[i)] $(\mathbb{Z}, -)$ où l’opération binaire - désigne la soustraction usuelle sur les nombres ;
+        \item[ii)] $(\mathbb{R}, \star)$ où l’opération binaire $\star$ est définie par : $x \star y:= x + y - 1$;
+        \item[iii)] $\mathbb{Z}/n\mathbb{Z} \backslash \{0\} , \times$ où n est un nombre entier naturel non nul ;
+        \item[iv)] $(\{z \in \mathbb{C} : |z| = 1\} , \times)$ où $\times$ désigne la multiplication de nombres complexes.
+    \end{itemize}
+    \item Compléter les tables de Cayley des groupes suivants : $$\begin{array}{|c|c|c|c|} \hline  \star  & e & a & b \\ \hline e & & a & \\ \hline a & & & \\ \hline b & & & \\ \hline \end{array} \; \begin{array}{|c|c|c|c|c|} \hline  \star & a & b & c & d \\ \hline a & & d & & \\ \hline b & a & & & \\ \hline c & & & & \\ \hline d & & & b & \\ \hline\end{array}$$
+    \item Montrer que les sous-ensembles suivants ne sont pas de sous-groupes de $(\mathbb{Z}, +)$ : L’ensemble des nombres entiers impairs ; L’ensemble des entiers positifs ; L’ensemble $\{-2, -1, 0, 1, 2\}$; L’ensemble vide.
+    \item Déterminer les ordres des groupes suivants : $(\mathbb{Z}/n\mathbb{Z}, +); (\mathbb{Z}, +); S_{n} ; GL_{2} (\mathbb{R}).$
+    \item Déterminer les ordres des éléments suivants :
+    \begin{itemize}
+        \item[i)] $ 2 \in (\mathbb{Z}/10 \mathbb{Z}, +)$;
+        \item[ii)] $\left(\begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}\right) \in GL_{n}(\mathbb{R})$
+        \item[iii)] L’identité dans un groupe ;
+        \item[iv)] $\pi \in (\mathbb{R}, +)$;
+    \end{itemize}
+    \item Soient $(G, \star)$ un groupe fini d’identité $e$ et $g \in G$. Montrer qu’ils existent deux entiers naturels non nuls distincts $i$ et $j$ tels que $a_{i} = a_{j}$. En déduire qu’il existe un entier naturel non nul $n$ tel que $a_{n} = e$.
+    \item Soit $(G, \star)$ un groupe d’ordre pair. Montrer qu’il existe un élément $a$ de $G$ tel que $a_{2} = e$.
+    \item Déterminer tout les sous-groupes des groupes suivants : $(\mathbb{Z}/6\mathbb{Z}, +)$ et $(\mathbb{Z}/12\mathbb{Z}, +)$.
+    \item Montrer que les sous-groupes de $(\mathbb{Z}, +)$ sont de la forme $n\mathbb{Z}$ où n est un entier naturel.
+    \item Soient $G$ un groupe fini et $g$ un élément de $G$. Montrer que $|g|$ divise $|G|$.
+\end{enumerate}
+
+\subsection{Exercice}
+\begin{enumerate}
+    \item Pour chacune des applications suivantes, déterminer si c’est un homomorphisme de groupes ou pas :
+    \begin{itemize}
+        \item[i)] $(\mathbb{R} \backslash \{0\} , \times)  \rightarrow (\mathbb{R}, +), \; a \mapsto log|a|$;
+        \item[ii)] $(\mathbb{C}, +) \rightarrow (R, +), \; x \mapsto |x|$;
+        \item[iii)] $(\mathbb{Z}, +) \rightarrow (\mathbb{Z}, +), \; t \mapsto 5t$;
+        \item[iv)] $(\mathbb{R}^{2} , +) \rightarrow (R, +), \; (x,y) \mapsto xy$;
+        \item[v)] $(\mathbb{R}^{2} , +)  \rightarrow (\mathbb{R}, +), \; (u,v) \mapsto u - v$.
+    \end{itemize}
+    \item Soient $( G_{1} , \star_{1} )$ et $( G_{2} , \star_{2} )$ deux groupes. Montrer que $G_{1} \times G_{2} \simeq G_{2} \times G_{1}$.
+    \item Considérons les groupes $G_{1} = (\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}, +)$ et $G_{2} = (\mathbb{Z}/4\mathbb{Z}, +)$. Montrer que $G_{1} \not\simeq G_{2}$.
+    \item Considérons l’homomorphisme de groupes $f : (\mathbb{Z}/12\mathbb{Z}, +) \rightarrow (\mathbb{C}^{\star}, \times) \; n \mapsto i^{n}$, où $i$ est un élément de $\mathbb{C}$ tel que $i^{2} = -1$. Déterminez $Im( f )$ et $Ker( f )$ ainsi que $(\mathbb{Z}/12\mathbb{Z})/Ker( f )$. Puis écrire les tables de Cayley des groupes $(\mathbb{Z}/12\mathbb{Z})/Ker( f )$ et $Im( f )$. Vérifier qu’ils sont bien similaires.
+    \item Pour chacune des homomorphismes suivantes, déterminer son image et son noyau. Puis écrire le résultat qu’on obtient du premier théorème d’isomorphisme :
+    \begin{itemize}
+        \item[i)] $(\mathbb{Z}, +) \rightarrow (\mathbb{Z}, +), \; m \mapsto 2m$;
+        \item[ii)] $(\mathbb{R}, +) \rightarrow (\mathbb{C}^{\star} , \times). \; x \mapsto e^{ix}$;
+        \item[iii)] $det : (GL_{2} (\mathbb{R}) \rightarrow (\mathbb{C}^{\star} , \times))$;
+        \item[iv)] $f : \mathbb{Z} \rightarrow \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/3\mathbb{Z}$;
+    \end{itemize}
+    \item Soit $G$ un groupe abélien fini tel que pour tout élément $x$ de $G$, on a $x = e$ ou $x_{2} = e$ où $e$ est l’identité de $G$. Montrer que $| G | = 2n$ où $n$ est un entier naturel.
+    \item Soient $G$ un groupe et $H$ un sous groupe d’indice 2 de $G$. Montrer que $H$ est un sous groupe normal de $G$.
+\end{enumerate}
+
+\subsection{Exercice}
+\begin{enumerate}
+    \item Pour chacune des permutations suivantes, écrire-la comme composée des cycles:
+    \begin{itemize}
+        \item[i)] $\left(\begin{array}{cccc} 1 & 2 & 3 & 4 \\ 2 & 1 & 4 & 3 \end{array}\right)$;
+        \item[ii)] $\left(\begin{array}{cccccc} 1 & 2 & 3 & 4 & 5 & 6 \\ 4 & 1 & 5 & 3 & 6 & 2 \end{array}\right)$;
+        \item[iii)] $\left(\begin{array}{cccccc} 1 & 2 & 3 & 4 & 5 & 6 \\ 1 & 6 & 4 & 3 & 2 & 5 \end{array}\right)$.
+    \end{itemize}
+    \item Pour chacune des permutations suivantes, écrire-la en matrice-notation :
+    \begin{itemize}
+        \item[i)] $(1 \; 2 \;  3)(4 \; 6 \; 8)$;
+        \item[ii)] $(1 \; 6)(4 \; 2)(5 \; 3)$;
+        \item[iii)] $(1 \; 5 \; 3)$;
+        \item[iv)] $(1 \; 9 \; 3)(2 \; 6)(7 \; 8)$;
+        \item[v)] $(2 \; 4)(3 \; 5 \; 7).$
+    \end{itemize}
+    \item Pour chacune des cas suivants, calculer $\sigma \tau$ et $\tau \sigma$ :
+    \begin{itemize}
+        \item[i)] Dans $S_{4}$, $\sigma = \left(\begin{array}{cccc} 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 1 \end{array}\right),\;\tau = (1 \; 2)(3 \; 4);$
+        \item[ii)] Dans $S_{5}$. $\sigma = \left(\begin{array}{ccccc} 1 & 2 & 3 & 4 & 5\\ 5 & 4 & 3 & 2 & 1\end{array}\right), \; \tau = \left(\begin{array}{ccccc} 1 & 2 & 3 & 4 & 5\\ 1 & 3 & 5 & 4 & 2 \end{array}\right);$
+        \item[iii)] Dans $S_{6}$, $\sigma = (1 \; 2)(5 \; 6), \; \tau = (1 \; 3 \; 4 \; 6 \; 2)$.
+        Ecrire les résultats en utilisant les deux notations.
+    \end{itemize}
+    \item Pour chacune des permutations suivantes, déterminer si elle est paire ou impaire :
+    \begin{itemize}
+        \item[i)] $\left(\begin{array}{ccccc} 1 & 2 & 3 & 4 & 5 \\ 2 & 5 & 3 & 1 & 4\end{array}\right)$;
+        \item[ii)] $\left(\begin{array}{ccccc} 1 & 2 & 3 & 4 & 5 \\ 2 & 3 & 5 & 1 & 4\end{array}\right)$;
+        \item[iii)] $\left(\begin{array}{cccccc} 1 & 2 & 3 & 4 & 5 & 6 \\ 6 & 5 & 4 & 3 & 2 & 1 \end{array}\right)$.
+    \end{itemize}
+    \item
+    \begin{itemize}
+        \item[i)] Respectivement dans $S_{3}$ et $S_{4}$, combien de transpositions a t-on ? Quand est-il des 3-cycles ? des 4-cycles (dans S4 ) ?
+        \item[ii)] Soit $H$ l’ensemble des éléments qui ne sont pas des transpositions, ni des 3-cycles, nides 4-cycles dans S4 . Le sous-ensemble $H$ est-il un sous groupe ? Si oui, déterminer sonordre et trouver un groupe usuel (qu’on connait très bien) qui est isomorphe à $H$.
+    \end{itemize}
+    \item Dans chacun des groupes suivants, déterminer le nombre d’éléments d’ordre 2 et le nombre d’éléments d’ordre 3 : $S_{3}$, $A_{4}, D_{5}$ et $D_{6}$.
+    \item Pour tout $k \in \{1, 2, 3, 4, 5, 6\}$, déterminer le nombre d’éléments d’ordre $k$ dans $A_{5}$.
+    \item Pour chacun des cas suivants, déterminer si le sous-ensemble est un sous-groupe de $S_{4}$ ou pas. Dans le cas où le sous-ensemble est un groupe, déterminer si c’est un groupe normal :
+    \begin{itemize}
+        \item[i)] $\{ id, (1 \; 3 \; 4), (1 \; 4 \; 3)\}$ ;
+        \item[ii)] $\{ id, (1 \; 2)(3 \; 4), (1 \; 3)(2 \; 4), (1 \; 4)(2 \; 3)\}$ ;
+        \item[iii)] $\{ id,  (1 \; 2 \; 3 \; 4), (1 \; 4 \; 3 \; 2), (1 \; 3)(2 \; 4)\}$ ;
+        \item[iv)] $\{ id,  (1 \; 2 \; 3), (1 \; 3 \; 2), (2 \; 3 \; 4), (2 \; 4 \; 3)\}$.
+    \end{itemize}
+    \item Considérons l’application $f : (\mathbb{Z} \times \mathbb{Z}) \rightarrow S_{4}, \; (m, n) \mapsto \sigma^{n} \tau^{m}$ où $\sigma = (1 \; 2)(3 \; 4)$ et $\tau = (1 \; 3)(2 \; 4)$. Montrer que $f$ est un homomorphisme de groupes. Expliciter le résultat u premier théorème d’isomorphisme.
+    \item Notons respectivement par $\sigma$ et $\tau$ une rotation et une réflexion dans le groupe diédral $D_{n}$. Montrer que $\tau^{-1} = \rho \tau \rho$.
+    \item Considérons un homomorphisme $f : S_{n} \rightarrow \mathbb{Z}/3\mathbb{Z}$ où $n \geq 3$. Montrer que $f$ est trivial,i.e, pour tout $\sigma \in S_{3}$, on a $f (\sigma) = 0$.
+    \item 
+    \begin{itemize}
+        \item[i)] Montrer que $S_{3} \simeq D_{3}$.
+        \item[ii)] Expliciter tout les éléments de $D_{3}$ en forme de matrices, en utilisant le fait qu’il est isomorphe à un sous groupe de $O_{2} (\mathbb{R})$.
+    \end{itemize}
+    \item
+    \begin{itemize}
+        \item[i)] Soit $(G, \star)$ un groupe d’ordre un nombre premier $p$. Montrer que $G \simeq \mathbb{Z}/p\mathbb{Z}$, i.e, à isomorphisme près, il n’existe qu’un seul groupe d’ordre $p$ où $p$ un nombre premier.
+        \item[ii)] Pour tout $n \in \{1, 2, 3, 4, 5, 6, 7\}$ , trouver les classes d’isomorphismes des groupes d’ordre n.
+    \end{itemize}
 \end{enumerate}
 \end{document}
 

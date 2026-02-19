@@ -1,0 +1,128 @@
+\documentclass[a4paper, 12pt]{article}
+
+% ===== IMPORTATION DES PACKAGES =====
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault} % applique la police sur tous le document
+
+\newcounter{exo}
+\renewcommand{\theexo}{\Roman{exo}}
+\newcommand{\exo}{
+	\stepcounter{exo}
+	\textbf{Exercice \theexo{} :}
+}
+
+% ===== DOCUMENT =====
+
+\begin{document}
+
+\hrule  % Mettre un ligne horizontale au debut du document 
+
+\vspace{0.5cm}
+
+Université d'Antananarivo \hfill Année Universitaire: 2024-2025 \\
+Calcul numérique et algorithmique - MMI \hfill 2 eme Année
+
+$$\boxed{\Large{\mbox{1: Interpolation, Integration et Algorithmes}}}$$
+
+\vspace{0.5cm}
+
+\exo Base de Lagrange
+Soit $(l_{i}), i = 0, \cdots, n, n + 1$ fonctions polynomailes $\in \mathbb{R}[x]^{n}$ véerifiant $l_{i} (x_{j}) = \delta_{ij}$. Montrer que $(li)$
+est une base de $\mathbb{R}[x]^{n}$.
+
+\exo Soit $f(x) = \tfrac{1}{1+x^{2}}$. Déterminer le polynôme d'interpolation de Lagrange pour les points d'appui d'abscisses : $−2, −1, 0, 1, 2$. Ensuite discuter l'erreur d’interpolation.
+
+\exo
+\begin{enumerate}
+	\item Ecrire le système linéaire qui défnit le polynôme d’interpolation de degré 3 passant par les points de coordonnées $(x_{0}, y_{0}), (x_{1}, y_{1}), (x_{2}, y_{2}), (x_{3}, y_{3})$.
+	\item Calculer le déterminant de la matrice $V$ de ce système linéaire La matrice $V$ est appelée matrice de Vandermonde.
+	\item Calculer dans le cas général (i.e. en dimension quelconque) le déterminant d’une matrice de Vandermonde.
+\end{enumerate}
+
+\exo On veut interpoler $f (x) = \ln (x)$ par un polynôme aux points $x_{0} = 1, x_{1} = 2, x_{2} = 3, x_{3} = 4$
+et $x_{4} = 5$.
+\begin{enumerate}
+	\item Trouver une expression algébrique de ce polynôme en utilisant la méthode de Newton.
+	\item Estimer la valeur de $f (6.32)$ avec le polynôme trouvé en 1 puis calculer l'erreur absolue.
+\end{enumerate}
+
+\exo Interpolation d'Hermite
+Soient $x_{0} , x_{1} \in \mathbb{R}$ et soit $f : \mathbb{R} \rightarrow \mathbb{R}$ une fonction dérivable.
+\begin{enumerate}
+	\item Montrer qu'il existe un unique polynome $P$ de degré $ \leq 3$ tel que:
+$P (x_{0}) = f (x_{0}), f^{'}(x_{0}) = P^{'}(x_{0}), f (x_{1}) = P (x_{1}), f^{'}(x_{1}) = P^{'}(x_{1})$.
+	\item En s'inspirant du cours, monter que si $f$ est de classe $C^{4}$, et si $x \in (x_{0} , x_{1})$, alors, il existe $\epsilon \in (x_{0}, x_{1})$ tel que: $$ f(x) - p(x) = \frac{f^{(4)}(\epsilon)}{4}\prod_{i=0}^{1}(x - x_{i})^{2}$$
+	\item Trouver les polynomes $A_{0}, A_{1}, B_{0}, B_{1} \in \mathbb{R}^{3} [x]$ tel que $p(x) = f (x_{0})A_{0} (x)+f^{'}(x_{0})A_{1}(x)+f (x_{1})B_{0} (x)+f^{'}(x_{1})B_{1} (x)$, puis trouver une forme de $P$ faisant interventir les polynmes de Lagrange.
+	\item Proposez une généralisation de l'exercice, puis le résoudre.
+\end{enumerate}
+
+\exo Prise en main C++
+\begin{enumerate}
+	\item Opérateurs : Écrivez un programme qui effectue des opérations arithmétiques de base (addition, soustraction, multiplication, division) sur deux nombres entiers. Affichez les résultats.
+	\item Conditions : Écrivez un programme qui demande à l'utilisateur d’entrer un nombre entier.
+Utilisez une instruction if pour déterminer si le nombre est positif, négatif ou nul. Affichez le résultat.
+	\item Boucles : Écrivez un programme qui utilise une boucle for pour afficher les nombres de 1 à 10. Ensuite, utilisez une boucle while pour afficher les nombres de 10 à 1.
+\end{enumerate}
+
+\exo C++ simples
+\begin{enumerate}
+	\item Tableaux : Écrivez un programme qui crée un tableau de 10 nombres entiers. Remplissez le tableau avec des valeurs aléatoires, puis affichez le contenu du tableau.
+	\item Fonctions : Écrivez une fonction qui prend deux nombres entiers en argument et retourne leur somme. Appelez cette fonction depuis votre programme principal et affichez le résultat.
+	\item Structures : Créez une structure pour représenter un livre (avec les champs titre, auteur, ISBN). Déclarez une variable de type structure et remplissez-la avec des informations sur un livre. Affichez les informations du livre.
+	\item Classes : Créez une classe Personne avec les attributs nom, âge et adresse. Ajoutez des méthodes pour afficher les informations de la personne et pour modifier l’âge. Créez un objet de type Personne et utilisez les méthodes.
+	\item Reprendre la question précedente en faisant une programmation dynamique (créer une bibliothèque)
+	\item Pointeurs : Écrivez un programme qui utilise des pointeurs pour manipuler des variables et des tableaux.
+	\item Allocation dynamique de mémoire : Écrivez un programme qui alloue dynamiquement de la mémoire pour un tableau d’entiers. Utilisez l’opérateur new pour allouer la mémoire et l’opérateur delete pour la libérer.
+	\item Fichiers : Écrivez un programme qui lit le contenu d’un fichier texte et l’affiche à l'écran. Ensuite, écrivez un programme qui écrit du texte dans un fichier.
+\end{enumerate}
+
+\exo Classe nombres complexes
+\begin{enumerate}
+	\item Créez une structure nommée Complexe pour représenter un nombre complexe. Cette structure devra contenir deux membres :reel (de type double) , pour la partie réelle du nombre complexe, imaginaire (de type double) pour la partie imaginaire du nombre complexe.
+	\item Écrivez des fonctions pour effectuer les opérations suivantes sur les nombres complexes :
+	\begin{itemize}
+		\item[a)] addition(Complexe a, Complexe b) : retourne la somme de deux nombres complexes.
+		\item[b)] soustraction(Complexe a, Complexe b) : retourne la différence de deux nombres complexes.
+		\item[c)] multiplication(Complexe a, Complexe b) : retourne le produit de deux nombres complexes.
+		\item[d)] division(Complexe a, Complexe b) : retourne le quotient de deux nombres complexes.
+	\end{itemize}
+	\item Écrivez des fonctions pour calculer :
+		\item[a)] le module(Complexe z) : retourne le module (ou valeur absolue) d’un nombre complexe. Vous pouvez utiliser la bibliothèque $<cmath>$ pour cela.
+		\item[b)] l’ argument(Complexe z) : retourne l’argument (ou phase) d'un nombre complexe. Vous pouvez utiliser la fonction $std::atan2$ de la bibliothèque $<cmath>$.
+	\item Écrivez une fonction afficher(Complexe z) qui affiche un nombre complexe sous la forme $a + bi$ ou $a - bi$ (selon le signe de la partie imaginaire).
+\end{enumerate}
+
+\exo L'algèbre des quaternions
+Reprendre l'exercice précédente mais cette fois ci aves l'algèbre des quaternions $\mathbb{H} = \mathbb{R}+\mathbb{R}i+\mathbb{R}j+\mathbb{R}k$
+avec $i^{2} = j^{2} = k^{2} = −1, ij = k, jk = i, ki = j$
+
+\exo Méthodes des trapèzes
+Estimer $\int_{0}^{5/2} f(t)dt$ à partir des donnés suivantes:
+\begin{equation}
+\begin{array}{|*7{c|}}
+\hline
+x & 0 & 1/2 & 1 & 3/2 & 2 & 5/2 \\ \hline
+f(x) & 3/2 & 2 & 2 & 5/2 & 5/4 & 11/9 \\ \hline
+\end{array}
+\end{equation}
+en utilisant la méthode des trapèzes
+
+\exo
+Soit $f \in C^{1} ([0, 1])$. On considère la formule de quadrature élémentaire pour approcher $\int_{0}^{1}f(t)dt :$ $$J(f) = \lambda_{0} f (0) + \lambda_{1} f(\epsilon) + \lambda_{2} f^{'}(0),$$
+où $\epsilon \in ]0, 1[$ et $\lambda_{0},\lambda_{1},\lambda_{2}$ sont des réels. On pose $E(f) = I(f) − J(f)$
+\begin{enumerate}
+	\item Déterminer les paramètres $\lambda_{0}, \lambda_{1}, \lambda{2}$ et $\epsilon$ pour que le formule de quadrature soit exacte si
+$f$ est un polynôme de degré inférieur ou égal à 3.
+	\item Les paramètres $\epsilon, \lambda_{0}, \lambda_{1}, \lambda_{2}$ ainsi déterminés, calculer $E(x \rightarrow x^{4})$ et en déduire l'ordre de la méthode.
+	\item Trouver une expression de l’erreur $E(f)$ lorsque $f \in C^{4} ([0, 1])$.
+	\item À l’aide d'un changement de variable, construire une méthode de quadrature élémentaire sur un intervalle [a, b] et donner la valeur de l’erreur pour la formule composée.
+\end{enumerate}
+\end{document}

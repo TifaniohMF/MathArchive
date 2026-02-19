@@ -1,0 +1,426 @@
+\documentclass[a4paper,12pt,french]{article}
+
+% ====== IMPORTATION DES PACKAGES ======
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% ====== DOCUMENT ======
+
+\begin{document}
+\section{Introduction à la théorie des groupes}
+On sait que l’ensemble $\mathbb{Z}, \mathbb{Q}$ ou $\mathbb{R}$ est muni de deux opérations usuelles à savoir : L’addition et la multiplication. Un espace vectoriel est aussi muni d’une opération de telle sorte : L’addition de deux vecteurs. Cela donne un nouveau moyen de mieux comprendre ces ensembles et mieux encore : de les classifier. Ainsi, avec ces opérations, on a ce qu’on appellera des structures algébriques sur ces ensembles. Ainsi notre but est de formaliser ces idées de manière abstraite.
+
+\subsubsection{Définition}
+Soit $E$ un ensemble. Une opération binaire (ou loi de composition interne) $\star$ sur $E$ est définie par l’application : $$ \begin{array}{ccc} E \times E & \mapsto & E \\ (x,y) & \mapsto & x \star y \end{array}$$
+Autrement dit, pour tout $x$ et $y$ éléments de $E$, $x \star y$ est un élément de $E$ et il est défini de manière unique. Un ensemble $E$ muni d’une opération $\star$ sera noté par $(E, \star)$. S’il n’y a pas de confusion, l’opération $x \star y$ sera notée tout simplement par $xy$.
+Si $T$ est une partie de $E$, on dit que l’opération est fermée sur $T$, si la restriction de l’application sur $T \times T$ a pour image dans $T$. Autrement dit, pour tout $x$ et $y$ dans $T$, on a $x \star y \in T$. On dit aussi que la loi de composition sur $T$ est interne.Un opération binaire sur un ensemble $E$ définit de ce qu’on appellera une structure algébrique sur $E$. Autrement dit, on dit que $(E, \star)$ est une structure algébrique.
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item L’addition, la soustraction et la multiplication sont des opérations binaires sur $\mathbb{Z}, \mathbb{Q}, \mathbb{R}$ ou $\mathbb{C}$;
+    \item La soustraction n’est une loi de composition interne sur $\mathbb{N}$;
+    \item L’addition et la multiplication des matrices carrées sont des opérations binaires ;
+    \item L’addition et la soustraction de vecteurs sont des opérations binaires sur les espaces vectoriels;
+    \item Le produit vectoriel de deux vecteurs sur $\mathbb{R}^{3}$ est une opération binaire sur $\mathbb{R}^{3}$ ;
+    \item La loi de composition d’applications est une opération binaire sur l’ensemble $\mathbb{R}^{R}$ des applications numériques ;
+    \item L’addition est une loi de composition interne sur l’ensemble des nombres paires ;
+    \item L’addition n’est pas une loi de composition interne sur l’ensemble des nombres impaires.
+\end{enumerate}
+En primaire, on a appris les tables d’additions et de multiplications sur l’ensemble des entiers naturels. Ci dessous est une tentative de formaliser cet idée sur un ensemble fini :
+
+\subsubsection{Définition}
+Soit $(E, \star)$ un ensemble fini muni de l’opération binaire $\star$. Le tableau qui présente, pour tout élément $x$ et $y$ de $E$, les résultats qu’on obtient par la loi $\star$ est appelé table de Cayley de $(E, \star)$.
+
+\subsubsection{Exemples}
+Soit $(\{-1, 0, 1\} , \times)$ un ensemble où $\times$ est la multiplication usuelle sur $\mathbb{Z}$. Son table de Cayley est le suivant : $$\begin{array}{|c|c|c|c|}  \hline \times & -1 & 0 & 1 \\ \hline -1  & 1 & 0 & -1 \\ \hline 0 & 0 & 0 & 0 \\ \hline 1 & -1 & 0 & 1 \\ \hline \end{array}$$
+
+Voici quelques caractéristiques usuelles d’une opération binaire sur un ensemble :
+\subsubsection{Définition}
+Soit $(E, \star)$ un ensemble. On dit que :
+\begin{itemize}
+    \item[i)] La loi $\star$ est associative si pour tout $x, y$ et $z$ dans $E$, on a $x \star (y \star z) = ( x \star y) \star z$;
+    \item[ii)] La loi $\star$ est commutative si pour tout $a$ et $b$ dans $E$, on a $a \star b = b \star a$;
+    \item[iii)] $E$ admet un élément neutre ou un identité $e$ si pour tout $x \in E$, on a $e \star x = x \star e = x$;
+    \item[iv)] Supposons que $E$ admet un élément neutre $e$. Un élément $t$ de $E$ admet un inverse s’il existe un élément $u$ de $E$ tel que $t \star u = u \star t = e$.
+\end{itemize}
+
+\subsubsection{Proposition}
+Soit $(E, \star)$ une structure algébrique admettant un élément neutre. Alors :
+\begin{itemize}
+    \item[i)] L’élément neutre est unique ;
+    \item[ii)] Si de plus, l’opération est associative, l’inverse d’un élément inversible est unique.
+\end{itemize}
+L’inverse d’un élément inversible x de E sera noté par $x^{-1}$.\\
+\textit{Démonstration:}
+\begin{itemize}
+    \item[i)] Supposons qu’on a deux éléments neutres $e_{1}$ et $e_{2}$. Par définition, on a $e_{1} \star e_{2} = e_{1} = e_{2} \star e_{1} = e_{2}$. D’où $e_{1} = e_{2}$, i.e, l’élément neutre est unique.
+    \item[ii)] Soit $x$ un élément inversible de $E$. Désignons par $e$ l’élément neutre. Supposons qu’ils existent deux inverses de $y_{1}$ et $y_{2}$ de $x$. Par définition, on a : $x \star y_{1} = e = x \star y_{2}$. Donc, en multipliant cet égalité par $y_{1}$ à gauche, on a, par associativité de l’opération binaire, $(y_{1} \star x ) \star y_{1} = (y_{1} \star x ) \star y_{2}$. D’où, $y_{1} = y_{2}$.
+\end{itemize}
+
+\subsection{Introduction et Définitions}
+\subsubsection{Définition}
+Une structure algébrique $(E, \star)$ est dite un monoïde si elle admet un élément neutre et la loi de composition interne $\star$ est associative. Si de plus, tout élément de $E$ admet un inverse, alors la structure $(E, \star)$ est appelé un groupe. Une structure de groupe est dite abélienne si la loi de composition est aussi commutative. On dit dans ce cas que le groupe est abélien.
+
+\subsubsection{Remarque}
+Si $(E, \star)$ est un monoïde, l’ensemble $E$ est non vide.
+
+\subsubsection{Proposition}
+Soient $(M_{1} , \star_{1})$ et $(M_{2}, \star_{2})$ deux monoïdes d’éléments neutres respectifs $e_{1}$ et $e_{2}$.
+Considérons l’opération binaire $\star$ sur l’ensemble produit $G:= M_{1} \times M_{2}$ définie par : $$\begin{array}{ccc} G \times G & \rightarrow & G \\ (( a, x ), (b, y)) & \mapsto & ( a, x ) \star (b, y):=( a \star_{1} b, x \star_{2} y).\end{array}$$
+La structure $(G, \star)$ est un monoïde d’élément neutre $(e_{1}, e_{2})$. C’est ainsi qu’on définit une structure algébrique sur un produit cartésien de deux ensembles.
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item $(R, \star)$ est un monoïde ;
+    \item $(\mathbb{N}, +)$ n’est pas un groupe mais c’est un monoïde ;
+    \item $(\mathbb{Z} \backslash \{0\}, \times)$ est un monoïde, mais pas un groupe ;
+    \item Soit $n \geq 3$. Les structures $(\mathbb{Z}/n\mathbb{Z} \backslash \{0\}, \times)$ et $(M_{n} (\mathbb{R}) \backslash \{0\} , \times)$ ne sont pas de groupes en général mais des monoïdes ;
+    \item $(\mathbb{Z}, +), (\mathbb{Q}, +), (\mathbb{R}, +)$ et $(\mathbb{C}, +)$ sont des groupes abéliens ;
+    \item $(\mathbb{R}^{2} , +)$ est un groupe abélien ;
+    \item Soit $n$ un entier naturel non nul. Les structures $(\mathbb{Z}/n\mathbb{Z}, +)$ et $(M_{n} (\mathbb{R}), +)$ sont des groupes abéliens ;
+    \item Soient $n$ et $m$ deux entiers naturels non nuls. La structure $(\mathbb{Z}/n\mathbb{Z} \times \mathbb{Z}/m\mathbb{Z}, +)$ est un groupe abélien ;
+    \item Si $V$ est un espace vectoriel, la structure $(V, +)$ est un groupe abélien ;
+    \item L’ensemble des rotations de centre $(0, 0)$ sur $\mathbb{R}^{2}$ définit un groupe abélien avec la loi composition des transformations ;
+    \item L’ensemble des applications numériques bijectives définit un groupe non abélien avec la loi de composition des applications ;
+    \item L’ensemble $GL_{n} (\mathbb{R})$ des matrices carrées inversibles d’ordre $n \geq 2$ à coefficients dans $\mathbb{R}$ définit un groupe non abélien avec la loi multiplication des matrices ;
+    \item Soit $E$ un ensemble fini. L’ensemble $P(E)$ des applications bijectives de $E$ dans $E$ définit un groupe avec la loi de composition des applications. On appelera cet groupe, le groupe de permutation de l’ensemble $E$. Si $E$ est de cardinal $n$, on notera cet groupe par $S_{n}$.
+\end{enumerate}
+Dans toute la suite, on ne s’intéressera qu’à des structures de groupes. C’est l’objectif principal de notre cours d’algèbre 1 même si l’étude des monoïdes est une branche très riche de l’algèbre abstraite.
+
+\subsubsection{Définition}
+Soient $(G, \star)$ un groupe et $H$ une partie de $G$. On dit que $H$ est un sous-groupe de $G$ si $(H, \star)$ est un groupe. Si $H$ est un sous-groupe de $G$, on le notera par $H < G$.
+
+\subsubsection{Proposition}
+Soit $(G, \star)$ un groupe. Une partie $H$ de $G$ est un sous-groupe de $G$ si et seulement si les propositions suivantes sont vérifiées :
+\begin{itemize}
+    \item[i)] Pour tout $x$ et $y$ dans $H$, on a $x \star y \in H$;
+    \item[ii)] L’élément neutre de $G$ est dans $H$;
+    \item[iii)] Si $x$ est un élément de $H$, l’inverse $x^{-1}$ de $x$ dans $G$ appartient à $H$.
+    Autrement dit, une partie non-vide $H$ de $(G, \star)$ est un sous-groupe de G si et seulement si pour tout $x$ et $y$ dans $H$, on a $x \star y^{-1}$ appartient à $H$.
+\end{itemize}
+
+\subsubsection{Exemples}
+Soit $n$ un entier naturel non nul.
+\begin{enumerate}
+    \item Si $(G, \star)$ est un groupe d’identité $e$, les parties $G$ et $\{e\}$ sont des sous-groupes de $G$. On les appelle les sous-groupes triviaux de $G$. Un sous groupe non trivial de $G$ sera appelé un sous-groupe propre de $G$;
+    \item $\mathbb{Z}, \mathbb{Q}$ et $\mathbb{R}$ sont des sous-groupes de $(\mathbb{C}, +)$;
+    \item Le sous-ensemble $n\mathbb{Z}$ des multiples de $n$ dans $\mathbb{Z}$ est un sous-groupe de $(\mathbb{Z}, +)$;
+    \item Le sous-ensemble des matrices d’ordre $n$ à coefficient dans $\mathbb{R}$ dont le déterminant est égal à 1 est un sous-groupe de $GL_{n} (\mathbb{R})$. Ce sous-groupe sera noté par $SL_{n} (\mathbb{R})$ et sera appelé le groupe linéaire spécial.
+    \item Soit $E = \{1, 2, \cdots , n\}$. Le groupe $S_{n}$ est un sous groupe de $S_{n+1}$. Si $k \in \{1, 2, \cdots , n\}$, le sous ensemble des éléments qui fixe $k$ dans $P(E)$ est un sous-groupe de $S_{n}$;
+    \item Si $n \leq 3$, les sous groupes triviaux sont les seuls sous groupes de $(\mathbb{Z}/n\mathbb{Z}, +)$;
+    \item Le sous ensemble $\{0, 2\}$ est le seul sou groupe propre de $(\mathbb{Z}/4\mathbb{Z}, +)$;
+    \item Les sous ensembles $\{(0, 0), (0, 1)\}$ et $\{(0, 0), (1, 0)\}$ sont les seuls sous groupes propres de $(\mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z}, +)$.
+\end{enumerate}
+
+\subsubsection{Proposition}
+Soient $H$ et $K$ deux sous groupes d’un groupe $G$. Alors, le sous-ensemble $H \cap K$ est un sous groupe de $G$. Mais, en général, le sous ensemble $H \cup K$ de $G$ n’est pas un sous groupe de $G$.
+Soient $(G, \star)$ un groupe et $g$ un élément de $G$. Considérons le sous-ensemble $< g >$ de $G$ défini par : $$< g > := \{ g^{k} : k \in \mathbb{Z}\}$$ où $g^{k} := g \star g \star \cdots \star g$, $k$ fois si $k \geq 1$, $g^{0} :=e$, l’identité de $G$ et on a $g^{k} :=( g^{-1} )^{-k}$ si $k$ est strictement négatif.
+
+\subsubsection{Proposition}
+Le sous ensemble $< g >$ est un sous groupe de $G$. Plus précisément, si $H < G$ contenant l’élément $g$, alors $< g >$ est un sous groupe de $H$. On dit dans ce cas que $< g >$ est le sous groupe cyclique engendré par $g$.\\
+\textit{Démonstration:}
+Vérifions les critères de sous-groupes mentionnées dans la Proposition 2.12 :
+\begin{itemize}
+    \item[i)] Soient $x$ et $y$ deux éléments de $< g >$. Par définition, ils existent n et m deux entiers tels que $x = g^{n}$ et $y = g^{m}$. Ainsi, $xy = g^{n+m}$. D’où $xy \in < g >$ .
+    \item[ii)] Par définition, $g^{0} = e$. Donc, l’élément neutre est dans $< g >$.
+    \item[iii)] Soit $x \in < g >$. Par définition il existe un entier $i$ tel que $g^{i} = x$. De plus, $x \star g^{-i} = g^{0} = e$. Donc, $g^{-i}$ est l’inverse de $x$. Par définition, $g^{-i} \in < g >$.
+\end{itemize}
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item Soit $n$ un entier naturel non nul. Le sous groupe $n\mathbb{Z}$ est un sous groupe cyclique de $\mathbb{Z}$ engendré par $n$;
+    \item Le sous ensemble $\{0, 5, 10, 15\}$ est un sous groupe cyclique de $(\mathbb{Z}/20\mathbb{Z}, +)$ engendré par 5.
+\end{enumerate}
+
+\subsubsection{Définition}
+On dit qu’un groupe $G$ est cyclique s’il est engendré par un de ces éléments.
+
+\subsubsection{Proposition}
+Soit $n$ un entier non nul. Les groupes $(\mathbb{Z}, +)$ et $(\mathbb{Z}/n\mathbb{Z}, +)$ sont cycliques.\\
+\textit{Démonstration: } Ces groupes sont engendrés respectivement par 1 et $\dot{1}$
+
+\subsubsection{Définition}
+Soient $G$ un groupe et $g$ un élément de $G$. Le nombre d’éléments de $G$ qu’on notera par $|G|$ est appelé ordre du groupe $G$. On appellera l’ordre du groupe $< g >$, l’ordre de l’élément $g$ qu’on notera par $|g|$. Ainsi, si le groupe $G$ est fini, l’ordre de $G$ n’est autre que le cardinal de $G$. Sinon, l’ordre de $G$ est infini.
+
+\subsection{Homomorphismes de Groupes}
+\subsubsection{Définition}
+Un tableau carré à $n$ lignes remplies par $n$ éléments distincts dont chaque ligne et chaque colonne ne contient qu’un seul de ces éléments est appelé carré latin.
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item Un sudoku est un carré latin ;
+    \item Le table de Cayley du groupe $(\mathbb{Z}/6\mathbb{Z}, +)$ est un carré latin ;
+    \item Le table de Cayley du monoïde $(\mathbb{Z}/6\mathbb{Z}, \times)$ n’est pas un carré latin.
+\end{enumerate}
+
+\subsubsection{Proposition}
+Le table de Cayley d’un groupe fini est un carré latin.\\ Maintenant examinons les tables de Cayley des groupes : $(\mathbb{Z}/2\mathbb{Z}, +)$ et $(\{1, -1\} , \times)$. Le table deCayley de $(\mathbb{Z}/2\mathbb{Z}, +)$ est : $$\begin{array}{|c|c|c|} \hline + & 0 & 1 \\ \hline 0 & 0 & 1 \\ \hline 1 & 1 & 2 \\ \hline\end{array}$$ tandis que celui de $(\{-1,1\}, \times)$ est la suivant : $$\begin{array}{|c|c|c|} \hline \times & -1 & 1  \\ \hline -1 & 1 & -1 \\ \hline 1 & -1 & 1 \\ \hline \end{array}$$
+A première vue, ces groupes sont différents. Les ensembles ne sont pas les mêmes, ni les structures. Mais les tables de Cayley correspondants sont similaires à celui du groupe $(\{ a, b\}, \star)$ dont le table de Cayley est le suivant : $$\begin{array}{|c|c|c|} \hline \star & a & b \\ \hline a & a & b \\ \hline b & b & a \\ \hline\end{array}$$
+Dans ce cas, on dit que les groupes $(\mathbb{Z}/2\mathbb{Z}, +)$ et $(\{1, -1\} , \times)$ sont isomorphes. Ainsi, l’idée est de comparer deux structures. Mais, pour cela, l’existence d’une application entre les deux ensembles qui définissent les groupes ne suffira pas. Il nous faut aussi un minimum de ”compatibilité” entre les deux structures.La généralisation de manière formelle de ces idées est l’objet de cette section.
+
+\subsubsection{Introduction et Définitions}
+\subsubsection{Définition}
+Soient $(G_{1} , \star_{1})$ et $(G_{2} , \star_{2})$ deux groupes. Une application $f$ de $G_{1}$ dans $G_{2}$ qui est compatible aux structures de deux groupes est appelée homomorphisme de groupes. Plus précisément, l’application $f$ de $G_{1}$ dans $G_{2}$ est un homomorphisme si pour tout $x$ et $y$ éléments de $G_{1}$, on a :
+$$f(x \star_{1} y) = f(x) \star_{2} f(y).$$ Si de plus, l’application $f$ est bijective, on dit que $f$ est un isomorphisme et on note par $G_{1} \simeq G_{2}$.
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item Soit $(G, \star)$ un groupe. L’identité $Id_{G}$ est un isomorphisme ;
+    \item L’injection canonique $(\mathbb{Z}, +) \mapsto (\mathbb{R}, +)$ est un homomorphisme ;
+    \item L’application $(\mathbb{Z}/2\mathbb{Z}, +) \mapsto ({1, -1}, \times),\; x \mapsto (-1)^{x}$ est un isomorphisme ;
+    \item La surjection canonique $(\mathbb{Z}, +) \mapsto (\mathbb{Z}/n\mathbb{Z}, +)$ est un homomorphisme ;
+    \item L’application $(GL_{n} (\mathbb{R}), \times) \mapsto (\mathbb{R} \backslash \{0\} , \times), \; A \mapsto det(A)$ est un homomorphisme;
+    \item Une application linéaire entre deux espaces vectoriels est un homomorphisme ;
+    \item L’application exponentielle induit un isomorphisme de $(\mathbb{R}, +)$ dans $(\mathbb{R}_{+} \backslash \{0\}, \times)$.
+\end{enumerate}
+
+\subsubsection{Proposition}
+Soient $(G_{1}, \star_{1})$ et $(G_{2}, \star_{2})$ deux groupes. Si $f$ est un homomorphisme de $G_{1}$ dans $G_{2}$, alors :
+\begin{itemize}
+    \item[i)] $f (e_{1}) = e_{2}$, où $e_{1}$ et $e_{2}$ sont respectivement les identités de $G_{1}$ et $G_{2}$;
+    \item[ii)] Si $\bar{x}$ est l’inverse d’un élément $x$ de $G_{1}$, alors $f(\bar{x})$ est l’inverse de $f(x)$ dans $G_{2}$.
+\end{itemize}
+\textit{Démonstration: }
+\begin{itemize}
+    \item[i)] Par définition, on a $f(e_{1}) = f(e_{1} \star_{1} e_{1}) = f(e_{1}) \star_{2} f(e_{1})$. L’élément $f(e_{1})$ de$G_{2}$ est inversible. Donc, en multipliant cet inverse à gauche, on a : $e_{2} = f(e_{1})$;
+    \item[ii)] On a $e_{1} = x \star_{1} \bar{x}$. Donc, $e_{2} = f(e_{1}) = f(x \star_{1} \bar{x}) = f(x) \star_{2} f(\bar{x})$. D’où le résultat.
+\end{itemize}
+
+\subsubsection{Proposition}
+Soient $(G_{1}, \star_{1}), (G_{2}, \star_{2})$ et $(G_{3}, \star_{3})$ des groupes. Soient $f : G_{1} \rightarrow G_{2}$ et $g : G_{2} \rightarrow G_{3}$ deux homomorphismes. Alors :
+\begin{itemize}
+    \item[i)] $g \circ f : G_{1} \rightarrow G_{3}$ est un homomorphisme ;
+    \item[ii)] Si de plus $f$ est bijective, l’inverse de $f$ est aussi un isomorphisme.
+\end{itemize}
+
+\subsubsection{Corollaire}
+La relation d’isomorphisme entre groupes est une relation d’équivalence.
+
+\subsubsection{Définition}
+Soit $f : (G_{1} , \star_{1}) \rightarrow (G_{2}, \star_{2})$ un homomorphisme de groupes. Le sous ensemble
+$Im( f )$ de $G_{2}$ défini par :
+$$Im( f ):= \{ f ( x ) : x \in G_{1} \}$$
+est appelé l’image de f tandis que le sous ensemble $Ker( f )$ de $G_{1}$ défini par :
+$$Ker( f ):= \{ x \in G_{1} : f ( x ) = e_{2} \}$$
+est appelé le noyau de $f$ où $e_{2}$ est l’identité de $G_{2}$.
+
+\subsubsection{Proposition}
+Soient $f : ( G_{1}, \star_{1} ) \rightarrow ( G_{2}, \star_{2} )$ un homomorphisme de groupes, $H_{1}$ un sous groupe
+de $G_{1}$ et $H_{2}$ un sous groupe de $G_{2}$. Alors :
+\begin{itemize}
+    \item[i)] $Im( f )$ est un sous groupe de $G_{2}$ ;
+    \item[ii)] $Ker( f )$ est un sous groupe de $G_{1}$ ;
+    \item[iii)] L’image réciproque $f^{-1}(H_{2})$ est un sous groupe de $G_{1}$ ;
+    \item[iv)] Mais, l’image directe $f(H_{1})$ n’est pas un sous groupe en général ;
+    \item[v)] Si de plus $f$ est injective, on a $Ker( f ) = \{e_{1}\}$ où $e_{1}$ est l’identité de $G_{1}$. L’application $f$ définit ainsi un isomorphisme de $G_{1}$ dans $Im( f )$.
+\end{itemize}
+
+\subsubsection{Groupes Quotients}
+Soient $(G, \star)$ un groupe et $H$ un sous groupe de $G$. Pour tout élément $x$ de $G$, on définit les ensembles $x \star H$ et $H \star x$ comme suit :
+$$x \star H:= \{ x \star h : h \in H \}; \; H \in x:= \{ h \star x : h \in H \}.$$ S’il n’y a pas de confusions, on écrit $gH$ et $Hg$. La relation binaire $\mathcal{R}_{g}$ (resp. $\mathcal{R}_{d}$) définit pour tout $a$ et $b$ par :
+$$a\mathcal{R}_{g} b \; (resp. \; a\mathcal{R}_{d} b) \Leftrightarrow aH = bH \; (resp. \; Ha = Hb)$$ est une relation d’équivalence sur $G$. Autrement dit,$$a\mathcal{R}_{g} b \; (resp. \; a\mathcal{R}_{d} b) \Leftrightarrow b^{-1} a \in H \; (resp. \; ab^{-1} \in H ).$$
+Ainsi, on a :
+
+\subsubsection{Lemme}
+Soient $(G, \star)$ et $H$ un sous groupe de $G$. Alors :
+\begin{itemize}
+    \item[i)] Pour tout $x$ et $y$ dans $G$, on a : Soit $xH = yH \; (resp. \; Hx = Hy)$, soit $xH \cap yH = \emptyset \; (resp. \; Hx \cap Hy = \emptyset)$;
+    \item[ii)] Pour tout $x \in G$, l’application $ H \mapsto xH, \; x \mapsto xh (resp. H \mapsto Hx, \; x \mapsto hx)$ est bijective.
+\end{itemize}
+\textit{Démonstration: }
+\begin{itemize}
+    \item[i)] Il suffit de montrer que les relations $\mathcal{R}_{g}$ et $\mathcal{R}_{d}$ sont des relations d’équivalences ;
+    \item[ii)] Considérons la relation $\mathcal{R}_{g}$. On applique le même raisonnement pour la relation $\mathcal{R}_{d}$. \textbf{Injectivité} : Soient $h_{1}$ et $h_{2}$ deux éléments de $H$ tels que $xh_{1} = xh_{2}$ . Comme $G$ est un groupe, l’élément $x$ est inversible. En multipliant cet égalité à gauche par $x^{-1}$, on a $h_{1} = h_{2}$ . Donc,l’application est injective ;\\ \textbf{Surjective} : Soit $y \in xH$. Par définition, il existe $h \in H$ tel que $y = xh$. Donc, l’application est surjective.
+\end{itemize}
+
+\subsubsection{Théorème (Théorème de Lagrange)}
+Soient $G$ un groupe fini et $H$ un sous groupe de $G$. On a : $$|G| = [G : H ] | H |$$ où $[ G : H ] :=| G/  \mathcal{R}_{g} | = | G/ \mathcal{R}_{d} |$. L’entier $[ G : H $] est appelé l’indice de $H$ dans $G$. En particulier, $| H |$ divise $| G |$.\\
+\textit{Démonstration: }\\
+Comme $G$ est un ensemble fini, donc les ensembles $G/\mathcal{R}_{g}$ et $G/\mathcal{R}_{d}$ sont finis. Or, les relations $\mathcal{R}_{g}$ et $\mathcal{R}_{d}$ sont des relations d’équivalences. Donc, les ensembles $G/\mathcal{R}_{g}$ et $G/\mathcal{R}_{d}$ forment respectivement une partition de l’ensemble $G$. De plus, d’après le lemme précédent, pour tout $x$ et $y$ dans $G$, on a : $$| H | = | xH | = |yH | \; (resp. \; | H | = | Hx | = | Hy|).$$
+D’où : $| G | = [ G : H ] | H |$ où $[ G : H ] :=| G/\mathcal{R}_{g} | = | G/\mathcal{R}_{d} |$.
+L’exemple suivant est fondamental :\\
+Considérons le groupe $S_{3}$ et l’application bijective f élément de $S_{3}$ définie par : $\sigma(1) = 2, \sigma(2) = 1$ et $\sigma(3) = 3$. Le sous ensemble $H = \{Id_{\{1,2,3\}} , \sigma \}$ est un sous groupe de $S_{3}$ . Considérons l’élément$\tau \in S_{3}$ défini par : $\tau (1) = 3, \tau (2) = 2$ et $\tau (3) = 1$. Ainsi, on peut vérifier qu’on a : $\tau H \not= H\tau$.
+Supposons de plus qu’il existerait un homomorphisme de groupes $f : S_{3} \rightarrow G$ telle que $H = Ker( f )$. Par définition, on a $f (\sigma) = e_{G}$ , l’identité de $G$. De plus, on a :
+$$\begin{array}{ccc} f (\tau \sigma \tau^{-1} ) & = & f (\tau) f (\sigma) f (\tau^{-1} )\\
+                                                & = & f (\tau)e_{G}(f(\tau))^{-1} \\
+                                                & = & f (\tau )( f (\tau))^{-1} = e_{G}
+\end{array}$$
+, i.e, $\tau \sigma \tau^{-1} \in H$. Autrement dit, on a $\tau H \tau^{-1} = H$. Ce qui contredit le fait que $\tau H \not= H\tau$. D’où : $H$ ne peut pas être le noyau d’un homomorphisme de $S_{3}$ vers n’importe quel groupe. En effet,
+
+\subsubsection{Proposition}
+Soit $f : G_{1} \rightarrow G_{2}$ un homomorphisme de groupes. Pour tout $x \in G_{1}$ , on a : $$xKer( f ) = Ker( f ) x.$$
+Autrement dit, pour tout $x \in G$ et $h \in Ker( f )$, on a : $xhx^{-1} \in Ker( f )$ ou bien pour tout $x \in G$, on a $xKer( f ) x^{-1} = Ker( f )$.
+
+De manière générale ;
+
+\subsubsection{Proposition}
+Soient $G$ un groupe et $H$ un sous groupe de $G$. Les deux propositions suivantes sont équivalentes :
+\begin{itemize}
+    \item[i)] $G/\mathcal{R}_{g} = G/\mathcal{R}_{d}$ ;
+    \item[ii)] Pour tout $x \in G$, on a $xH = Hx$ (ou bien $xHx^{-1} = H$).
+\end{itemize}
+Si l’une de deux propositions est vérifiée, les deux ensembles quotients induits par les deux relations d’équivalences coïncident et on le notera par $G/H$.\\
+\textit{Démonstration: }\\
+Supposons qu’on a $G/\mathcal{R}_{g} = G/\mathcal{R}_{d}$. Soit $x \in G$. Par hypothèse, il existe $y \in G$ tel que $xH = Hy$. Comme $H$ est un sous groupe, l’identité $e$ de $G$ est dans $H$. Donc, $x = xe \in Hy$, i.e, il existe $h \in H$ tel que $x = hy$. En multipliant ce dernier égalité à droite par $y^{-1}$, on a $xy^{-1} = h \in H$. Par définition de la relation $\mathcal{R}_{d}$ , cela veut dire que : $Hx = Hy$. D’où, $xH = Hx$ ou bien $xHx^{-1} = H$.
+La réciproque est relativement facile.
+Ainsi, on définit :
+
+\subsubsection{Définition}
+Soit $G$ un groupe. Un sous groupe $H$ de $G$ est appelé un sous groupe normal de $G$ si l’une des propositions précédentes est vérifiée.
+
+\subsubsection{Théorème}
+Soient $G$ un groupe et$H$ un sous groupe normal de $G$. Alors, l’opération binaire sur $G$ induit une relation binaire $\star$ sur l’ensemble quotient $G/H$ définie pour tout $x$ et $y$ dans $G$ par : $( xH ) \star (yH ):= xyH$.
+De plus, $(G/H, \star)$ définit une structure de groupe. En particulier, la surjection $G \rightarrow G/H$ est un homomorphisme surjective de groupes dont le noyau est $H$.
+
+\subsubsection{Remarque}
+Il est important de noter que tout sous groupe d’un groupe abélien est normal.
+
+\subsubsection{Théorème (Premier théorème d’isomorphisme)}
+Soit $f : ( G_{1} , \star_{1} ) \rightarrow ( G_{2} , \star_{2} )$ un homomorphisme de groupes. On a : $$G_{1} /Ker( f ) \simeq Im( f )$$.
+\textit{Démonstration: }
+On montre que l’application $f$ définie par :
+$$\begin{array}{ccc} f :G_{1} /Ker( f ) & \rightarrow & Im( f ) \\ xKer( f ) & \mapsto & f ( x )\end{array}$$ définit un isomorphisme de groupes.
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item Par l’homomorphisme surjective $GL_{n} (\mathbb{R}) \rightarrow  \mathbb{R} \backslash \{0\}, A \mapsto det(A)$, on en déduit $GL_{n} (\mathbb{R})/SL_{n} (\mathbb{R}) \simeq \mathbb{R} \backslash \{0\}$;
+    \item Considérons l’homomorphisme de groupes $f : (R, +) \rightarrow  (\mathbb{C }\backslash \{0\} , \times), \theta \mapsto e^{2i\pi \theta}$. On
+    montre qu’on a : $Im( f ) = S_{1} := \{z \in \mathbb{C} : |z| = 1\}$ et $Ker( f ) = \mathbb{Z}$. Ainsi, on a : $$(\mathbb{R}/\mathbb{Z}, +) \simeq (S_{1} , \times)$$ où $S_{1}$ est le cercle de rayon 1 dans $\mathbb{R}^{2}$.
+\end{enumerate}
+
+\subsubsection{Théorème  (Troisième théorème d’isomorphisme)}
+Soient $(G, \star)$ un groupe, $H$ et $N$ deux sous groupes normaux de $G$ tels que $H \subset N$. Alors, $H$ est un sous groupe normal de $N$. De plus, le groupe $N/H$ est un sous groupe normal de $G/H$ et on a : $$( G/H )/( N/H ) \simeq G/N.$$
+\textit{Démonstration: }\\
+On montre que l’application f définie par : $$\begin{array}{ccc} f :G/H & \rightarrow & G/N \\ xH & \mapsto & xN \end{array}$$ est un homomorphisme surjective de groupes. N’oubliez pas de démontrer que l’application est bien définie d’abord.
+Ainsi, on a : $Im( f ) = G/N$ et $Ker( f ) = \{ xH : xN = N \} = \{ xH : x \in N \} = N/H$. D’après le premier théorème d’isomorphisme, on a le résultat.
+
+\subsubsection{Exemples}
+Soit $n$ un entier naturel non nul. Considérons le groupe $G = (Z, +)$. Soit $d$ un diviseur positif de $n$. Ainsi, $n\mathbb{Z}$ et $d\mathbb{Z}$ sont de sous groupes normaux de $G$ tels que $n\mathbb{Z} \subset d\mathbb{Z}$. D’où, d’après le troisième théorème d’isomorphisme, on en déduit : $$(\mathbb{Z}/n\mathbb{Z})/(d\mathbb{Z}/n\mathbb{Z}) \simeq \mathbb{Z}/d\mathbb{Z}.$$
+Le théorème suivant classifie les groupes cycliques à isomorphismes près :
+
+\subsubsection{Théorème}
+Soit $G$ un groupe cyclique. On a $G \simeq \mathbb{Z}$ ou $G \simeq \mathbb{Z}/n\mathbb{Z}$ où $n$ est un entier naturel.\\
+\textit{Démonstration: }
+Soit $g$ un élément de $G$ tel que $G =< g >$. Considérons l’homomorphisme de groupe $f$ définie par : $$\begin{array}{ccc} f :Z & \rightarrow & G \\ k & \mapsto & g^{k}\end{array}.$$
+L’homomorphisme $f$ est par définition surjective. Donc, d’après le premier théorème d’isomorphisme, on a $\mathbb{Z}/Ker \, f \simeq G$. Or, on sait que les sous groupes de $\mathbb{Z}$ sont de la forme $n\mathbb{Z}$ où $n$ est entier naturel. D’où le résultat.
+
+\subsection{Exemples de Groupes}
+\subsubsection{Le groupe de permutations $S_{n}$}
+Dans toute la suite, considérons le groupe de permutations Sn comme étant le groupe des applications bijectives de l’ensemble $\{1, 2, 3, \cdots , n\}$ dans lui même. Il est clair que l’ordre du groupe $S_{n}$ est $n!$. Et bien évidemment, la loi binaire sur Sn est la loi de composition d’applications. S’il n’y a pas de confusion, on notera les deux compositions possibles de deux éléments $\sigma$ et $\tau$ de $S_{n}$ par $\sigma \tau$ et $\tau \sigma$.
+Dans la littérature, ils existent deux notations pour les éléments de $S_{n}$ : La notation en matrices et la notation en cycles.\\
+\textbf{La notation en matrices :} Soit $\sigma \in S_{n}$ défini  pour tout $i \in \{1, 2, 3, \cdots , n\}$ par $\sigma(i) = a_{i} \in \{ 1, 2, 3, \cdots, n\}$. Ainsi, l’élément $\sigma$ sera noté par : $\left(\begin{array}{ccccc} 1 & 2 & 3 & \cdots & n \\ a_{1} & a_{2} & a_{3} & \cdots & a_{n} \end{array}\right)$.\\
+\textbf{La notation en cycles :} Un élément $\sigma$ de $S_{n}$ est appelé un $k$-cycle s’il existe $k$ éléments $a_{1} , a_{2} , \cdots , a_{k}$ de $\{1, 2, 3, \cdots , n\}$ tels que :
+\begin{itemize}
+    \item[-] $\sigma (i) = i si \not\in \{ a_{1} , a_{2} , \cdots , a_{k} \}$ ;
+    \item[-] $\sigma (a_{i}) = a_{i+1} si 1 \leq i \leq k - 1$;
+    \item[-] $\sigma (a_{k}) = a_{1}$.
+\end{itemize}
+Dans ce cas, on notera $\sigma$ par : $$( a_{1} \; a_{2} \; \cdots \; a_{k} )$$.
+Deux cycles $(a_{1} \; a_{2} \; \cdots \; a_{k} )$ et $(b_{1} \; b_{2} \; \cdots \; b_{l} )$ sont dits disjoints si $\{ a_{1} , a_{2} , \cdots , a_{k} \} \cap \{b_{1} , b_{2} , \cdots , a_{l} \} = \emptyset.$
+
+\subsubsection{Proposition}
+Soient $\sigma$ et $\tau$ deux cycles disjoints. On a : $\sigma \tau = \tau \sigma$.
+
+\subsubsection{Définition}
+Un 2-cycle est appelé une transposition.
+
+\subsubsection{Proposition}
+Soit $\sigma = ( a_{1} \; a_{2} \; \cdots \; a_{k} )$ un cycle de Sn où $k \geq 2$. Alors, $\sigma$ peut être une composition des transpositions. Plus précisément, on a : $$( a_{1} \; a_{2} \; \cdots \; a_{k} ) = ( a_{1} a_{2} )( a_{2} a_{3} ) \cdots ( a_{k-1} a_{k} )$$.
+\textit{Démonstration: }\\
+On montre qu’on a : $( a_{1} \; a_{2} \; \cdots \; a_{k} ) = ( a_{1} \; a_{2} )( a_{2} \; a_{3} \; \cdots \; a_{k} )$. Puis, on raisonne par récurrence.
+
+\subsubsection{Remarque}
+Noter bien que la décomposition d’un cycle en produit de transpositions n’est pas unique. Par exemple, dans $S_{3}$ , on a : $$(1 \; 2)(2 \; 3)(3 \; 1) = (2 \; 3)$$.
+
+\subsubsection{Proposition}
+Toute permutation de $S_{n}$ est un produit (ou une composition) de cycles deux à deux disjoints. Par conséquent, elle est aussi un produit de transpositions.
+
+\subsubsection{Remarque}
+Bien qu’une permutation soit un produit de transpositions, noter bien que ces transpositions qui la décomposent ne sont pas deux à deux disjoints. Sinon, toute permutation serait d’ordre 1 ou 2 qui n’est pas vrai si $n \geq 3$.
+Mais, en général, ce qui est sur est le suivant :
+
+\subsubsection{Théorème}
+Le nombre de transpositions qui décomposent une permutation donnée : soit il est pair, soit il est impair.
+
+\subsubsection{Définition}
+Une permutation de $S_{n}$ est dite pair si elle est décomposée par un nombre pair de transpositions. Dans le cas contraire, on dit qu’elle est impaire.
+On peut déterminer facilement la parité d’une permutation comme l’indique la remarque suivante :
+
+\subsubsection{Remarque}
+D’après la Proposition 1.3.4, un $k$-cycle est une composition de $k - 1$ transposition. Donc, si une permutation donnée est une composition de $t$ cycles de longueur $k_{1} , k_{2} , \cdots , k_{t}$ respectivement, sa parité est la même que celle du nombre $k_{1} + k_{2} + \cdots + k_{t} + t$.
+L'application $$\begin{array}{ccc} \varepsilon : S_{n} & \mapsto & (\{-1,1\}, \times) \\ \sigma & \mapsto & \left\{ \begin{array}{cc} 1 & si \; \sigma  \mbox{ est paire } \\ -1 & sinon\end{array}\right.\end{array}$$ est un homomorphisme surjective de groupes. Ainsi, d’après le premier théorème d’isomorphisme, on a $S_{n} /Ker\varepsilon = \{1, -1\}$. Par conséquent, l’ensemble de permutations paires forment un sous groupe normal d’indice 2 dans $S_{n}$. On notera cet sous-groupe par $A_{n}$ et sera appelé le groupe alterné de degré $n$. De plus, d’après la Proposition 1.3.4., un k-cycle est dans $A_{n}$ si et seulement si $k$ est impair.
+On termine cet exemple avec un théorème important qui justifie l’importance de $S_{n}$ dans la théorie des groupes :
+
+\subsubsection{Théorème (Théorème de Cayley)}
+Soit $(G, \star)$ un groupe fini d’ordre $n$. Alors, $G$ est isomorphe à un sous-groupe de $S_{n}$.\\
+\textit{Démonstration: }\\
+Soit $g \in G$. Considérons l’application $f_{g} : G \rightarrow G, x \mapsto g \star x$. Pour tout $g \in G$, l’application $f_{g}$ est clairement bijective. Autrement dit, $f_{g}$ est un élément de $P(G)$, le groupe des applications bijectives de $G$ dans $G$. Maintenant considérons le sous-ensemble $H$ de $P(E)$ défini par : $$H:= \{ \sigma \in P( E) : \exists g \in G \mbox{ tel que } \sigma = f_{g} \}.$$
+Le sous-ensemble H est un sous groupe de $P(E)$. En effet :
+\begin{itemize}
+    \item[-] Si on désigne par $e$ l’identité de $G$, l’application $f$ e est clairement l’identité de $P(E)$. Donc, $Id_{G} \in H$;
+    \item[-] Soient $f_{g_{1}}$ et $f_{g_{2}}$ deux éléments de $H$. Pour tout $x \in G$, on a : $$(f_{g_{1}} \circ f_{g_{2}} )( x ) = f_{g_{1}} ( f_{g_{2}} ( x )) = f_{g_{1}} ( g_{2} \star x ) = ( g_{1} \star g_{2} ) \star x = f_{g_{1}} g_{2} ( x ).$$ Donc, la composition des applications est stable dans H.
+    \item[-] Soit $g \in G$. On a $f_{g}^{-1} = f_{g}^{-1}$ . Ce qui veut dire que $f_{g}^{-1} \in H$.
+\end{itemize}
+Finalement, considérons l’application $f : G \rightarrow H, \; g \mapsto f_{g}$. Clairement, cette application est bijective. De plus, on a : $f ( g_{1} \star g_{2} ) = f_{g{1} g_{2}} = f_{g_{1}} \circ f_{g{2}}$. Donc, $f$ est un isomorphisme de groupes.
+Autrement dit, $G \simeq H$. Or, H est un sous-groupe de $P(E)$ qui est isomorphe à $S_{n}$ . D’où le résultat.
+
+\subsubsection{Le groupe diédral $D_{n}$}
+Dans cette sous-section, dans le plan euclidien, on désignera par $R_{n}$ un polygone régulier de $n$ côtés. Notons son centre par C. On sait qu’ils existent exactement 2n symétries qui laissent le polygone $R_{n}$ invariant, à savoir :
+\begin{itemize}
+    \item[-]Les n rotations de centre C respectivement d’angle $2k\pi$ n où $k = 1, 2, 3, \cdots , n$;
+    \item[-]Les n réflexions axiales déterminées respectivement par les n axes de symétries de $R_{n}$.
+\end{itemize}
+
+\subsubsection{Proposition}
+Les 2n symétries de $R_{n}$ définies ci-dessus forment un groupe d’ordre 2n avec la loi de composition de transformations sur le plan euclidien. On notera cet groupe par $D_{n}$ et sera appelé le groupe diédral d’ordre 2n. De plus, si $r$ et $\tau$ sont respectivement la rotation d’angle $\frac{2\pi}{n}$  et une symétrie
+axiale, on a : $$D_{n} =\{ r^{k} : k = 1, 2, \cdots , n \} \cup \{ r^{k}\tau : k = 1, 2, \cdots , n \}$$ et $(r^{k}\tau ) \circ (r^{l} \tau ) = r^{k-l}$.
+
+\subsubsection{Remarque}
+Le théorème de Cayley nous garantit que $D_{n}$ est isomorphe à un sous-groupe de $S_{2n}$. Par contre, naturellement, un élément de Dn permute les n sommets du polygone $R_{n}$ . Ainsi, tout élément de Dn peut être considérer comme une permutation de l’ensemble de n sommets de $R_{n}$. Ainsi, Dn est un sous-groupe de $S_{n}$.
+
+\subsubsection{Le groupe linéaire $GL_{n} (\mathbb{R})$}
+Rappelons que $GL_{n} (\mathbb{R})$ désigne le groupe des matrices inversibles d’ordre n à coefficients dans $\mathbb{R}$.
+Le groupe est un groupe non abélien infini. L’application $$\begin{array}{ccc} det : GL_{n} (\mathbb{R}) & \rightarrow &  \mathbb{R}^{\star} \\ A & \mapsto & detA \end{array}$$ est un homomorphisme surjective. Son noyau est l’ensemble des matrices inversibles noté par $SL_{n} (\mathbb{R})$ dont le déterminant est 1. En utilisant cet homomorphisme, on montre qu’on a $$GL_{n} (\mathbb{R})/SL_{n} (\mathbb{R}) \simeq \mathbb{R}^{\star}.$$
+Ainsi, comprendre le groupe $GL_{n} (\mathbb{R})$ revient à comprendre son sous-groupe normal $SL_{n} (\mathbb{R})$.
+
+\subsubsection{Proposition}
+Le groupe de permutations $S_{n}$ est isomorphe à un sous-groupe de $SL_{n} (\mathbb{R})$.\\
+\textit{Démonstration: }\\
+On montre que $S_{n}$ est isomorphe au groupe de matrices de permutations $P_{n}$. Puisque pour tout $P \in P_{n}, \; detP = 1$, le groupe de matrices de permutations est un sous-groupe de $SL_{n} (\mathbb{R})$.
+Notons par $GL_{n} (\mathbb{Z})$ l’ensemble des matrices inversibles d’ordre n à coefficient dans $\mathbb{Z}$. Alors :
+
+\subsubsection{Proposition}
+$GL_{n} (\mathbb{Z})$ est un groupe des matrices dont le déterminant est $+1 \mbox{ ou } -1$. Le noyau de la restriction de l’homomorphisme det sera noté par $SL_{n} (\mathbb{Z})$.
+
+\textit{Démonstration: }
+On montre que le sous-ensemble $GL_{n} (\mathbb{Z})$ est un sous-groupe de $Gl_{n} (\mathbb{R})$. Le plus dur est de montrer que si une matrice carrée à coefficients dans $\mathbb{Z}$ est inversible, son inverse est aussi à coefficients dans $\mathbb{Z}$. Mais, c’est faisable.
+Soit $A \in GL_{n} ( \mathbb{Z} )$. Donc, par définition, la matrice inverse $A^{-1}$ est à coefficients dans $\mathbb{Z}$. Ainsi, $detA$ et $detA^{-1}$ sont des entiers. Or, $AA^{-1} = I_{n}$. Donc, $detA^{-1} = detA$ Comme $detA$ et $detA^{-1}$ sont des entiers, ceci n’est possible que si $detA = 1 \mbox{ ou } detA = -1$.\\ \\
+Soit $E$ un espace vectoriel sur $\mathbb{R}$. Rappelons qu’une application $f$ de $E$ vers un $\mathbb{R}$- espace vectoriel $F$ est une application linéaire si pour tout $(x, y)$ dans $E^{2}$ et $(\lambda, \mu)$ dans $\mathbb{R}^{2}$, on a : $$f (\lambda x + \mu y) = \lambda f ( x ) + \mu f (y).$$ En particulier, $f$ est un homomorphisme de groupes puisque $(E, +)$ et $(F, +)$ sont des groupes abéliens.
+Dans le cas où $F = E$, on dit que $f$ est un endomorphisme. Si de plus, $E$ est de dimension $n$, en utilisant l’identification des éléments de $E$ via l’isomorphisme $E \simeq \mathbb{R}^{n}$, il existe une matrice $A$ d’ordre n telle que pour tout $x \in E$, on a : $$f ( x ) = Ax.$$
+Si $(b_{1} , b_{2} , \cdots , b_{n} )$ désigne une base de $E$, la matrice de $f$ est complètement déterminé de manière unique dans cette base, et l’on a : $$A = ( f (b_{1}) \; f (b_{2}) \; \cdots \; f (b_{n}))$$
+où $f (b_{i})$ est le vecteur de la $i$-ième colonne de $A$. Désignons respectivement par $Ker f$ et $Im f$ le
+noyau et l’image de l’endomorphisme $f$ . On a les propriétés suivants :
+\begin{itemize}
+    \item[-] $Ker f$ et $Im f$ sont des sous-espaces vectoriels de $E$;
+    \item[-] $Ker f = N (A)$ et $Im f = C (A)$.
+\end{itemize}
+Ainsi, si on désigne par $L(E)$ l’ensemble des endomorphismes de $E$, on a l’isomorphisme suivante : $$(L( E), +) \simeq ( Mn (R), +).$$ De plus, si on note par $GL(E)$ l’ensemble des endomorphismes bijectives de $E$, on a : $$(GL(E), \circ) \simeq (GL_{n} (R), \times).$$
+Maintenant considérons le cas où l’on a n = 2. Désignons par $O_{2} (\mathbb{R})$ le sous-ensemble de $GL_{2} (\mathbb{R})$ défini par : $$O_{2} (\mathbb{R}):= \{ A \in GL_{n} (\mathbb{R}) : A^{T} A = AA^{T} = I_{2} \}.$$
+C’est l’ensemble des matrices orthogonaux d’ordre 2. On a :
+
+\subsubsection{Proposition}
+$O_{2} (\mathbb{R})$ est un sous-groupe de $GL_{2} (\mathbb{R})$. De plus, pour tout $A \in O_{2} (\mathbb{R})$, on a $detA = 1 \mbox{ ou } detA = -1$ et soit $A$ est une matrice de rotation, soit elle est une matrice de réflexion. Plus précisément, $$A = \left(\begin{array}{cc} \cos \theta & \sin \theta \\ -sin \theta & \cos \theta\end{array}\right) \mbox{ ou } A = \left(\begin{array}{cc} \cos \theta & \sin \theta \\ \sin \theta & -\cos \theta\end{array}\right)$$ pour un certain angle $\theta$. Le groupe des rotations sera noté par $SO_{2} (\mathbb{R})$.
+
+\subsubsection{Corollaire}
+Le groupe diédral $D_{n}$ est isomorphe à un sous-groupe de $O_{2} (\mathbb{R})$.
+Pour finir, énonçons le résultat important suivant :
+
+\subsubsection{Théorème}
+Le groupe $SL_{2} (\mathbb{Z})$ est engendré par : $$S = \left(\begin{array}{cc} 0 & -1 \\ 1 & 0 \end{array}\right); \; T = \left(\begin{array}{cc} 1 & 1 \\ 0 & 1\end{array}\right)$$
+\end{document}

@@ -1,0 +1,125 @@
+\documentclass[a4paper, 12pt]{article}
+
+% ===== IMPORTATION DES PACKAGES =====
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault} % applique la police sur tous le document
+
+\newcounter{exo}
+\renewcommand{\theexo}{\Roman{exo}}
+\newcommand{\exo}{
+	\stepcounter{exo}
+	\textbf{Exercice \theexo{} :}
+}
+
+% ===== DOCUMENT =====
+
+\begin{document}
+
+\hrule  % Mettre un ligne horizontale au debut du document 
+
+\vspace{0.5cm}
+
+Université d'Antananarivo \hfill Année Universitaire: 2024-2025 \\
+Calcul numérique et algorithmique - MMI \hfill 2 eme Année
+
+$$\boxed{\Large{\mbox{Résolution et Algorithmes}}}$$
+
+\vspace{0.5cm}
+
+\exo Méthode de Horner (1). Il s'agit d'évaluer efficacement un polynôme en un point. On note $P (x) = a_{n} x^{n} + \cdots + a_{0}$, on pose $b_{0} = P (α)$ et on écrit : $$P (X) - b_{0} = (X - α)Q(X)$$ où : $$Q(X) = b_{n} X^{n−1} + \cdots + b_{2} X + b_{1} .$$
+On calcule alors par ordre décroissant $b_{n}, b_{n−1}, \cdots, b_{0}$.
+\begin{enumerate}
+	\item Donner $b_{n}$ en fonction de $a_{n}$ puis $b_{i}$ en fonction de $a_{i}$ et $b_{i+1}$ pour $i = n - 1, n - 2, \cdots , 1$.
+	\item Appliquer la méthode ci-dessus pour calculer $P (\alpha)$ pour $P (X) = X^{3} + 7X^{2} + 7X$ et $α = 16$.
+	\item Même question pour $P(X) = X^{5} + 4X^{4} + 3X^{3}$ et $\alpha = 5$. En déduire l'écriture en base 10 de l'entier s'écrivant 143000 en base 
+\end{enumerate}
+
+\exo Méthode de Horner (2). Pour calculer tous les coefficients du développement de Taylor du polynôme $P(X)$ en un point, on pose $P_{0} (X) = P (X)$ et on répète l'algorithme de l’exercice précèdent pour calculer successivement les coefficients des polynômes $P_{0} (X), P_{1} (X), \cdots , P_{n} (X)$ définis par : 
+$$\begin{array}{ccc}
+P_{0} (X) & = &  (X - \alpha)P_{1} (X) + P_{0} (\alpha)\\
+P_{1} (X) & =  & (X - \alpha)P_{2} (X) + P_{1} (\alpha)\\
+\cdots & \cdots & \cdots \\
+P_{n−1} (X) & = & (X - \alpha)P_{n} (X) + P_{n−1} (\alpha)
+\end{array}$$
+jusqu'à ce que l'on obtienne un polynôme de degré zéro, $P_{n} (X) = const$.
+\begin{enumerate}
+	\item Montrer que $P (X) = (X - \alpha)^{n} P_{n} (\alpha) + (X - \alpha)^{n-1} P_{n-1} (\alpha) + \cdots + (X - \alpha)P_{1} (\alpha) + P_{0} (\alpha)$. Comment sont reliés $P_{i} (\alpha)$ et la $i$-ième dérivée $P [i] (\alpha)$ de $P$ au point $\alpha$?
+	\item Utiliser cette méthode pour calculer $P [i] (\alpha), i = 0, 1, 2, 3$, pour $P (X) = X^{3} - 2X + 5$ et $\alpha = 39$.
+\end{enumerate}
+
+\exo Ecrire l'algoithme de Newton pour une fonction de classe $C^{1}$ donné.
+
+\exo Calcul de $x^{1/4}$. On veut déterminer une valeur approchée de la racine quatrième d'un nombre réel positif. On commence par chercher une valeur approchée de $y = (1 + x)^{1/4}$ pour $x \geq 0$. On suppose que $x = 1$ (donc $y = 2^{1/4}$).
+\begin{enumerate}
+	\item Donner un polynôme $P(X)$ de degré 4, à coefficients entiers et tel que $P(y) = 0$. Donner la suite $u_{n+1} = f (u_{n})$ obtenue en appliquant la méthode de Newton à $P$.
+	\item Donner une valeur u0 pour laquelle la suite un converge vers y (justifier la convergence de la suite $(u_{n})_{n \in \mathbb{N}}$ pour cette valeur de $u_{0}$).
+	\item Calculer $u_{4}$ , en déduire un encadrement de $2^{1/4}$.
+	\item Peut-on appliquer la même méthode pour $x \geq 0$ quelconque?
+	\item On suppose que l'on a calculé $2^{1/4}$ à $10^{-16}$ près.
+	\item Proposer une méthode permettant de calculer une valeur approchée de $x^{1/4}$ pour $x \geq 0$, en utilisant l’écriture mantisse-exposant de x en base 2 : $$x = 2^{e} (1 + m),$$ $$e \in \mathbb{N}, m \in [0, 1[$$ et en utilisant la méthode ci-dessus.
+	\item Discuter la précision de l'approximation obtenue.
+\end{enumerate}
+
+\exo Dans cet exercice, on va résoudre l'équation $$2x - \ln (x^{2} + 1) - 3 = 0, x \in [0, 3] \hfill (1)$$
+par la méthode du point fixe, puis par la méthode de Newton. On pose : $$f (x) = \ln (x^{2} + 1)/2 + 3/2$$
+\begin{enumerate}
+	\item Calculer $f^{'}, f$ est-elle contractante sur l'intervalle $[0, 3]$?
+	\item Montrer qu'il existe une unique solution $r$ à l’équation (1) sur $[0, 3]$.
+	\item Combien de termes de la suite récurrente $u_{n+1} = f (u_{n})$ faut-il calculer pour être sûr d’avoir une valeur approchée de $r$ à une précision donnée $\varepsilon$ pour tout $u_{0} \in [0, 3]$? Donner une valeur approchée de r à $10^{(- 8)}$ près.
+\end{enumerate}
+
+\exo On réécrit l'équation (1) sous la forme $g(x) = 0$ où $g(x) = 2x - ln(x^{2} + 1) - 3$.
+\begin{enumerate}
+	\item Donner une suite récurrente permettant de résoudre $g(x) = 0$ par la méthode de Newton.
+	\item Calculer $g^{''}$ et étudier son signe sur $[0, 3]$.
+	\item Donner une valeur de $u_{0}$ telle que la suite définie ci-dessus converge vers $r$ (on justifiera la convergence en montrant que les hypothèses de l’un des théorèmes du cours s’appliquent).
+	\item Calculer $u_{3}$ pour cette valeur de $u_{0}$, puis donner une majoration de $|u_{3} - r|$ en utilisant une valeur approchée de $f (u_{3})$.
+	\item Si on fait le même calcul pour $u_{4}$ en précision machine (12 chiffres significatifs), que trouve-t-on pour $f (u_{4})$ ? Peut-on en déduire une majoration de l'erreur $|u_{4} - r|$? Expliquez ce phénomène.
+	\item Refaites le calcul de u4 à partir de u0 avec 30 chiffres significatifs, et déduisez-en une
+majoration de $|u_{4} - r|$.
+\end{enumerate}
+
+\exo Soit $A$ une matrice carrée de taille $m$ à coefficients réels. On suppose que $A$ est diagonalisable et que toutes ses valeurs propres sont réelles positives, on a donc
+$$A = P DP^{-1}$$ avec $D=diag(d_{1}, \cdots, d_{m})$ (matrice diagonale avec $d_{1}, \cdots, d_{n}$ sur la diagonale). On appellera racine carrée de $D$ la matrice diagonale 
+$$\sqrt{D}=diag( \sqrt{d_{1}} , \cdots, \sqrt{d_{m}})$$
+et racine carrée de $A$ la matrice $\sqrt{A} = P\sqrt{D}P^{-1}$. Le but de l'exercice est de calculer $A$ sans calculer $P$ en appliquant la méthode de Newton pour résoudre $x^{2} = A$.
+\begin{enumerate}
+	\item Expliciter la méthode de Newton pour trouver $\sqrt{d}$ lorsque $d$ est un réel positif. Montrer que la méthode converge lorsqu'on prend $u_{0} = (1 + d)/2$.
+	\item Calculer les premiers termes de la suite pour $d = 220.121151781$ et pour $d = 8011.87884822$. Combien de termes faut-il pour stabiliser la suite avec 12 chiffres significatifs ?
+	\item Soient les suites de matrices $(U_{n})$ et $(V_{n})$ définies par : $$U_{n+1} = \frac{1}{2}(U_{n} + AU_{n-1}), U_{0} = (I_{m} + A)/2,V_{n} = P^{-1} U_{n} P$$
+	Déterminer $V_{0}$ et la relation de récurrence entre $V_{n+1}$ et $V_{n}$ .
+	\item En déduire que la suite $V_{n}$ est une suite de matrices diagonales qui converge vers $D$.
+	\item Montrer que Un est convergente et calculer sa limite.
+	\item Calculer le 19ième et 20ième terme en mode approché de la suite $U_{n}$ pour $$A = \left(\begin{array}{cc} 7780 & -1324 \\ -1324 & 452 \end{array}\right)$$ Comparer la vitesse de stabilisation avec celle des suites scalaires pour trouver $\sqrt{d_{1}}$ et $\sqrt{d_{2}}$ .
+	\item Soit $f (X) = X^{2} - A$ définie pour $X$ matrice carrée de taille $m$, développer $f (X + H) - f (X)$ et en déduire que la différentielle de $f$ en $X$ appliquée à $H$ vaut $XH + HX$.
+	\item Donner la suite de la méthode de Newton qui permet de résoudre $x^{2} = A$.
+	\item Expliciter cette suite en supposant que tous les termes de la suite commutent entre eux.
+Montrer que c'est le cas de la suite $(U_{n})$ définie à la question 2 si $U_{0} = (I_{m} + A)/2$ et qu'on effectue les calculs exactement (indication : montrer que tous les termes de la suite sont des matrices fractions rationnelles en $A$).
+	\item Expliquer pourquoi la précision est mauvaise à la question 5, comment faudrait-t-il
+modifier la récurrence pour améliorer la précision ?
+\end{enumerate}
+
+\exo On cherche à approcher numériquement une solution du sytème d’équations suivant
+$$\left\{\begin{array}{ccc} x^{2} + y^{2} & = & 2 \\ x^{2} - y^{2} & = & 1 \end{array}\right.$$
+On récaseécrit ce système sous la forme : $f (x_{1}, x_{2}) = 0$ où $f$ est une application de $\mathbb{R}^{2}$ dans $\mathbb{R}^{2}$ qui
+au vecteur $X = (x_{1} , x_{2})^{t}$ associe le vecteur $Y = (x_{1}^{2} + x_{2}^{2} - 2, x_{1}^{2} - x_{2}^{2} - 1)^{t}$ Comme pour le cas de la dimension 1, une méthode de Newton consiste à regarder la solution de l’équation $f (X) = 0$ comme solution de l’équation $F (X) = X$ avec $F (X) = X − D_{f} (X)^{(- 1)} \circ f(X)$ où $D_{f} (X)$ est la matrice jacobienne de $f$ que l'on suppose inversible.
+\begin{enumerate}
+	\item Trouver la matrice Jacobienne en $X$.
+	\item Expliciter la méthode de Newton pour la fonction $f$.
+\end{enumerate}
+
+\exo On désire déterminer toutes les solutions du système:
+$$\left\{ \begin{array}{ccc} x_{1}^{2} - x_{2} & = & 0 \\ (x_{1} - 1)^{2} + (x_{2} - 6)^{2} & = & 25\end{array}\right.$$
+\begin{enumerate}
+	\item Déterminer graphiquement une approximation des solutions de ce système.
+	\item Améliorer ces approximations à l'aide d’une itération de la méthode de Newton.
+\end{enumerate}
+\end{document}

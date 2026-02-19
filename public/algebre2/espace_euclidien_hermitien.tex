@@ -1,0 +1,185 @@
+\documentclass[a4paper, 12pt, french]{article}
+
+% -----------------------
+% IMPORTATION DES PACAGES
+% -----------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{lmodern}
+\usepackage[margin=2cm]{geometry}
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\date{}
+\author{}
+\title{ESPACE EUCLIDIEN ET ESPACE HERMITIEN}
+
+% --------
+% DOCUMENT
+% --------
+
+\begin{document}
+\maketitle % TITRE
+
+\section{Espace euclidien}
+Dans cette section, $E$ designe un espace vectoriel sur $\mathbb{R}$.
+
+\subsection{Produit scalaire et norme}
+\subsubsection{Définition}
+Soit $f$ une fbs sur $E$. On dit que $f$ est un produit scalaire sur $E$ si elle est non dégénérée et positive, c-a-d, si $Ker \, f = 0$ et $f(x,x) \geq 0$ pour tout $x \in E$.\\
+Dans le cas où $E$ est de dimension fini n, $f$ est une produit scalaire si elle a pour signature $(n,0)$.
+
+\subsubsection{Proposition}
+Soit $f$ une fbs positive sur $E$ de fq associé $q$. Alors
+\begin{itemize}
+    \item[-]$\forall x \in E, \; (q(x) = 0 \Rightarrow x \in Ker \, f)$.
+    \item[-]$\forall x,y \in  E, \; |f(x,y)| \leq \sqrt{q(x)q(y)}$
+\end{itemize}
+
+\subsubsection{Définition}
+On appelle norme sur $E$ toute application $N : E \rightarrow \mathbb{R}_{+}$ telle que
+\begin{itemize}
+    \item[(i)] Si $N(x) = 0$ alors $x = 0$ 
+    \item[(ii)] $\forall x,y \in E, \; N(x+y) \leq N(x) + N(y)$
+    \item[(iii)] $\forall x \in E, \; \forall \lambda \in \mathbb{R}, \; N(\lambda x) = |\lambda|N(x)$
+\end{itemize}
+
+\subsubsection{Proposition}
+Soit $f$ ue produit scalaire sur $E$ et $q$ la fq associé q. L'application $x \rightarrow sqrt{q(x)}$ est une norme sur $E$.
+
+\subsubsection{Définition}
+Un espace euclidien est u espace vectoriel sur $\mathbb{R}$ de dimension finie et muni d'un produit scalaire.\\ \textbf{Notation: } Si $E$ est un espace euclidien, son produit scalaire sera noté $<,>$.\\ \textbf{Remarque: } Toute espace euclidien admet une base orthonormale.
+
+\subsection{Adjoint d'un endomorphisme}
+\subsubsection{Définition}
+Soit $E$ un espace euclidien et $u$ un endroit (ou opérateur) sur $E$. On appelle adjoint de $u$ l'endo $u^{*}$ défini par $$ \forall x,y \in E, <u^{*},y> = <x,u(y)>.$$
+
+\subsubsection{Proposition}
+Soit $E$ un espace euclidien et $(a_{1},\cdots,a_{n}$ une base orthonormale de $E$. Si $M = Mat(u, (a_{i}))$ et $M^{*}= Mat(u^{*}, (a_{i})), alors M^{*}=M^{t}$.
+
+\subsubsection{Proposition}
+Soit $u,v$ des opérateurs sur $E$ et $ \lambda \in \mathbb{R}$. On a:
+\begin{itemize}
+\item[(i)] $ (u^{*})^{*} = u$;
+\item[(ii)] $ (u + v)^{*} = u^{*} + v^{*}, \; (\lambda u)^{*}=\lambda u^{*}$;
+\item[(iii)] $ (uv)^{*} = v^{*}u^{*}$.
+\end{itemize}
+
+\subsubsection{Définition}
+Soit $E$ un espace euclidien et $u$ un opérateur sur $E$. On dit que $u$ est:
+\begin{itemize}
+\item[-] symétrique (ou auto-adjoint) si $u^{*}=u$;
+\item[-] orthogonal si $u$ est inversible et $ u^{*} = u^{-1}$.
+\end{itemize}
+
+\subsection{Diagonalisation d'un endo symétrique}
+\subsubsection{Proposition}
+Soit $u$ un endroit symétrique sur $E$, espace euclidien de dimension n. Alors
+\begin{itemize}
+\item[(1)] $u$ admet n valeurs propres réelles
+\item[(2)] Si $\lambda$ et $\mu$ sont deux valeurs propres distinctes de $u$, alors $Ker(u - \lambda e)$ et $Ker(u - \mu e)$ sont orthogonaux.
+\end{itemize}
+
+\subsubsection{Proposition}
+Soit $u$ un endroit symétrique d'un espace euclidien $E$ de dimension n. Alors il existe une base $(b_{1}, \cdots, b_{n})$ de $E$ telle que les $b_{i}$ soient des vecteurs propres de $u$.
+
+\subsubsection{Corollaire}
+Tout endo symétrique d'un espace euclidien $E$ est diagonalisable.
+
+\subsubsection{Proposition}
+Soit $u$ un endroit symétrique d'un espace euclidien $E$. La forme $g$ définie par $$ \forall x,y \in E,g(x,y)=<u(x),y>$$ est une fbs sur $E$.
+
+\subsubsection{Proposition}
+Soit $g$ une fbs sur $E$. Alors il existe un unique endo symétrique $u$ de $E$ tel que $$\forall x,y \in E,g(x,y)=<u(x),y>.$$
+
+\section{Espace hermitien}
+\subsection{Forme sémi-linéaire et forme sesqui-linéaire}
+Soit $E$ et $F$ deux espaces vectoriels sur $\mathbb{C}$.
+
+\subsubsection{Définition}
+Une forme sémi-linéaire sur $E$ est une application $h : E  \rightarrow \mathbb{C}$ ayant les propriétés suivantes :
+\begin{itemize}
+\item[(i)] Pour tout $(x,y) \in \mathbb{R}^{2}, \; h(x+y) = h(x) + h(y)$;
+\item[(ii)] Pour tout $x \in E$ et pour tout $ \lambda \in \mathbb{C}, \; h(\lambda x) = \bar{\lambda}(x)$.
+\end{itemize}
+
+\subsubsection{Définition}
+Une forme sesqui-linéaire sur $E$ est une application $h : E \times F  \rightarrow \mathbb{C}$ telle que :
+\begin{itemize}
+\item[(1)] Pour tout $y \in F, \; f_{.y}$ est une forme linéaire sur $E$;
+\item[(2)] Pour tout $x \in E, \; f_{x.}$ est une forme sémi-linéaire sur $F$
+\end{itemize}
+
+\subsection{Forme hermitienne}
+Soit $E$ un espace vectoriel sur $\mathbb{C}$.
+
+\subsubsection{Définition}
+Une forme hermitienne sur $E$ est une forme sesqui-linéaire $f$ sur $E \times E$ vérifiant les propriétés suivante: $$\forall x,y \in E,\; f(x,y) = \overline{f(x,y)}.$$
+
+\subsubsection{Définition}
+Soit $f$ une forme hermitienne sur $E$. On appelle forme quadratique associée à $f$ l'application $q: E \rightarrow \mathbb{R}, x \rightarrow q(x) = f(x,x).$\\
+\textbf{NB:} f et g sont liées par la relation $$f(x,y) = \frac{1}{4}\left\{[q(x+y) - q(x-y)] + i[q(x,+iy) - q(x-iy)]\right\}.$$
+
+\subsubsection{Définition}
+On appelle noyau d'une fh $f$ le noyau de l'application sémi-linéaire $\varphi : E \rightarrow E^{*}, y \rightarrow \varphi(y) = f_{.y}$. Autrement dit, $$Ker \, f = \{ y; f(x,y) = 0 \; \forall x \in E\}.$$
+\textbf{Remarque: } On a également $Ker \, f = \{x; f(x,y) = 0 \; \forall y \in E\}$
+
+\subsubsection{Définition}
+On dit qu'une fh $f$ est non dégénérée si $Ker\, f = 0$.
+
+\subsubsection*{\underline{Expression d'une fh}}
+Soit $E$ un $\mathbb{C}$ev de dimension n, $\mathcal{B} = (e_{j}) $ une base de $E$, $x=\sum_{i} x_{i}e_{i}$ et $y = \sum_{j} y_{j}e_{j}$ deux vecteurs de $E$. On a : $$f(x,y)=\sum_{i,j} f(x_{i}e_{i},y_{j}e_{j})=\sum_{i,j} f(e_{i},e_{j})x_{i}\bar{y_{j}}.$$
+En posant $a_{i,j}=f(e_{i}e_{i})$, on a $a_{j,i} = \bar{a_{i,j}}$. La matrice $(a_{i,j})$ est appelée la matrice de $f$ dans la base $\mathbb{B}$. Notons $a_{i,i}$ que est rée l' pour tout $i$.\\
+Toute fh a donc pour Expression de la forme $$ \sum_{i} a_{i}x_{i}\bar{y_{i}} + \sum_{i \not= j} a_{i,j}x_{i}\bar{x_{j}}$$ et la fq associée a pour expression $$q(x)= \sum_{i} a_{i}|x_{i}|^{2} + \sum_{i \not= j} a_{i,j} x_{i} \bar{x_{j}}$$ oû les $a_{i}$ sont des réels et $a_{j,i}=\bar{a_{i,j}}$ pour tout couple $(i,j)$ tel que $i \not= j$.
+
+\subsubsection{Proposition}
+Une fh d'un $\mathbb{C}$ev de dimension n est non dégénérée SSI sa matrice est de rang n.
+
+\subsubsection{Proposition}
+Soit $F$ un sev d'un $\mathbb{C}$ev $E$ et $f$ une fh sur $E$. Alors $E=F \oplus F^{\bot}$ ssi la restriction de $f$ à $F$ est non dégénérée.
+
+\subsubsection{Proposition}
+Si $dim\, E = n$ et $f$ une fh de rang R, alors $E$ admet une base $f$-orthogonale $(a_{i})$ telle que $f(a_{i},a_{i}) \not= 0$ pour $i \leq r$  et $0$ sinon.
+
+\subsubsection{Proposition}
+Si $dim \, E = n$ et $f$ une fh de rang R, alors il existe un couple unique $(p,p^{'})$ tel que $p+p^{'}=r$ et une base $f$-orthogonale dans laquelle la fq associée a pour expression $$q(x) = \sum_{i=1}^{p} |x_{i}|^{2} - \sum_{i= p+1}^{r} |x_{i}|^{2}.$$
+Le couple $(p,p^{'})$ est appelée signature de $f$ (ou de $q$).
+
+\subsubsection{Définition}
+On dit qu'une fh (ou fqh associé q) est positive si $q(x) \geq 0$ pour tout $x$.
+
+\subsubsection{Proposition (Inégalité de Schwarz)}
+Si $f$ est une fh positive , on a $\forall x,y , \; |f(x,y)|^{2} \leq f(x,x)f(y,y).$
+
+\subsubsection{Proposition}
+Si $f$ est une fh positive et $q$ la fqh associée, alors l'application $x \rightarrow sqrt{q(x)}$ est une norme sur $E$.
+
+\subsubsection{Définition}
+Un espace hermitien est un $\mathbb{C}$ev de dimension finie muni d'un produit scalaire, c-à-d, muni d'une fh non dégénérée positive.
+
+\subsubsection{Proposition}
+Tout espace hermitien admet une base orthonormale.
+
+\subsection{Adjoint d'un endo}
+\subsubsection{Définition}
+Soit $E$ un espace hermitien dont le produit scalaire est noté $(|)$ et soit $u$ un opérateur sur $E$. On déduit l'adjoint $u^{*}$ de $u$ comme dans le cas réel par $$ \forall x,y \in E, \; (u^{*}(x)|y) = (x|u(y)).$$
+
+\subsubsection{Proposition}
+Soit $E$ unespace hermitien, $u$ et $v$ deux opérateurs sur $E$ et $\lambda \in \mathbb{C}$.
+\begin{itemize}
+    \item[a)] Si $A$ est la matrice de $u$ dans la base orthonormale, alors $\overline{A^{t}}$ est la matrice de $u^{*}$ dans la base orthonormale;
+    \item[b)] On a $(u^{*})^{*}=u, \; (u+v)^{*}=u^{*}+v^{*}, \; (\lambda u)^{*} = \bar{\lambda}u^{*}$ et $(uv)^{*}=v^{*}u^{*}$.
+\end{itemize}
+
+\subsubsection{Définition}
+Un opérateur d'un espace hermitien est dit hermitien s'il est egal à son adjoint.
+
+\subsubsection{Proposition}
+Soit $u$ un opérateur. Alors $$u \mbox{ hermitien } \Leftrightarrow \forall x, \; (u(x)|x) \mbox{ réel }$$
+
+\subsubsection{Proposition}
+Tout opérateur hermitien $u$ d'un espace hermitien $E$ de dimension n admet n valeurs propres réelles et est diagonalisable.
+\end{document}

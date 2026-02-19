@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt,french]{article}
+
+% ====== IMPORTATION DES PACKAGES ======
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{lmodern} 
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% ====== DOCUMENT ======
+
+\begin{document}
+\section{Introduction à la théorie des Anneaux}
+\subsection{1Introduction et Définitions}
+Dans le chapitre précédent, on a considéré des ensembles avec une structure définissant des groupes. Mais, on remarque que dans la plus part de ces ensembles, il y a deux structures différentes.
+Comme l’on a dans $\mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}, M_{n} (\mathbb{R})$ et $\mathbb{R }[ x ]$, l’ensemble des polynômes à une variable. Ils ont en commun les faits suivants :
+\begin{itemize}
+    \item[-] L’addition $(+)$ définit une structure de groupe abélien ;
+    \item[-] La multiplication $(\times)$ définit un monoïde ;
+    \item[-] Distributivité : Pour tout $a$, $b$ et $c$, on a : $(a + b) \times c = a \times c + b \times c et c \times (a + b) = c \times a + c \times b$.
+\end{itemize}
+La formalisation de cette nouvelle structure est le but de ce chapitre. Par abus de notation, s’il n’y a pas de confusion, la loi binaire qui définit une structure de groupe abélien sur un ensemble quelconque sera notée par $+$. Tandis que, si la loi binaire définisse un monoïde, elle sera notée par
+$\times$. L’élément neutre par rapport à l’addition sera noté par 0 et l’identité par rapport à la multiplication sera noté par 1.
+
+\subsubsection{Définition}
+Soit $(A, +, \times)$ une structure algébrique telle que $(A, +)$ est un groupe abélien et $(A, \times)$ est un monoïde. On dit que $(A, +, \times)$ est un anneau si on a la distributivité de deux loi binaires. Si $(A, \times)$ est un monoïde commutatif, on dit que $(A, +, \times)$ est un anneau commutatif. Un élément de $A$ est dit inversible s’il est inversible par rapport à la loi multiplication. L’ensemble
+des éléments inversibles d’un anneau $A$ est noté par $A^{\times}$. Si de plus, on a $A^{\times} = A \backslash \{0\}$, on dit que $(A, +, \times)$ est un corps.
+
+\subsubsection{Exemples}
+\begin{enumerate}
+    \item Les ensembles $\mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}, M_{n} (\mathbb{R})$ et $\mathbb{R} [ x ]$ sont des anneaux ;
+    \item $\mathbb{Z}, \mathbb{Q}, \mathbb{C}$ et $\mathbb{R} [ x ]$ sont des anneaux commutatifs ;
+    \item $\mathbb{Z}$ et $M_{n} (\mathbb{R})$ ne sont pas des corps ;
+    \item $\mathbb{Q}, \mathbb{R}$ et $\mathbb{C}$ sont des corps ;
+    \item $M_{n} (\mathbb{R})$ n’est pas un anneau commutatif ;
+    \item $\mathbb{Z} [i] := \{ a + ib \in \mathbb{C} : a, b \in \mathbb{Z}\}$ où $i = \sqrt{-1}$ est un anneau commutatif. On a $(\mathbb{Z} [i])\times = \{-1, 1, i, -i \}$.
+\end{enumerate}
+
+\subsubsection{Proposition}
+Soient $A_{1}$ et $A_{2}$ deux anneaux. Alors, le produit scalaire $A = A_{1} \times A_{2}$ définit une structure d’anneau avec les opérations induites naturellement de celles de $A_{1}$ et $A_{2}$.
+
+\subsection{Idéaux et Anneaux quotients}
+Considérons l’anneau des entiers $(\mathbb{Z}, +, \times)$. On sait que les sous groupes de $(\mathbb{Z}, +)$ sont de la forme $n\mathbb{Z}$ où n est un entier naturel. Comme $(\mathbb{Z}, +)$ est un groupe abélien, l’ensemble quotient $(\mathbb{Z}/n\mathbb{Z}, +)$ est un groupe abélien. De plus, la multiplication dans $\mathbb{Z}$ induit une structure monoïde sur $\mathbb{Z}/n\mathbb{Z}$ d’identité $\dot{1}$. De plus, pour tout $\dot{a}, \dot{b}$ et $\dot{c}$ dans $\mathbb{Z}/n\mathbb{Z}$, on a : $$\dot{c}( \dot{a} + \dot{b}) = \dot{c} \dot{a} + \dot{c}\dot{b} = ( \dot{a} + \dot{b})\dot{c}$$.
+Ainsi, $(\mathbb{Z}/n\mathbb{Z}, +, \times)$ est un anneau et l’on a : $$(\mathbb{Z}/n\mathbb{Z})\times = \{ \dot{a} : pgcd( a, n) = 1\}.$$
+L’anneau $\mathbb{Z}/n\mathbb{Z}$ est un corps si et seulement si n est un nombre premier. La généralisation de cet exemple est l’objet de cette section.
+\end{document}

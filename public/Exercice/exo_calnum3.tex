@@ -1,0 +1,74 @@
+\documentclass[a4paper, 12pt]{article}
+
+% ===== IMPORTATION DES PACKAGES =====
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1cm]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault} % applique la police a tous le document
+
+\newcounter{exo}
+\renewcommand{\theexo}{\Roman{exo}}
+\newcommand{\exo}{
+	\stepcounter{exo}
+	\textbf{Exercice \theexo{} :}
+}
+
+% ===== DOCUMENT =====
+
+\begin{document}
+
+\hrule 
+
+\vspace{0.5cm}
+Université d'Antananarivo \hfill Année Universitaire: 2024-2025 \\
+Calcul numérique et algorithmique - MMI \hfill 2 eme Année
+
+$$\boxed{\Large{\mbox{Résolution et Algorithmes}}}$$
+
+\vspace{0.5cm}
+
+\exo Décomposion en $LU$
+Soit $A \in Gl_{n} (\mathbb{K})$ où $\mathbb{K}$ est un corps commutatif. On veut dé composer $A$ sous forme produit $L \cdot U$ avec $L$ et $U$ des matrices triangulaires inférieur et supérieur respectivement. On impose de plus qu'il n'y a que des 1 sur la diagonale de $U$.
+\begin{enumerate}
+	\item Trouver les composantes de $L$ et de $U$ lorsque $n = 4$.
+	\item Trouver un algorithme pour le cas générale (n est générique).
+	\item Déterminer graphiquement une approximation des solutions de ce système.
+	\item Améliorer ces approximations à l'aide d’une itération de la méthode de Newton.
+\end{enumerate}
+
+\exo Utiliser la méthode de Gram-Schmidt pour orthonormaliser dans $\mathbb{R}^{3}$ avec son
+produit scalaire usuel la base $e_{1} = (1, 1, -1), \; e_{2} = (1, -1, 1)$ et $e_{3} = (-1, 1, 1)$. Si $e_{1}^{'} , e_{2}^{'} , e_{3}^{'}$ est la
+nouvelle base, montrer que la matrice de passage correspondante est triangulaire.
+
+\exo Pour chaque espace $V$ muni d’un produit scalaire $\phi$ :
+\begin{itemize}
+	\item[a)] Appliquer la méthode de Gram-Schmidt à la famille $F$, afin de produire une base orthonormée pour le sous-espace $W$ engendré par $F$.
+	\item[b)] Calculer la projection orthogonale de $v \in V$ sur $W$.
+\end{itemize}
+\begin{enumerate}
+	\item $V = \mathbb{R}^{4}$ , $\phi$ = produit scalaire usuel, $\mathcal{F} = (u_{1} , u_{2} , u_{3} ), v = (1, 1, 1, 1)$ où
+$u_{1} = (1, 1, 0, 0), u_{2} = (1, 0, -1, 1), u_{3} = (0, 1, 1, 1)$.
+	\item $V = \mathbb{R}^{3}$ , $\phi ((x_{1} , x_{2} , x_{3}), (y_{1} , y_{2} , y_{3} )) = 3x_{1} y_{1} - x_{1} y_{2} - x_{2} y_{1} + 3x_{2} y_{2} + 3x_{3} y_{3} , \mathcal{F} = ((1, 0, 0), (0, 1, 0)), v = (0, 0, 1).$
+	\item $V = \mathbb{R}[X]^{3}, \psi (P, Q) = \int_{0}^{1} P(x)Q(x)dx, \mathcal{F} = (1, X, X^{2}), v = X^{3}$.
+\end{enumerate}
+
+\exo Soit $A = \left( \begin{array}{cc}2 & 1 \\ 1 & 2\end{array}\right)$
+Montrer que l'application $$b : \mathbb{R}^{2} \times \mathbb{R}^{2} \rightarrow \mathbb{R}, (X, Y ) \mapsto X^{t}AY$$ est un produit scalaire.
+Utiliser l'algorithme de Gram-Schmidt pour trouver une base b-orthonormée.
+
+\exo On se donne un nuage de points $A_{i} (x_{i} , y_{i} , z_{i})$ avec $i \in 1, \cdots , n$. On sait qur que ces
+points sont proches d’un plan $P$ dans $\mathbb{R}^{3}$ . Donner l'équation du plan $P$ qui modélise le mieux ces points.
+
+\exo Gram-Schmit et Décomposition $QR$
+Soit $E = \mathbb{R}^{n}$ et $\mathcal{B}$ une base de $E$.
+\begin{enumerate}
+	\item Ecrire l’algorithme de Gram-Schmidt qui donne une base orthonormée de $E$ en partant de $\mathcal{B}$.
+	\item Soit maintenant $A \in GL_{n} (\mathbb{R})$, on veut décomposer $A$ sous forme $Q \cdot R$ avec $Q$ une matrice orthogonale ($Q \cdot Q^{T} = I$) et $R$ une matrice triangulaire supérieur. Comment l’orthoginalisation de Gram-Schmidt peut aider ? Ecrire un algortithme.
+\end{enumerate}
+\end{document}

@@ -20,6 +20,7 @@
 ## 📂 Structure du Projet
 
 ```text
+<<<<<<< HEAD
 ├── explorer.html				# Point d'entrée secondaire
 ├── index.html					# Point d'entrée principal
 ├── LICENSE					# Scripts et dépendances
@@ -74,6 +75,31 @@
 │       └── style.css
 ├── tsconfig.json
 └── vite.config.ts				# Configuration multi-pages
+=======
+## 📂 Structure du Projet
+
+```text
+.
+├── public/                  # Ressources brutes (copiées telles quelles dans dist/)
+│   ├── algebre1/            # PDFs et sources .tex
+│   ├── algebre2/            
+│   ├── CalculNum/           
+│   ├── Exercice/            
+│   └── favicon.ico          # Icône du site
+├── src/                     # Code source transformé par le compilateur
+│   ├── style/               
+│   │   ├── style.css     
+│   │   └── explorer.css
+│   ├── data/               
+│   │   └── pdfs.json        # Importé via 'import data from "./data/pdfs.json"'
+│   ├── explorer.ts          # Logique de la page explorer.html
+│   └── main.ts              # Logique de la page index.html
+├── index.html               # Point d'entrée principal
+├── explorer.html            # Point d'entrée secondaire
+├── package.json             # Scripts et dépendances
+├── tsconfig.json            # Configuration TypeScript
+└── vite.config.ts           # Configuration multi-pages
+>>>>>>> b1b60b01d882d367effd7fa437b06de31f2e6ff3
 ```
 ---
 

@@ -25,6 +25,7 @@
 \newtheorem{defin}{Définition}[section]
 \newtheorem{prop}[defin]{Proposition}
 \newtheorem{theo}[defin]{Théorème}
+\newtheorem{exe}[defin]{Exemple}
 
 \begin{document}
 
@@ -37,10 +38,18 @@ Ceci n'est pas a priori un book, ces sont justes des notes.
 Soit X un espace vectoriel normé et $\tau$ un famille d'ouvert qui contient les partis de X.
 On dit que $\tau$ est un topologie si elle vérifie les conditions suivants:
 \begin{enumerate}
-\item $\emptyset \in \tau$  et $X \in \tau$
-\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$
-\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcap_{i \in \mathbb{N}} O_{i} \in \tau$
+	\item $\emptyset \in \tau$  et $X \in \tau$
+	\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$
+	\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcap_{i \in \mathbb{N}} O_{i} \in \tau$
 \end{enumerate}
 \end{defin}
 Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
+
+\begin{exe}
+	\begin{enumerate}
+		\item $\tau = P(X)$ est une topologie, elle est appelé topologie discrète.
+		\item $\tau = \{0, X\}$ est une topologie appelé topologie grossière.
+		\item $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie appelé topologie cofinie.
+	\end{enumerate}
+\end{exe}
 \end{document}

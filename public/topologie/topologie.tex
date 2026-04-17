@@ -1,0 +1,46 @@
+\documentclass[a4paper, 12pt]{article}
+
+% =======================
+% IMPORTATION DES PACKAGES
+% =======================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{lmodern}
+\usepackage{theorem}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage[french]{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{TOPOLOGIE}
+\date{}
+\author{}
+
+\theoremstyle{break}
+\theoremheaderfont{\scshape}
+\theorembodyfont{\upshape}
+
+\newtheorem{defin}{Définition}[section]
+\newtheorem{prop}[defin]{Proposition}
+\newtheorem{theo}[defin]{Théorème}
+
+\begin{document}
+
+\maketitle
+
+Ceci n'est pas a priori un book, ces sont justes des notes.
+
+\section{Espace topologique}
+\begin{defin}
+Soit X un espace vectoriel normé et $\tau$ un famille d'ouvert qui contient les partis de X.
+On dit que $\tau$ est un topologie si elle vérifie les conditions suivants:
+\begin{enumerate}
+\item $\emptyset \in \tau$  et $X \in \tau$
+\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$
+\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcap_{i \in \mathbb{N}} O_{i} \in \tau$
+\end{enumerate}
+\end{defin}
+Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
+\end{document}

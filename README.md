@@ -18,80 +18,23 @@
 ---
 
 ## 📂 Structure du Projet
-
 ```text
-<<<<<<< HEAD
-├── explorer.html				# Point d'entrée secondaire
-├── index.html					# Point d'entrée principal
-├── LICENSE					# Scripts et dépendances
-├── package.json				# Configuration TypeScript
-├── package-lock.json
-├── public					# Ressources brutes (copiées telles quelles dans dist/)
-│   ├── algebre1				# PDFs et sources .tex
-│   │   ├── EquationLineaireEtMatrice.pdf
-│   │   ├── EquationLineaireEtMatrice.tex
-│   │   ├── EspaceVectEtSousEspaceVect.pdf
-│   │   ├── EspaceVectEtSousEspaceVect.tex
-│   │   ├── IntoTheorieAnneau.pdf
-│   │   ├── IntoTheorieAnneau.tex
-│   │   ├── IntroTherieGroupe.pdf
-│   │   ├── IntroTherieGroupe.tex
-│   │   ├── TheorieNaiveEnsemble.pdf
-│   │   └── TheorieNaiveEnsemble.tex
-│   ├── algebre2
-│   │   ├── espace_euclidien_hermitien.pdf
-│   │   ├── espace_euclidien_hermitien.tex
-│   │   ├── espaces_quotients.pdf
-│   │   ├── espaces_quotients.tex
-│   │   ├── forme_quadratique.pdf
-│   │   ├── forme_quadratique.tex
-│   │   ├── reduction_matrice.pdf
-│   │   └── reduction_matrice.tex
-│   ├── CalculNum
-│   │   ├── algorithms_complexite.pdf
-│   │   ├── algorithms_complexite.tex
-│   │   ├── ResolutionEquationNonLineaire.pdf
-│   │   ├── ResolutionEquationNonLineaire.tex
-│   │   ├── resolution_system_linear.pdf
-│   │   └── resolution_system_linear.tex
-│   ├── Exercice
-│   │   ├── exo_algebre1.pdf
-│   │   ├── exo_algebre1.tex
-│   │   ├── exo_calnum1.pdf
-│   │   ├── exo_calnum1.tex
-│   │   ├── exo_calnum2.pdf
-│   │   ├── exo_calnum2.tex
-│   │   ├── exo_calnum3.pdf
-│   │   └── exo_calnum3.tex
-│   └── favicon.ico				# Icône du site
+MathArchive/
+├── LICENSE
 ├── README.md
-├── src
-│   ├── data
-│   │   └── pdfs.json				# Importé via 'import data from "./data/pdfs.json"'
-│   ├── explorer.ts				# Logique de la page explorer.html
-│   ├── main.ts					# Logique de la page index.html
-│   └── style
-│       ├── explorer.css
-│       └── style.css
-├── tsconfig.json
-└── vite.config.ts				# Configuration multi-pages
-=======
-## 📂 Structure du Projet
-
-```text
-.
-├── public/                  # Ressources brutes (copiées telles quelles dans dist/)
-│   ├── algebre1/            # PDFs et sources .tex
-│   ├── algebre2/            
-│   ├── CalculNum/           
-│   ├── Exercice/            
-│   └── favicon.ico          # Icône du site
+├── documents.html
+├── public
+│   ├── favicon.ico
+│   └── topologie
+│       ├── topologie.pdf
+│       └── topologie.tex
 ├── src/                     # Code source transformé par le compilateur
 │   ├── style/               
 │   │   ├── style.css     
 │   │   └── explorer.css
 │   ├── data/               
 │   │   └── pdfs.json        # Importé via 'import data from "./data/pdfs.json"'
+│   │   └── topics.json
 │   ├── explorer.ts          # Logique de la page explorer.html
 │   └── main.ts              # Logique de la page index.html
 ├── index.html               # Point d'entrée principal
@@ -99,7 +42,6 @@
 ├── package.json             # Scripts et dépendances
 ├── tsconfig.json            # Configuration TypeScript
 └── vite.config.ts           # Configuration multi-pages
->>>>>>> b1b60b01d882d367effd7fa437b06de31f2e6ff3
 ```
 ---
 

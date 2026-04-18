@@ -30,4 +30,36 @@
 
 \maketitle
 
+\part{ESPACE PROBABILISÉ}
+
+\section{Vocabulaire}
+
+\begin{center}
+	\begin{tabular}{|p{8cm}|p{3cm}|}
+	\hline
+	Vocabulaire & Notation \\ \hline
+	Résultat possible & $\omega$ \\
+	Tous les résultat possible & $\Omega$ \\
+	Évenement A & A \\
+	Sous ensemble d'évenement & $A \subset \Omega$ \\
+	Événement certain & $\Omega$ \\
+	Évenement impossible & $\emptyset$ \\
+	Évenement A ou B (non exclusif) & $A \cup B$ \\
+	Évenement A et B & $A \cap B$ \\
+	\hline
+\end{tabular}
+\end{center}
+Prénons un exemple, si on lance un dé à 6 face. On a $\omega = 5$, $\Omega = \{1,2,3,4,5,6\}$, $A = \{1,3,5\}$.\\
+On dit que deux évenements sont incompatibles si $A \cap B = \emptyset$.
+
+\section{Probabilité}
+$\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\Omega$ est l'ensemble de tous les résultats possibles. $\mathcal{F}$ est appelé un tribus et ($\mathcal{F}, \Omega$) un mesure de probabilté.
+
+\begin{defin}
+	Un probabilité verifie les condition suivantes:
+	\begin{enumerate}
+		\item P($\Omega$) = 1 et P($\emptyset$) = 0,
+		\item Soit $(A_{i})_{i \in \mathbb{N}}$ un collection de famille d'évenement finie ou dénombrable. Si les $A_{i}$ sont deux à deux disjoints, on a $P(\bigcup_{i \in  \mathbb{N}}A_{i}) = \sum_{i \in \mathbb{N}} P(A_{i})$ ($\sigma$-additivité)
+	\end{enumerate}
+\end{defin}
 \end{document}

@@ -12,6 +12,7 @@
 
 \renewcommand{\familydefault}{\sfdefault}  
 
+\theoremstyle{break}
 \theoremheaderfont{\scshape}
 \theorembodyfont{\upshape}
 
@@ -36,7 +37,7 @@ Chaque exercice et les énoncés dans cette document est démontrer avec mon pro
 \end{exer}
 
 \begin{sol}
-	Soient A et B deux évenement et $\Omega$ l'ensemble de tous les évenements. Supposons que A et B sont indépendant. On sait que $\Omega = A \cup A^{c}$, on peut donc écrire B comme suit $B = B \cap \Omega = (B \cap A) \cup (B \cap A^{c})$.Comme $(B \cap A)$ et $(B \cap A^{c})$ sont disjoints alors d'après la $\sigma$-additivité, on a  $P(B) = P(B \cap A) + P(B \cap A^{c}$. Par hypothèse on a $P(A \cap B) = P(A)P(B)$. Ainsi, on a $P(B \cap A^{c} = P(B) - P(A)P(B)$ cela implique que $P(B \cap A^{c}) = P(B)(1-P(A))$ cela implique encore que  $P(B \cap A^{c}) = P(B)P(A^{c})$. D'où B et $A^{c}$ sont indépendant.\\ \\
+	Soient A et B deux évenement et $\Omega$ l'ensemble de tous les évenements. Supposons que A et B sont indépendant. On sait que $\Omega = A \cup A^{c}$, on peut donc écrire B comme suit $B = B \cap \Omega = (B \cap A) \cup (B \cap A^{c})$.Comme $(B \cap A)$ et $(B \cap A^{c})$ sont disjoints alors d'après la $\sigma$-additivité, on a  $P(B) = P(B \cap A) + P(B \cap A^{c}$. Par hypothèse on a $P(A \cap B) = P(A)P(B)$. Ainsi, on a $P(B \cap A^{c} = P(B) - P(A)P(B)$ cela implique que $P(B \cap A^{c}) = P(B)(1-P(A))$ cela implique encore que  $P(B \cap A^{c}) = P(B)P(A^{c})$.\\ D'où B et $A^{c}$ sont indépendant.\\ \\
 	Pour l'autre on utilisant la loi de Morgan, on a $A^{c} \cap B^{c} = (A \cup B)^{c}$. Ainsi $P(A^{c} \cap B^{c}) = 1 - P(A \cup B) = 1 - P(A) - P(B) + P(A)P(B) = 1-P(A) -P(B)(1 - P(A)) = P(A^{c}) -P(B)P(A^{c}) = P(A^{c})(1-P(B)) = P(A^{c})P(B^{v})$.\\ D'où $A^{c}$ et $B^{c}$ sont indépendant.
 \end{sol} 
 \end{document}

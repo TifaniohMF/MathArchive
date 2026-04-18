@@ -52,4 +52,24 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
 		\item $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie appelé topologie cofinie.
 	\end{enumerate}
 \end{exe}
+\textit{Preuve.}
+\begin{enumerate}
+	\item Soit (X, $\tau$) un espace topologique et P(X) l'ensemble des parties de X.\\
+	$\emptyset$ et X sont des parties de X, ainsi $\emptyset$ et X $\in \tau$.\\
+	Soit $O_{1}, O_{2} \in \tau$, Si $O_{1} \cap O_{2} = \emptyset$ alors $O_{1} \cap O_{2} \in \tau$, sinon si $O_{1} \cap O_{2} \not= \emptyset$ et si $O_{1} \subset O_{2}$ alors $O_{1} \cap O_{2} = O_{1} \in \tau$ de même si $O_{2} \subset O_{1}$.\\
+	Soit $(O_{i})_{i \in \mathbb{N}} \in \tau$, $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$.\\
+	Ainsi $\tau = P(X)$ est bien une topologie sur X.
+
+	\item Soit (X, $\tau$) un espace topologique.\\
+	Par définition de $\tau$, $\emptyset$ et X $\in \tau$.\\
+	On a $\emptyset \cap X = \emptyset \in \tau$, ainsi elle est stable par intersection.\\
+	On a $\emptyset \cup X = X \in \tau$, elle est stable par union.\\
+	Donc $\tau = \{ \emptyset, X\}$ est bien une topologie sur X.
+	\item Soit (X, $\tau$) un espace topologique.\\
+	Par définition de $\tau$, $\emptyset$ et X $\in \tau$ car $X\backslash \emptyset = X \in \tau$ et $X\backslash X = \emptyset \in \tau$.\\
+	Soit $O_{1}, O_{2} \in \tau$, on sait que $X\backslash O_{1}$ et $X \backslash O_{2}$ sont de cardinal finie. Donc on a $O_{1} \cap O_{2}$ est aussi de cardinal finie. Ainsi $O_{1} \cap O_{2} \in \tau$.\\
+		Soit $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcup_{i \in \mathbb{N}} O_{i} = X \backslash (\bigcap_{i \in \mathbb{N}} O_{i})$ est finie, donc $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$.\\
+	On conclut alors que $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie sur X.
+\end{enumerate}
+
 \end{document}

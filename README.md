@@ -2,7 +2,7 @@
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Node.js Version](https://img.shields.io/badge/node-%3E%3D18-brightgreen)
-![Last Commit](https://img.shields.io/github/last-commit/<USERNAME>/<REPO>)
+![Last Commit](https://img.shields.io/github/last-commit/TifaniohMF/MathArchive)
 
 **MathArchive** est une plateforme statique légère conçue pour l'archivage, la navigation et la consultation de notes mathématiques rédigées en LaTeX. Le projet mise sur la rapidité de [Vite](https://vitejs.dev) et la performance de [KaTeX](https://katex.org) pour offrir un rendu mathématique fluide directement dans le navigateur.
 

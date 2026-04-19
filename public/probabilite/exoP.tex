@@ -6,7 +6,8 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1.5cm]{geometry}                             \usepackage{lmodern}
+\usepackage[margin=2cm]{geometry}                            
+\usepackage{lmodern}
 \usepackage{theorem}                                            \usepackage{amsfonts, amsmath, amssymb}
 \usepackage{babel}
 
@@ -48,7 +49,7 @@ Chaque exercices, énoncés et solutions dans cette document est démontrer et r
 	Raisonnons par récurrence, pour n = 2 on a :\\
 	$P(A_{1} \cap A_{2}) = P(A_{1})P(A_{2}|A_{1})$, c'est vrai car c'est la formule de la probabilité conditionnelle.\\
 	Supposons que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$ est vrai à l'ordre n et montrons qu'il est aussi vrai à l'ordre $n+1$.\\
-	On a $P(\bigcap_{i=1}^{n+1} A_{i}) = P(\bigcap_{i=1}^{n}  A_{i} \cap A_{n+1})$. On a $P(A_{n+1}| \bigcap_{i=1}^{n} A_{i})=  \frac{P(\bigcap_{i=1}^{n+1} A_{i})}{P(\bigcap_{i=1}^{n} A_{i})}$. Ainsi $P(\bigcap{i=1}^{n+1} A_{i}) = P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}) P(\bigcap_{i=1}^{n} A_{i})$. Or par hypothèse des récurrence, $P(\bigcap_{i=1}^{n} A_{i}) = P(A_{1}) P(A_{2} | A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$. Donc $P(\bigcap{i=1}^{n+1} A_{i})  =P(A_{2}|A_{1}) \cdots P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}))$.\\
+	On a $P(\bigcap_{i=1}^{n+1} A_{i}) = P(\bigcap_{i=1}^{n}  A_{i} \cap A_{n+1})$. On a $P(A_{n+1}| \bigcap_{i=1}^{n} A_{i})=  \frac{P(\bigcap_{i=1}^{n+1} A_{i})}{P(\bigcap_{i=1}^{n} A_{i})}$. Ainsi $P(\bigcap{i=1}^{n+1} A_{i}) = P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}) P(\bigcap_{i=1}^{n} A_{i})$. Or par hypothèse des récurrence,\\ $P(\bigcap_{i=1}^{n} A_{i}) = P(A_{1}) P(A_{2} | A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$. Donc $P(\bigcap{i=1}^{n+1} A_{i})  =P(A_{2}|A_{1}) \cdots P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}))$.\\
 	On peut en conclure alors que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$. \marginpar{$\square$}
 \end{sol}
 

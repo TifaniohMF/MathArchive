@@ -28,8 +28,8 @@
 
 \maketitle
 
-Dans cette document, j'apprend la probabilité en résoudrons des exercice et des preuve du cours de probabilité tout en développons mes competences en latex.\\
-Chaque exercice et les énoncés dans cette document est démontrer avec mon propre raisonnement surtout la démonstration mais si cela peut vous aider, je vous invite à l'explorer.
+Dans cette document, j'apprend la probabilité en résoudrons différents exercices et des preuves des propriété en  probabilité tout en développons mes competences en latex.\\
+Chaque exercices, énoncés et solutions dans cette document est démontrer et reformuler selon mon propre comprehension avec mon propre raisonnement surtout la démonstration mais si cela peut vous aider, je vous invite à l'explorer.
 
 \section{Espace probabilisé}
 \begin{exer}
@@ -38,7 +38,7 @@ Chaque exercice et les énoncés dans cette document est démontrer avec mon pro
 
 \begin{sol}
 	Soient A et B deux évenement et $\Omega$ l'ensemble de tous les évenements. Supposons que A et B sont indépendant. On sait que $\Omega = A \cup A^{c}$, on peut donc écrire B comme suit $B = B \cap \Omega = (B \cap A) \cup (B \cap A^{c})$.Comme $(B \cap A)$ et $(B \cap A^{c})$ sont disjoints alors d'après la $\sigma$-additivité, on a  $P(B) = P(B \cap A) + P(B \cap A^{c}$. Par hypothèse on a $P(A \cap B) = P(A)P(B)$. Ainsi, on a $P(B \cap A^{c} = P(B) - P(A)P(B)$ cela implique que $P(B \cap A^{c}) = P(B)(1-P(A))$ cela implique encore que  $P(B \cap A^{c}) = P(B)P(A^{c})$.\\ D'où B et $A^{c}$ sont indépendant.\\ \\
-	Pour l'autre on utilisant la loi de Morgan, on a $A^{c} \cap B^{c} = (A \cup B)^{c}$. Ainsi $P(A^{c} \cap B^{c}) = 1 - P(A \cup B) = 1 - P(A) - P(B) + P(A)P(B) = 1-P(A) -P(B)(1 - P(A)) = P(A^{c}) -P(B)P(A^{c}) = P(A^{c})(1-P(B)) = P(A^{c})P(B^{v})$.\\ D'où $A^{c}$ et $B^{c}$ sont indépendant.
+	Pour l'autre on utilisant la loi de Morgan, on a $A^{c} \cap B^{c} = (A \cup B)^{c}$. Ainsi $P(A^{c} \cap B^{c}) = 1 - P(A \cup B) = 1 - P(A) - P(B) + P(A)P(B) = 1-P(A) -P(B)(1 - P(A)) = P(A^{c}) -P(B)P(A^{c}) = P(A^{c})(1-P(B)) = P(A^{c})P(B^{v})$.\\ D'où $A^{c}$ et $B^{c}$ sont indépendant. \marginpar{$\square$}
 \end{sol} 
 
 \begin{exer}
@@ -46,10 +46,26 @@ Chaque exercice et les énoncés dans cette document est démontrer avec mon pro
 \end{exer}
 \begin{sol}
 	Raisonnons par récurrence, pour n = 2 on a :\\
-	$P(A_{1} \cap A_{2}) = P(A_{1})P(A_{2}|A_{1})$, c'est vrai car c'est la formule de labprobabilité conditionnelle.\\
-	Supposons que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$ est vrai à l'ordre n et montrons qu'il est aussi vrai à l'ordre n+1.\\
+	$P(A_{1} \cap A_{2}) = P(A_{1})P(A_{2}|A_{1})$, c'est vrai car c'est la formule de la probabilité conditionnelle.\\
+	Supposons que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$ est vrai à l'ordre n et montrons qu'il est aussi vrai à l'ordre $n+1$.\\
 	On a $P(\bigcap_{i=1}^{n+1} A_{i}) = P(\bigcap_{i=1}^{n}  A_{i} \cap A_{n+1})$. On a $P(A_{n+1}| \bigcap_{i=1}^{n} A_{i})=  \frac{P(\bigcap_{i=1}^{n+1} A_{i})}{P(\bigcap_{i=1}^{n} A_{i})}$. Ainsi $P(\bigcap{i=1}^{n+1} A_{i}) = P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}) P(\bigcap_{i=1}^{n} A_{i})$. Or par hypothèse des récurrence, $P(\bigcap_{i=1}^{n} A_{i}) = P(A_{1}) P(A_{2} | A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$. Donc $P(\bigcap{i=1}^{n+1} A_{i})  =P(A_{2}|A_{1}) \cdots P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}))$.\\
-	On peut en conclure alors que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$.
+	On peut en conclure alors que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$. \marginpar{$\square$}
+\end{sol}
 
+\begin{exer}
+	Un joueur 1 lance deux dés à 6 faces et un joueur 2 lance un dé à 12 faces. Celui qui a la plus grand score gagne (match nul si leur lancé sont égaux). Le jeu est-il équilibré ?
+\end{exer}
+
+\begin{sol}
+	D'abord calculons la probabilité d'avoir un match nul.\\
+	Notons $S_{1} \in [2,3,\cdots,12]$ et $S_{2} \in [1,2,\cdots, 12]$ les variables respectifs du joueur 1 et du joueur 2.\\
+	Pour qu'il y une égalité entre ces deux joueurs, il faut que $S_{1} = S_{2}$. Calculons alors $P(S_{1} = S_{2})$.\\
+	On a $P(S_{1}=S_{2})=\sum_{k=2}^{12} P(S_{1}=k \mbox{ et } S_{2}=k)$. Comme les lancés sont indépendants, on a $P(S_{1}=k \mbox{ et } P(S_{2})=k) = P(S_{1})P(S_{2})$. Ainsi on a $P(S_{1}=S_{2})=\sum_{k=2}^{12} P(S_{1}=k) P(S_{2})=k)$. Or $P(S_{2})=\frac{1}{12}$. Par suit $P(S_{1} = S_{2}) = \frac{1}{12} \sum_{k=2}^{12} P(S_{1}=k) = \frac{1}{12}(1-P(S_{1}=1))$. Or $P(S_{1})=0$. Donc $P(S_{1}=S_{2})=\frac{1}{12}$, c'est à dire la probabilité d'avoir un match nul est de $\frac{1}{12}$.\\
+	Ensuite calculons la probabilité pour que le joueur 1 gagne. Cela revient à dire que $S_{1}>S_{2}$, calculons alors $P(S_{1} > S_{2})$.\\
+	En utilisant la formule du probabilité total, on a $P(S
+	_{1} > S_{2}) = \sum_{k=2}^{12} P(S_{1}=k) P(S_{1}>S_{2}) | S_{1} = k)$. Or $P(S_{1}>S_{2}) | S_{1} = k) = P(S_{2} < k)$. Ainsi $P(S_{1} > S_{2}) = \sum_{k=2}^{12} P(S_{1}=k) P(S_{2}<k)$. On a $k-1$ nombre de cas dans le lancé du joueur 2, alors $P(S_{2}<k) = \frac{k-1}{12}$. Par suit $P(S_{1} > S_{2}) = \frac{1}{12}\sum_{k=2}^{12} P(S_{1}=k)(k-1) = \frac{1}{12}(\sum_{k=2}^{12} kP(S_{1}=k)-\sum_{k=2}^{12} P(S_{1}=k)) = \frac{1}{12} (7-1) = \frac{6}{12} = \frac{1}{2}$. Donc $P(S_{1}>S_{2}) = \frac{1}{2}$.\\
+	Enfin montrons la probabilité pour que le joueur 2 gagne. Cela revient à dire que $S_{2} > S_{1}$. Calculons $P(S_{2} > S_{1})$.\\
+	$P(S_{2}> S_{1}) = 1 - P(S_{1} < S_{2}) - P(S_{1}=S_{2})=1 - \frac{1}{2} - \frac{1}{12} = \frac{5}{12}$. Ainsi $P(S_{2} > S_{1})= \frac{5}{12}$.
+	Conclusion, on voit clairement que le joueur 1 est plus avantageux par rapport au joueur 2 car il a une probabilité $50 \%$ pour gagné alors que l'autre a un probabilité de $41,7\%$ de gagné. Donc le jeu n'est pas equilibré. \marginpar{$\square$}
 \end{sol}
 \end{document}

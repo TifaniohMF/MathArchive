@@ -54,22 +54,30 @@ Prénons un exemple, si on lance un dé à 6 face. On a $\omega = 5$, $\Omega = 
 On dit que deux évenements sont incompatibles si $A \cap B = \emptyset$.
 
 \section{Probabilité}
-$\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\Omega$ est l'ensemble de tous les résultats possibles. $\mathcal{F}$ est appelé un tribus et ($\mathcal{F}, \Omega$) un mesure de probabilté.
+$\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\Omega$ est l'ensemble de tous les résultats possibles. $\mathcal{F}$ est appelé un tribus et ($\mathcal{F}, \Omega$) un espace mesurable.
 
 \begin{defin}
-	Un probabilité verifie les condition suivantes:
+	Une mesure de probabilité (ou probabilité) est une application P de $\mathcal{F}$ vers [0, 1] qui verifie les conditions suivantes:
 	\begin{enumerate}
 		\item P($\Omega$) = 1 et P($\emptyset$) = 0,
 		\item Soit $(A_{i})_{i \in \mathbb{N}}$ un collection de famille d'évenement finie ou dénombrable. Si les $A_{i}$ sont deux à deux disjoints, on a $P(\bigcup_{i \in  \mathbb{N}}A_{i}) = \sum_{i \in \mathbb{N}} P(A_{i})$ ($\sigma$-additivité)
 	\end{enumerate}
-\end{defin}
+	Le triplet $(\Omega, \mathcal{F}, P)$ est un espace de probabilité. On dit qu'un probabilité d'un évenement A est presque sûr si $P(A) = 1$, il est négligeable si $P(A)=0$.
+\end{defin} 
 
 \begin{prop}
 	\begin{enumerate}
 		\item $P(A^{c}) = 1 - P(A)$,
-		\item Si $B \subset A$, $P(A \backslash B) = P(A) - P(B)$
+		\item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$,
 		\item Si $A \subset B$, alors $P(A) \leq P(B)$,
-
+		\item Soit $(A_{i})_{i \in \mathbb{N}}$ une famille d'évenement finie ou dénombrable. On a\\ $P(B) = \sum_{i \in \mathbb{N}} P(A_{i} \cap B)$ (\textbf{Formule de décomposition})
 	\end{enumerate}
 \end{prop}
+\textit{Preuve.}
+\begin{enumerate}
+	\item Montrons que $P(A^{c}) = 1 - P(A)$,\\
+	On sait que $A \cup A^{c} = \Omega$, Comme $A$ et $A^{c}$ sont disjoints. D'après $\sigma$-additivité, on a $P(A \cup A^{c}) = P(A) + P(A^{c})$. Or $P(A \cup A^{c})=P(\Omega)=1$. Donc $P(A^{c}) = 1 - P(A)$.
+	\item Montrons que $P(A \cup B) = P(A) + P(B) - P(A \cap B)$,\\
+		On peut décomposer $A \cup B$ comme suit, $A \cup B = A \cup (B \cap A^{c})$. A et $B \cap A^{c}$ sont disjoints. D'après $\sigma$-additivité, on a $P(A \cup (B \cap A^{c})) = P(A) + P(B \cap A^{c})$. En décomposant aussi B, on a $B = (B \cap A) \cup (B \cup A^{c})$. Par suit, on a $P(B) = P(B \cap A) \cup (B \cup A^{c}) = P(B \cap A) + P(B \cup A^{c})$. On a alors $P(B \cup A^{c}) = P(B) - P(A \cap B)$. D'où $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+\end{enumerate}
 \end{document}

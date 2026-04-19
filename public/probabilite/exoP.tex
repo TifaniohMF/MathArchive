@@ -40,4 +40,16 @@ Chaque exercice et les énoncés dans cette document est démontrer avec mon pro
 	Soient A et B deux évenement et $\Omega$ l'ensemble de tous les évenements. Supposons que A et B sont indépendant. On sait que $\Omega = A \cup A^{c}$, on peut donc écrire B comme suit $B = B \cap \Omega = (B \cap A) \cup (B \cap A^{c})$.Comme $(B \cap A)$ et $(B \cap A^{c})$ sont disjoints alors d'après la $\sigma$-additivité, on a  $P(B) = P(B \cap A) + P(B \cap A^{c}$. Par hypothèse on a $P(A \cap B) = P(A)P(B)$. Ainsi, on a $P(B \cap A^{c} = P(B) - P(A)P(B)$ cela implique que $P(B \cap A^{c}) = P(B)(1-P(A))$ cela implique encore que  $P(B \cap A^{c}) = P(B)P(A^{c})$.\\ D'où B et $A^{c}$ sont indépendant.\\ \\
 	Pour l'autre on utilisant la loi de Morgan, on a $A^{c} \cap B^{c} = (A \cup B)^{c}$. Ainsi $P(A^{c} \cap B^{c}) = 1 - P(A \cup B) = 1 - P(A) - P(B) + P(A)P(B) = 1-P(A) -P(B)(1 - P(A)) = P(A^{c}) -P(B)P(A^{c}) = P(A^{c})(1-P(B)) = P(A^{c})P(B^{v})$.\\ D'où $A^{c}$ et $B^{c}$ sont indépendant.
 \end{sol} 
+
+\begin{exer}
+	Montrer que si P($\bigcap_{i \in \mathbb{N}} A_{i}$) > 0, alors $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$.
+\end{exer}
+\begin{sol}
+	Raisonnons par récurrence, pour n = 2 on a :\\
+	$P(A_{1} \cap A_{2}) = P(A_{1})P(A_{2}|A_{1})$, c'est vrai car c'est la formule de labprobabilité conditionnelle.\\
+	Supposons que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$ est vrai à l'ordre n et montrons qu'il est aussi vrai à l'ordre n+1.\\
+	On a $P(\bigcap_{i=1}^{n+1} A_{i}) = P(\bigcap_{i=1}^{n}  A_{i} \cap A_{n+1})$. On a $P(A_{n+1}| \bigcap_{i=1}^{n} A_{i})=  \frac{P(\bigcap_{i=1}^{n+1} A_{i})}{P(\bigcap_{i=1}^{n} A_{i})}$. Ainsi $P(\bigcap{i=1}^{n+1} A_{i}) = P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}) P(\bigcap_{i=1}^{n} A_{i})$. Or par hypothèse des récurrence, $P(\bigcap_{i=1}^{n} A_{i}) = P(A_{1}) P(A_{2} | A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$. Donc $P(\bigcap{i=1}^{n+1} A_{i})  =P(A_{2}|A_{1}) \cdots P(A_{n+1}| \bigcap_{i=1}^{n} A_{i}))$.\\
+	On peut en conclure alors que $P(\bigcap_{i=1}^{n}) = P(A_{1}) P(A_{2}|A_{1}) P(A_{3}| A_{2} \cap A_{1}) \cdots P(A_{n}|\bigcap_{i=1}^{n-1} A_{i})$.
+
+\end{sol}
 \end{document}

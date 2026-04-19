@@ -25,6 +25,11 @@ MathArchive/
 ├── documents.html
 ├── public
 │   ├── favicon.ico
+│   ├── probabilite
+│   │   ├── ExoP.pdf
+│   │   ├── ExoP.tex
+│   │   ├── probabilite.pdf
+│   │   └── probabilite.tex
 │   └── topologie
 │       ├── topologie.pdf
 │       └── topologie.tex

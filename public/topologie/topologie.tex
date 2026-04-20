@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt]{report}
 
 % =======================
 % IMPORTATION DES PACKAGES
@@ -15,7 +15,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \title{TOPOLOGIE}
-\date{}
+\date{\today}
 \author{}
 
 \theoremstyle{break}
@@ -31,9 +31,17 @@
 
 \maketitle
 
-Ceci n'est pas a priori un book, ces sont justes des notes.
+\textbf{PRÉCISION}\\
+Je tient à préciser que ceci n' est pas un book mais juste un recueille des notes pour approfondir mes connaissances en mathématiques. 
+Tout en développant mes compétences en rédaction scientifique.
+Je le reformule avec mes propres mots, sauf les sous-titres.
+Si l'envie vous tente, vous pouvez consulter mes notes.
 
-\section{Espace topologique}
+\tableofcontents
+
+\chapter{ESPACE TOPOLOGIQUE}
+
+\section{Espace topologique et propriété}
 \begin{defin}
 Soit X un espace vectoriel normé et $\tau$ un famille d'ouvert qui contient les partis de X.
 On dit que $\tau$ est un topologie si elle vérifie les conditions suivants:
@@ -69,7 +77,7 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
 	Par définition de $\tau$, $\emptyset$ et X $\in \tau$ car $X\backslash \emptyset = X \in \tau$ et $X\backslash X = \emptyset \in \tau$.\\
 	Soit $O_{1}, O_{2} \in \tau$, on sait que $X\backslash O_{1}$ et $X \backslash O_{2}$ sont de cardinal finie. Donc on a $O_{1} \cap O_{2}$ est aussi de cardinal finie. Ainsi $O_{1} \cap O_{2} \in \tau$.\\
 		Soit $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcup_{i \in \mathbb{N}} O_{i} = X \backslash (\bigcap_{i \in \mathbb{N}} O_{i})$ est finie, donc $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$.\\
-	On conclut alors que $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie sur X.
+	On conclut alors que $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie sur X. \marginpar{$\square$}
 \end{enumerate}
 
 \end{document}

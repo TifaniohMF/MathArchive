@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt, french]{article}
+\documentclass[a4paper, 12pt, french]{report}
 
 % ========================
 % IMPORTATION DES PACKAGES
@@ -30,7 +30,15 @@
 
 \maketitle
 
-\part{ESPACE PROBABILISÉ}
+\textbf{PRÉCISION} \\
+Ceci n'est pas à priori un book, cette document est un réceuille de note pour comprendre et approfondir mes connaissances en mathématiques.
+Ce document est crée à partir du language de programmation latex. Même si c'est un note si vous trouvez que cela peut vous être aider que ce soit dans vous exercice ou juste pour comprendre.
+Vous pouvez le consulter et même le télécharger.
+Mais je précise que, j'ai les reformuler moi même selon mes propres compréhension.
+
+\tableofcontents
+
+\chapter{ESPACE PROBABILISÉ}
 
 \section{Vocabulaire}
 
@@ -79,5 +87,10 @@ $\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\O
 	On sait que $A \cup A^{c} = \Omega$, Comme $A$ et $A^{c}$ sont disjoints. D'après $\sigma$-additivité, on a $P(A \cup A^{c}) = P(A) + P(A^{c})$. Or $P(A \cup A^{c})=P(\Omega)=1$. Donc $P(A^{c}) = 1 - P(A)$.
 	\item Montrons que $P(A \cup B) = P(A) + P(B) - P(A \cap B)$,\\
 		On peut décomposer $A \cup B$ comme suit, $A \cup B = A \cup (B \cap A^{c})$. A et $B \cap A^{c}$ sont disjoints. D'après $\sigma$-additivité, on a $P(A \cup (B \cap A^{c})) = P(A) + P(B \cap A^{c})$. En décomposant aussi B, on a $B = (B \cap A) \cup (B \cup A^{c})$. Par suit, on a $P(B) = P(B \cap A) \cup (B \cup A^{c}) = P(B \cap A) + P(B \cup A^{c})$. On a alors $P(B \cup A^{c}) = P(B) - P(A \cap B)$. D'où $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+    \item Montrons que si $A \subset B$, alors $P(A) \leq P(B)$,\\
+     Supposons que $A \subset B$, considérons deux ensembles deux à deux disjoints A et B \textbackslash A. On a $B = A \cup (B \cap A^{c})$ (car par hypothèse $A \cup B = B$). Par suite $P(B) = P(A) + P(B \cap A^{c}$). Comme $P(B \cap A^{c}) \geq 0$. \\Donc on peut en conclure que $P(B)>P(A)$.
+     \item On peut écrire $B = B \cap \Omega =  B \cap (\bigcup_{i \in I} A_{i})$. D'après la distributivité on a $B = \bigcup_{i \in I} (B \cap A_{i})$. 
+     Comme les $A_{i}$ sont deux à deux disjoints alors ($B \cap A_{i}$) sont deux à deux disjoints. Donc on a $P(B) = P(\bigcup_{i} (B \cap A_{i}) = \sum_{i \in I} P(B \cap A_{i}))$.\\
+     D'où $P(B) = \sum_{i \in I} P(B \cap A_{i})$.  \marginpar{$\square$}
 \end{enumerate}
 \end{document}

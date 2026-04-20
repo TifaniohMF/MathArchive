@@ -21,6 +21,7 @@
 \newtheorem{defin}{Définition}[section]
 \newtheorem{prop}[defin]{Proposition}
 \newtheorem{theo}[defin]{Théorème}
+\newtheorem{coro}[defin]{Corollaire}
 
 \title{PROBABILITÉ}
 \author{}
@@ -78,7 +79,7 @@ $\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\O
 		\item $P(A^{c}) = 1 - P(A)$,
 		\item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$,
 		\item Si $A \subset B$, alors $P(A) \leq P(B)$,
-		\item Soit $(A_{i})_{i \in \mathbb{N}}$ une famille d'évenement finie ou dénombrable. On a\\ $P(B) = \sum_{i \in \mathbb{N}} P(A_{i} \cap B)$ (\textbf{Formule de décomposition})
+		\item Soit $(A_{i})_{i \in \mathbb{N}}$ une famille d'évenement finie ou dénombrable deux à deux disjoints tel que $\sum_{i \in \mathbb{N}} P(A_{1}) = 1$. On a\\ $P(B) = \sum_{i \in \mathbb{N}} P(A_{i} \cap B)$ (\textbf{Formule de décomposition})
 	\end{enumerate}
 \end{prop}
 \textit{Preuve.}
@@ -93,4 +94,43 @@ $\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\O
      Comme les $A_{i}$ sont deux à deux disjoints alors ($B \cap A_{i}$) sont deux à deux disjoints. Donc on a $P(B) = P(\bigcup_{i} (B \cap A_{i}) = \sum_{i \in I} P(B \cap A_{i}))$.\\
      D'où $P(B) = \sum_{i \in I} P(B \cap A_{i})$.  \marginpar{$\square$}
 \end{enumerate}
+
+\section{Probabilité sur des ensembles finie ou dénombrable}
+\begin{prop}
+     Pour tout $A \subset \mathcal{F}$, on a $P(A) = \sum_{\omega \in A} P(\{ \omega\})$.
+\end{prop}
+\textit{Preuve.}\\
+A peut s'écrire sous la forme $A = (A \cap \omega)_{\omega \in \Omega} = (A \cap \{\omega\})_{\omega \in A} \cup (A \cap \{\omega\})_{\omega \not\in A}$. Ces deux ensembles sont deux à deux disjoints. Donc d'après $\sigma$-additivité, on a
+$P(A) = P( (A \cap \{\omega\})_{\omega \in A} \cup (A \cap \{\omega\})_{\omega \not\in A}) = P((A \cap \{\omega\})_{\omega \in A}) + P((A \cap \{\omega\})_{\omega \not\in A}) = \sum_{\omega\in A} P(A \cap \{ \omega \}) + \sum_{\omega \not\in A} P(A \cap \{ \omega \}) = \sum_{\omega \in A} P(\{ \omega \})$.\\
+D'où $P(A) = \sum_{\omega \in A} P(\{ \omega\})$.
+
+\begin{defin}
+        $P(\{ \omega \}) = \frac{1}{|\Omega|}$
+\end{defin}
+
+\begin{coro}
+        $P(A) = \frac{|A|}{|\Omega|}$
+\end{coro}
+
+\section{Dénombrement}
+\begin{enumerate}
+       \item Le nombre de permutation de $\{1, 2, \cdots, n\}$ dans lui même est $n!$.
+       \item Le nombre d' arragement $A_{n}^{k} = \frac{n!}{(n-k)!}$.
+       \item Le coefficient binomial $C_{n}^{k} = \frac{n!}{k!(n-k)!}$.
+\end{enumerate}
+
+\section{Probabilité conditionnelle et Indépendance}
+\begin{defin}
+      $P(A | B) = \frac{P(A \cap B)}{P(B)}$
+\end{defin}
+
+\begin{prop}
+\textbf{Formule de décomposition :} $P(A) = P(A | B)P(B) + P(A | B^{c}) P(B^{c})$ \\
+\textbf{Formule de Bayes :} $P(B | A) = \frac{P(A | B) P(B)}{P(A | B)P(B) + P(A | B^{c}) P(B^{c})}$
+\end{prop}
+
+\begin{defin}
+On dit que deux événements A et B sont indépendants si $P(A \cap B) = P(A)P(B)$
+\end{defin}
+Si deux événements A et B sont indépendants, alors la probabilité conditionnelle devient $P(A|B)=P(A)$.
 \end{document}

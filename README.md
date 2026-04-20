@@ -95,7 +95,7 @@ Pour ajouter de nouveaux documents, modifiez le fichier `public/pdfs.json`. Ce f
 
 ### 🤝 Contribution
 
-1. Forkez le projet.
+1. Forkez le projet
 2. Créez une branche dédiée :  
 
 ```bash

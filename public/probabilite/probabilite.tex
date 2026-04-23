@@ -71,7 +71,7 @@ $\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\O
 	Une mesure de probabilité (ou probabilité) est une application P de $\mathcal{F}$ vers [0, 1] qui verifie les conditions suivantes:
 	\begin{enumerate}
 		\item P($\Omega$) = 1 et P($\emptyset$) = 0,
-		\item Soit $(A_{i})_{i \in \mathbb{N}}$ un collection de famille d'évenement finie ou dénombrable. Si les $A_{i}$ sont deux à deux disjoints, on a $P(\bigcup_{i \in  \mathbb{N}}A_{i}) = \sum_{i \in \mathbb{N}} P(A_{i})$ ($\sigma$-additivité)
+		\item Soit $(A_{i})_{i \in \mathbb{N}}$ un collection de famille d'évenement finie ou dénombrable. Si les $A_{i}$ sont deux à deux disjoints, on a $P(\displaystyle\bigcup_{i \in  \mathbb{N}}A_{i}) = \displaystyle\sum_{i \in \mathbb{N}} P(A_{i})$ ($\sigma$-additivité)
 	\end{enumerate}
 	Le triplet $(\Omega, \mathcal{F}, P)$ est un espace de probabilité. On dit qu'un probabilité d'un évenement A est presque sûr si $P(A) = 1$, il est négligeable si $P(A)=0$.
 \end{defin} 
@@ -81,7 +81,7 @@ $\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\O
 		\item $P(A^{c}) = 1 - P(A)$,
 		\item $P(A \cup B) = P(A) + P(B) - P(A \cap B)$,
 		\item Si $A \subset B$, alors $P(A) \leq P(B)$,
-		\item Soit $(A_{i})_{i \in \mathbb{N}}$ une famille d'évenement finie ou dénombrable deux à deux disjoints tel que $\sum_{i \in \mathbb{N}} P(A_{1}) = 1$. On a\\ $P(B) = \sum_{i \in \mathbb{N}} P(A_{i} \cap B)$ (\textbf{Formule de décomposition})
+		\item Soit $(A_{i})_{i \in \mathbb{N}}$ une famille d'évenement finie ou dénombrable deux à deux disjoints tel que $\displaystyle\sum_{i \in \mathbb{N}} P(A_{1}) = 1$. On a\\ $P(B) = \displaystyle\sum_{i \in \mathbb{N}} P(A_{i} \cap B)$ (\textbf{Formule de décomposition})
 	\end{enumerate}
 \end{prop}
 \textit{Preuve.}
@@ -92,43 +92,43 @@ $\mathcal{F} = P(\Omega), \; \mathcal{F}$ est ici une partie de $\Omega$ où $\O
 		On peut décomposer $A \cup B$ comme suit, $A \cup B = A \cup (B \cap A^{c})$. A et $B \cap A^{c}$ sont disjoints. D'après $\sigma$-additivité, on a $P(A \cup (B \cap A^{c})) = P(A) + P(B \cap A^{c})$. En décomposant aussi B, on a $B = (B \cap A) \cup (B \cup A^{c})$. Par suit, on a $P(B) = P(B \cap A) \cup (B \cup A^{c}) = P(B \cap A) + P(B \cup A^{c})$. On a alors $P(B \cup A^{c}) = P(B) - P(A \cap B)$. D'où $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
     \item Montrons que si $A \subset B$, alors $P(A) \leq P(B)$,\\
      Supposons que $A \subset B$, considérons deux ensembles deux à deux disjoints A et B \textbackslash A. On a $B = A \cup (B \cap A^{c})$ (car par hypothèse $A \cup B = B$). Par suite $P(B) = P(A) + P(B \cap A^{c}$). Comme $P(B \cap A^{c}) \geq 0$. \\Donc on peut en conclure que $P(B)>P(A)$.
-     \item On peut écrire $B = B \cap \Omega =  B \cap (\bigcup_{i \in I} A_{i})$. D'après la distributivité on a $B = \bigcup_{i \in I} (B \cap A_{i})$. 
-     Comme les $A_{i}$ sont deux à deux disjoints alors ($B \cap A_{i}$) sont deux à deux disjoints. Donc on a $P(B) = P(\bigcup_{i} (B \cap A_{i}) = \sum_{i \in I} P(B \cap A_{i}))$.\\
-     D'où $P(B) = \sum_{i \in I} P(B \cap A_{i})$.  \marginpar{$\square$}
+     \item On peut écrire $B = B \cap \Omega =  B \cap (\displaystyle\bigcup_{i \in I} A_{i})$. D'après la distributivité on a $\displaystyle B = \bigcup_{i \in I} (B \cap A_{i})$. 
+     Comme les $A_{i}$ sont deux à deux disjoints alors ($B \cap A_{i}$) sont deux à deux disjoints. Donc on a $P(B) = P(\displaystyle\bigcup_{i} (B \cap A_{i}) = \displaystyle\sum_{i \in I} P(B \cap A_{i}))$.\\
+     D'où $\displaystyle P(B) = \displaystyle\sum_{i \in I} P(B \cap A_{i})$.  \marginpar{$\square$}
 \end{enumerate}
 
 \section{Probabilité sur des ensembles finie ou dénombrable}
 \begin{prop}
-     Pour tout $A \subset \mathcal{F}$, on a $P(A) = \sum_{\omega \in A} P(\{ \omega\})$.
+     Pour tout $A \subset \mathcal{F}$, on a $P(A) = \displaystyle\sum_{\omega \in A} P(\{ \omega\})$.
 \end{prop}
 \textit{Preuve.}\\
 A peut s'écrire sous la forme $A = (A \cap \omega)_{\omega \in \Omega} = (A \cap \{\omega\})_{\omega \in A} \cup (A \cap \{\omega\})_{\omega \not\in A}$. Ces deux ensembles sont deux à deux disjoints. Donc d'après $\sigma$-additivité, on a
-$P(A) = P( (A \cap \{\omega\})_{\omega \in A} \cup (A \cap \{\omega\})_{\omega \not\in A}) = P((A \cap \{\omega\})_{\omega \in A}) + P((A \cap \{\omega\})_{\omega \not\in A}) = \sum_{\omega\in A} P(A \cap \{ \omega \}) + \sum_{\omega \not\in A} P(A \cap \{ \omega \}) = \sum_{\omega \in A} P(\{ \omega \})$.\\
-D'où $P(A) = \sum_{\omega \in A} P(\{ \omega\})$.
+$P(A) = P( (A \cap \{\omega\})_{\omega \in A} \cup (A \cap \{\omega\})_{\omega \not\in A}) = P((A \cap \{\omega\})_{\omega \in A}) + P((A \cap \{\omega\})_{\omega \not\in A}) = \displaystyle\sum_{\omega\in A} P(A \cap \{ \omega \}) + \displaystyle\sum_{\omega \not\in A} P(A \cap \{ \omega \}) = \sum_{\omega \in A} P(\{ \omega \})$.\\
+D'où $P(A) = \displaystyle\sum_{\omega \in A} P(\{ \omega\})$.
 
 \begin{defin}
         $P(\{ \omega \}) = \frac{1}{|\Omega|}$
 \end{defin}
 
 \begin{coro}
-        $P(A) = \frac{|A|}{|\Omega|}$
+       $P(A) = \frac{|A|}{|\Omega|}$
 \end{coro}
 
 \section{Dénombrement}
 \begin{enumerate}
        \item Le nombre de permutation de $\{1, 2, \cdots, n\}$ dans lui même est $n!$.
-       \item Le nombre d' arragement $A_{n}^{k} = \frac{n!}{(n-k)!}$.
-       \item Le coefficient binomial $C_{n}^{k} = \frac{n!}{k!(n-k)!}$.
+       \item Le nombre d' arragement $A_{n}^{k} = \displaystyle\frac{n!}{(n-k)!}$.
+       \item Le coefficient binomial $C_{n}^{k} = \displaystyle\frac{n!}{k!(n-k)!}$.
 \end{enumerate}
 
 \section{Probabilité conditionnelle et Indépendance}
 \begin{defin}
-      $P(A | B) = \frac{P(A \cap B)}{P(B)}$
+     $P(A | B) = \frac{P(A \cap B)}{P(B)}$
 \end{defin}
 
 \begin{prop}
 \textbf{Formule de décomposition :} $P(A) = P(A | B)P(B) + P(A | B^{c}) P(B^{c})$ \\
-\textbf{Formule de Bayes :} $P(B | A) = \frac{P(A | B) P(B)}{P(A | B)P(B) + P(A | B^{c}) P(B^{c})}$
+\textbf{Formule de Bayes :} $ P(B | A) = \displaystyle\frac{P(A | B) P(B)}{P(A | B)P(B) + P(A | B^{c}) P(B^{c})}$
 \end{prop}
 
 \begin{defin}

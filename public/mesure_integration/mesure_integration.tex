@@ -1,0 +1,49 @@
+\documentclass[a4paper, 12pt, french]{article}
+
+% ========================
+% IMPORTATION DES PACKAGES
+% ========================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{lmodern}
+\usepackage{theorem}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{babel}
+
+\pagestyle{headings}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\theoremstyle{break}
+\theoremheaderfont{\scshape}
+\theorembodyfont{\upshape}
+
+\newtheorem{enon}{Énoncé}[section]
+\newtheorem{preuve}{Preuve}[section]
+
+\title{MÉSURE ET INTÉGRATION}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{center}\section{Théorie des ensembles}\end{center}
+\begin{enon}
+       Soit $(A_{n})_{n \in \mathbb{N}} \subseteq P(X)$.
+       \begin{enumerate}
+               \item Montrer que  $\displaystyle\bigcup_{n \in \mathbb{N}} A_{n} =  \bigsqcup_{n \in \mathbb{N}} B_{n}$.
+               \item Est ce qu'on peut écrire  $\displaystyle\bigcup_{n \in \mathbb{N} } A_{n}$ comme une suite croissante ? respectivement comme une suite décroissante ?
+       \end{enumerate}
+\end{enon}
+\begin{preuve}
+      \begin{enumerate}
+              \item Soit $(A_{n})_{n \in \mathbb{N}} \subseteq P(X)$.\\ Posons $ B_{0}= A_{0}, \; B_{n} = A_{n} \backslash \bigcup_{n=1}^{n-1} A_{n}$ pour $n \geq 1$. On peut voir facilement que les $B_{n}$ sont deux à deux disjoints.\\
+              D'abord montrons que $\displaystyle\bigcup_{n \in \mathbb{N}} A_{n} \subseteq \bigsqcup_{n \in \mathbb{N}} B_{n}$.\\
+              Soit $ x \in \displaystyle\bigcup_{n \in \mathbb{N}} A_{n}$, alors il existe $n_{0}$ tel que $x \in A_{n_{0}}$. Alors $x \not\in A_{k<n_{0}}$, par suite $x \not\in \displaystyle\bigcup_{k<n_{0}} A_{k}$. Donc $x \in A_{n_{0}} \backslash\displaystyle\bigcup_{n \in \mathbb{N}} A_{n} = B_{n_{0}}$.
+              Ainsi $x \in \displaystyle\bigsqcup_{n \in \mathbb{N}} B_{n}$.
+      \end{enumerate}
+\end{preuve}
+\end{document}

@@ -6,13 +6,15 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=1.5cm]{geometry}
+\usepackage[margin=2cm]{geometry}
 \usepackage{lmodern}
 \usepackage{theorem}
 \usepackage{amsfonts, amsmath, amssymb}
 \usepackage[french]{babel}
 
 \renewcommand{\familydefault}{\sfdefault}
+
+\pagestyle{headings}
 
 \title{TOPOLOGIE}
 \date{\today}
@@ -84,4 +86,12 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
       Soit ($X, \tau_{1}$), (X, $\tau_{2}$), des espaces topologiques. On dit que $\tau_{1}$ est moins fine que $\tau_{2}$ ou que $\tau_{2}$ plus fine que $\tau_{1}$ si $\tau_{1} \subseteq \tau_{2}$.
 \end{defin}
 
+
+\chapter{LIMITE ET CONTINUITÉ}
+
+\section{Filtre et ultrafiltre}
+
+\begin{defin}
+      Soit $(A, \preceq)$ un ensemble dirigé. On dit que $B \subseteq A$ est cofinal si pour tout $\alpha \in A$, on peut trouver $\beta \in B$ tel que $\alpha \leq \beta$.
+\end{defin}
 \end{document}

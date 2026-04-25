@@ -1,0 +1,60 @@
+\documentclass[a4paper,12pt,french]{report}
+
+% =======================
+% IMPORTATION DES PACKAGES
+% =======================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{theorem}
+\usepackage{lmodern}
+\usepackage{amssymb, amsmath, amsfonts}
+\usepackage{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\pagestyle{headings}
+
+\theoremstyle{break}
+\theoremheaderfont{\scshape}
+\theorembodyfont{\upshape}
+
+\newtheorem{defin}{Définition}[section]
+\newtheorem{theo}[defin]{Théorème}
+\newtheorem{prop}[defin]{Proposition}
+
+\title{MÉSURE ET INTÉGRATION}
+\date{\today}
+\author{}
+
+\begin{document}
+\maketitle
+\textsc{Précision} \\
+Ceci est juste des notes pour m'aider à comprendre la théorie de la mesure et intégration tout en apprenant latex.
+Mais si cela peut vous aider, vous pouvez le consulter et le télécharger.
+
+\tableofcontents
+
+\chapter{THÉORIE DES ENSEMBLES}
+
+\section{Théorie des ensembles}
+\begin{defin}
+Soit $X$ un ensemble non vide et $(A_{i})_{i \in \mathbb{N}}.$ 
+      $$\bigcup_{i \in \mathbb{N}} A_{i} := \{ x \in X | \mbox{ il existe } i_{0} \mbox{ tel que } x \in A_{i_{0}}\}.$$
+      $$\bigcap_{i \in \mathbb{N}} A_{i} := \{ x \in X | \mbox{ pour tout } i_{0} \mbox{ tel que } x \in A_{i_{0}}\}.$$
+      $$A \backslash B := \{ x \in A \mbox{ et } x \not\in B\}.$$
+      $$X\backslash A := \{ x \not\in A\}.$$
+      $$ A \triangle B := (A \backslash  B) \cap (B \backslash A).$$ 
+\end{defin}
+
+\begin{prop}[Loi de Morgan]
+     $$X\backslash \left(\bigcup_{i \in \mathbb{N}} A_{i}\right) = \bigcap_{i \in \mathbb{N}} (X \backslash A_{i}).$$
+     $$X\backslash \left(\bigcap_{i \in \mathbb{N}} A_{i}\right) = \bigcup_{i \in \mathbb{N}} (X \backslash A_{i}).$$
+\end{prop}
+
+\begin{prop}[Distributivité]
+     $$A \cap (B \cup C) = (A \cap B) \cup (A \cap C).$$
+     $$A \cup (B \cap C) = (A \cup B) \cap (A \cup C).$$
+\end{prop}
+\end{document}

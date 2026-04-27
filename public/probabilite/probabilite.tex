@@ -25,6 +25,7 @@
 \newtheorem{theo}[defin]{Théorème}
 \newtheorem{coro}[defin]{Corollaire}
 
+
 \title{PROBABILITÉ}
 \author{}
 \date{\today}
@@ -135,4 +136,21 @@ D'où $P(A) = \displaystyle\sum_{\omega \in A} P(\{ \omega\})$.
 On dit que deux événements A et B sont indépendants si $P(A \cap B) = P(A)P(B)$
 \end{defin}
 Si deux événements A et B sont indépendants, alors la probabilité conditionnelle devient $P(A|B)=P(A)$.
+
+\chapter{VARIABLES ALÉATOIRES}
+\section{Exemple de loi}
+\subsection*{Loi de Bernouilli de paramètres p}
+$P(X=0) = 1-p$ et $P(X=1)=p$
+
+\subsection*{Loi uniforme}
+$P(X = k)=\displaystyle\frac{1}{N}$.
+
+\subsection*{Loi Binomiale}
+$P(X=k)= \left(\begin{array}{c} n \\ k\end{array}\right) p^{k}(1-p)^{n-k}$.
+
+\subsection*{Loi de poison de paramètres $\lambda$}
+$P(X=k)=e^{-\lambda} \frac{\lambda^{k}}{k!}$
+
+\subsection*{Loi géometrique de paramètres $\lambda$}
+$P(X=k)=(1-\lambda)^{k-1}\lambda$
 \end{document}

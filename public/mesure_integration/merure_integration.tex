@@ -57,4 +57,32 @@ Soit $X$ un ensemble non vide et $(A_{i})_{i \in \mathbb{N}}.$
      $$A \cap (B \cup C) = (A \cap B) \cup (A \cap C).$$
      $$A \cup (B \cap C) = (A \cup B) \cap (A \cup C).$$
 \end{prop}
+
+\chapter{TRIBUS, CLAN ET CLASSE MONOTONE}
+\section{Terminologie}
+\begin{defin}[Clan]
+      Soit X un ensemble non vide. On dit que $\mathcal{A}$ est un clan sur X si elle verifie :
+      \begin{itemize}
+             \item $\emptyset \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par passage au complémentaire, c'est à dire pour $A \in \mathcal{A}$, on a $X \backslash A \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par réunion, c'est à dire pour $A, B \in \mathcal{A}$, on a $A \cup B \in \mathcal{A}$.
+      \end{itemize}
+\end{defin}
+
+\begin{defin}[Tribus]
+      Soit X un ensemble non vide. On dit que $\mathcal{A}$ est une tribu sur X si elle vérifie :
+      \begin{itemize}
+             \item $\emptyset \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par passage au complémentaire, c'est à dire pour $A \in \mathcal{A}$, on a $X \backslash A \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par réunion dénombrable, c'est à dire pour $(A_{n})_{n \in \mathcal{N}} \in \mathcal{A}$, on a $\displaystyle \bigcup_{n \in \mathcal{N}} A_{n} \in \mathcal{A}$.
+      \end{itemize}
+\end{defin}
+
+\begin{defin}[Classe monotone]
+       On dit que $\mathcal{A}$ est une classe monotone si elle vérifie : 
+       \begin{itemize}
+              \item $(A_{n})_{n \in \mathbb{N}} \nearrow A$, alors $\displaystyle\bigcup_{n \in \mathbb{N}} A_{n} \in \mathcal{A}$
+              \item $(A_{n})_{n \in \mathbb{N}} \searrow A$, alors $\displaystyle\bigcap_{n \in \mathbb{N}} A_{n} \in \mathcal{A}$
+       \end{itemize}
+\end{defin}
 \end{document}

@@ -44,7 +44,7 @@ Si l'envie vous tente, vous pouvez consulter mes notes.
 \chapter{ESPACE TOPOLOGIQUE}
 
 \section{Espace topologique et propriété}
-\begin{defin}
+\begin{defin}[Topologie]
 Soit X un espace vectoriel normé et $\tau$ un famille d'ouvert qui contient les partis de X.
 On dit que $\tau$ est un topologie si elle vérifie les conditions suivants:
 \begin{enumerate}
@@ -82,16 +82,49 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
 	On conclut alors que $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie sur X. \marginpar{$\square$}
 \end{enumerate}
 
-\begin{defin}
+\begin{defin}[Affinités de la topologie]
       Soit ($X, \tau_{1}$), (X, $\tau_{2}$), des espaces topologiques. On dit que $\tau_{1}$ est moins fine que $\tau_{2}$ ou que $\tau_{2}$ plus fine que $\tau_{1}$ si $\tau_{1} \subseteq \tau_{2}$.
 \end{defin}
 
+\begin{defin}[Base de la topologie]
+      Soit $(X, \tau)$ un espace topologique et $\mathcal{B} \subseteq \tau$. On dit que $\mathcal{B}$ est une base topologique si pour $O \in \tau$, il existe $(U_{i})_{i \in \mathbb{N}} \in \mathcal{B}}\mbox{ tel que } O = \displaystyle\bigcup_{i \in \mathbb{N}} U_{i}$. 
+\end{defin}
+
+\begin{theo}
+      Soit $(X, \tau)$ un espace topologique et $\mathcal{B} \subseteq \tau$. Lasse :
+      \begin{enumerate}
+               \item $\mathcal{B}$ est une base topologique de $\tau$,
+               \item Pour chaque $U \in \tau$ et $x \in U$, on peut trouver $O \in \mathcal{B}$ tel que $x \in O \subseteq U$.
+      \end{enumerate}
+\end {theo}
 
 \chapter{LIMITE ET CONTINUITÉ}
 
 \section{Filtre et ultrafiltre}
+\begin{defin}[Relation d'ordre]
+       Soit X un ensemble non vide. On dit que la relation $\succeq$ est une relation d'ordre si elle vérifie les propriété suivants:
+       \begin{itemize}
+              \item Reflexivité: pour tout $x \in X, \; x \succeq x$
+              \item Anti-symetrie:  pour tout $x, y \in X, x \succeq y, y \succeq x$, alors $x=y$,
+              \item Transitivité : pour tout $x,y,z \in X, x \succeq y \mbox{ et } y \succeq z$ alors $x \succeq  z$.
+       \end{itemize}
+       L'ensemble $(A, \succeq)$ est appelé ensemble ordonnée.
+\end{defin}
 
-\begin{defin}
+\begin{defin}[Filtrant à droite]
+        On dit que $(A, \succeq)$ est un ensemble dirigé ou un filtrant à droite si pour tout $\alpha, \beta \in (A \times A)$, il existe $\zeta \in A$ tel que $\alpha \succeq \zeta$ et $\beta \succeq \zeta$.
+\end{defin}
+
+\begin{defin}[Ensemble cofinal]
       Soit $(A, \preceq)$ un ensemble dirigé. On dit que $B \subseteq A$ est cofinal si pour tout $\alpha \in A$, on peut trouver $\beta \in B$ tel que $\alpha \leq \beta$.
+\end{defin}
+
+\begin{defin}[Filtre]
+       On dit que $\mathcal{F}$ est un filtre si elle vérifie les conditions suivants:
+       \begin{itemize}
+             \item $\emptyset \not\in \mathcal{F}$ et $X \in \mathcal{F}$,
+             \item $A_{1}, A_{2}, \cdots, A_{n} \in \mathcal{F}$, alors $\displaystyle \bigcap_{i \in \mathbb{N}} A_{i} \in \mathcal{F}$,
+             \item $A \in \mathcal{F}, \; B \in \mathcal{P(X)}$ tel que $A \subseteq B$, alors $B \in \mathcal{F}$.
+       \end{itemize}
 \end{defin}
 \end{document}

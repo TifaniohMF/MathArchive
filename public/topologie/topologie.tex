@@ -40,12 +40,15 @@ Je le reformule avec mes propres mots, sauf les sous-titres.
 Si l'envie vous tente, vous pouvez consulter mes notes.
 
 \tableofcontents
+% ==========
+% CHAPITRE 1 
+% ==========
 
 \chapter{ESPACE TOPOLOGIQUE}
 
 \section{Espace topologique et propriété}
 \begin{defin}[Topologie]
-Soit X un espace vectoriel normé et $\tau$ un famille d'ouvert qui contient les partis de X.
+Soit $X$ un espace vectoriel normé et $\tau$ un famille d'ouvert qui contient les partis de $X$.
 On dit que $\tau$ est un topologie si elle vérifie les conditions suivants:
 \begin{enumerate}
 	\item $\emptyset \in \tau$  et $X \in \tau$
@@ -53,7 +56,7 @@ On dit que $\tau$ est un topologie si elle vérifie les conditions suivants:
 	\item Si $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcap_{i \in \mathbb{N}} O_{i} \in \tau$
 \end{enumerate}
 \end{defin}
-Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
+Le couple $(X, \tau)$ est un espace topologique. $\tau$ est un ouvert.
 
 \begin{exe}
 	\begin{enumerate}
@@ -64,30 +67,30 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
 \end{exe}
 \textit{Preuve.}
 \begin{enumerate}
-	\item Soit (X, $\tau$) un espace topologique et P(X) l'ensemble des parties de X.\\
-	$\emptyset$ et X sont des parties de X, ainsi $\emptyset$ et X $\in \tau$.\\
+	\item Soit $(X, \tau)$ un espace topologique et $P(X)$ l'ensemble des parties de X.\\
+	$\emptyset$ et X sont des parties de X, ainsi $\emptyset$ et $X \in \tau$.\\
 	Soit $O_{1}, O_{2} \in \tau$, Si $O_{1} \cap O_{2} = \emptyset$ alors $O_{1} \cap O_{2} \in \tau$, sinon si $O_{1} \cap O_{2} \not= \emptyset$ et si $O_{1} \subset O_{2}$ alors $O_{1} \cap O_{2} = O_{1} \in \tau$ de même si $O_{2} \subset O_{1}$.\\
 	Soit $(O_{i})_{i \in \mathbb{N}} \in \tau$, $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$.\\
-	Ainsi $\tau = P(X)$ est bien une topologie sur X.
+	Ainsi $\tau = P(X)$ est bien une topologie sur $X$.
 
-	\item Soit (X, $\tau$) un espace topologique.\\
+	\item Soit $(X, \tau)$ un espace topologique.\\
 	Par définition de $\tau$, $\emptyset$ et X $\in \tau$.\\
 	On a $\emptyset \cap X = \emptyset \in \tau$, ainsi elle est stable par intersection.\\
 	On a $\emptyset \cup X = X \in \tau$, elle est stable par union.\\
-	Donc $\tau = \{ \emptyset, X\}$ est bien une topologie sur X.
-	\item Soit (X, $\tau$) un espace topologique.\\
-	Par définition de $\tau$, $\emptyset$ et X $\in \tau$ car $X\backslash \emptyset = X \in \tau$ et $X\backslash X = \emptyset \in \tau$.\\
+	Donc $\tau = \{ \emptyset, X\}$ est bien une topologie sur $X$.
+	\item Soit $(X, \tau)$ un espace topologique.\\
+	Par définition de $\tau$, $\emptyset$ et $X \in \tau$ car $X\backslash \emptyset = X \in \tau$ et $X\backslash X = \emptyset \in \tau$.\\
 	Soit $O_{1}, O_{2} \in \tau$, on sait que $X\backslash O_{1}$ et $X \backslash O_{2}$ sont de cardinal finie. Donc on a $O_{1} \cap O_{2}$ est aussi de cardinal finie. Ainsi $O_{1} \cap O_{2} \in \tau$.\\
 		Soit $(O_{i})_{i \in \mathbb{N}} \in \tau$, on a $\bigcup_{i \in \mathbb{N}} O_{i} = X \backslash (\bigcap_{i \in \mathbb{N}} O_{i})$ est finie, donc $\bigcup_{i \in \mathbb{N}} O_{i} \in \tau$.\\
 	On conclut alors que $\tau = \{ O \subset X, X \backslash O \mbox{ finie}\} \cap \{ \emptyset \}$ est une topologie sur X. \marginpar{$\square$}
 \end{enumerate}
 
 \begin{defin}[Affinités de la topologie]
-      Soit ($X, \tau_{1}$), (X, $\tau_{2}$), des espaces topologiques. On dit que $\tau_{1}$ est moins fine que $\tau_{2}$ ou que $\tau_{2}$ plus fine que $\tau_{1}$ si $\tau_{1} \subseteq \tau_{2}$.
+      Soit $(X, \tau_{1})$, $(X, \tau_{2})$, des espaces topologiques. On dit que $\tau_{1}$ est moins fine que $\tau_{2}$ ou que $\tau_{2}$ plus fine que $\tau_{1}$ si $\tau_{1} \subseteq \tau_{2}$.
 \end{defin}
 
 \begin{defin}[Base de la topologie]
-      Soit $(X, \tau)$ un espace topologique et $\mathcal{B} \subseteq \tau$. On dit que $\mathcal{B}$ est une base topologique si pour $O \in \tau$, il existe $(U_{i})_{i \in \mathbb{N}} \in \mathcal{B}}\mbox{ tel que } O = \displaystyle\bigcup_{i \in \mathbb{N}} U_{i}$. 
+      Soit $(X, \tau)$ un espace topologique et $\mathcal{B} \subseteq \tau$. On dit que $\mathcal{B}$ est une base topologique si pour $O \in \tau$, il existe $(U_{i})_{i \in \mathbb{N}} \in \mathcal{B}\mbox{ tel que } O = \displaystyle \bigcup_{i \in \mathbb{N}} U_{i}$. 
 \end{defin}
 
 \begin{theo}
@@ -97,6 +100,53 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
                \item Pour chaque $U \in \tau$ et $x \in U$, on peut trouver $O \in \mathcal{B}$ tel que $x \in O \subseteq U$.
       \end{enumerate}
 \end {theo}
+
+\begin{defin}[Fermé]
+      Soit $X$ un sous ensemble non vide. On dit que le sous ensemble $F$ de $X$ est fermé si son complémentaire est ouvert, c'est à dire $X\backslash F$ est ouvert alors $F$ est fermé.
+\end{defin}
+
+\begin{defin}[Ouvert]
+      Soit $X$ un ensemble non vide. On dit que $U$ est un ouvert de $X$ si pour tout $x \in U, \; \mbox{ il existe }\epsilon >0$  tel que $B(x,\epsilon) \subseteq U$
+\end{defin}
+
+\begin{theo}
+     \begin{enumerate}
+           \item $\emptyset$ et $X$ sont à la fois ouvert et fermé,
+           \item L'intersection de tous ensembles fermé (finie ou non) est fermé,
+           \item L'union de tous ensembles fermé est un fermé,
+           \item L'intersection de tous ensembles ouvert est un ouvert,
+           \item L'union de tous ensembles ouvert (finie ou non) est un ouvert.
+     \end{enumerate}
+\end{theo}
+
+\begin{defin}[Voisinage]
+     Soit $(X,\tau)$ un espace topologique et $V$ un sous ensemble de X.
+     \begin{itemize}
+            \item On dit que $V$ est voisinage de x dans $X$, s'il existe $U \in \tau$ tel que $x \in U \subset V$. On note $\mathcal{V}(x)$, l'ensemble de tous les voisinages de x.
+            \item De manière analogue, on dit que $V$ est voisinage de $A$ dans $X$, s'il existe $U \in \tau$ tel que $A \subset U \subset V$. On note $\mathcal{V}(A)$, l'ensemble de tous les voisinages de x.
+     \end{itemize}
+\end{defin} 
+
+\begin{theo}
+Soit $(X, \tau)$ un espace topologique.
+\begin{enumerate}
+      \item L'ensemble $\mathcal{V}(x)$ n'est jamais vide,
+      \item Soit $(V_{i})_{i \in \mathbb{N}} \in \mathcal{V}(x)$, alors $\displaystyle\bigcap_{i \in \mathbb{N}} V_{i} \in \mathcal{V}(x)$,
+      \item Soit $V \in \mathcal{V}(x)$, et $W \subset X$ alors $W \in \mathcal{V}(x)$.
+\end{enumerate}
+\end{theo}
+
+\begin{prop}
+ Soit $(X, \tau)$ un espace topologique et $V$ un sous ensemble de X. Lasse :
+ \begin{enumerate}
+         \item $V$ est un ouvert de $X$,
+         \item $V$ est une voisinage de chacun de ses points c'est à dire $V \in \mathcal{V}(x)$.
+ \end{enumerate}
+\end{prop}
+
+% ==========
+% CHAPITRE 2
+% ==========
 
 \chapter{LIMITE ET CONTINUITÉ}
 
@@ -126,5 +176,12 @@ Le couple (X, $\tau$) est un espace topologique. $\tau$ est un ouvert.
              \item $A_{1}, A_{2}, \cdots, A_{n} \in \mathcal{F}$, alors $\displaystyle \bigcap_{i \in \mathbb{N}} A_{i} \in \mathcal{F}$,
              \item $A \in \mathcal{F}, \; B \in \mathcal{P(X)}$ tel que $A \subseteq B$, alors $B \in \mathcal{F}$.
        \end{itemize}
+\end{defin}
+
+\begin{defin}
+Soit $\mathcal{F}$, un filtre
+\begin{enumerate}
+      \item Une suite généralisé est une suite $(x_{\alpha})_{\alpha \in A}$ où $A$ est un ensemble dirigé.
+\end{enumerate}
 \end{defin}
 \end{document}

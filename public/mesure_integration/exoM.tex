@@ -53,4 +53,24 @@
               En général, on ne peut pas écrire $\displaystyle\bigcup_{n \in \mathbb{N}} A_{n}$ comme réunion d'une suite décroissante.\\ Une suite décroissante vérifie $D_{n+1} \subseteq D_{n}$. Dans ce cas $\displaystyle\bigcup_{n \in \mathbb{N}} D_{n} = D_{0}$. Donc la réunion d'une suite décroissante est déjà fixé dès le premier terme.
       \end{enumerate}
 \end{preuve}
+
+\begin{enon}[Injectivite, surjectivité et bijectivité]
+	Soient $X$ et $Y$ deux ensemble non vide et $f : X \rightarrow Y$ une application. Montrer que
+	\begin{itemize}
+		\item[a)] $f$ est injective si, et seulement si pour tout $A \in P(X)$, on a $f^{-1}(f(A)) = A$.
+		\item[b)] $f$ est surjective si, et seulement si pour tout $A \in P(Y)$, on a $f(f^{-1}(B)) = B$.
+		\item[a)] $f$ est bijective si, et seulement si pour tout $A \in P(X)$, on a $f(X \backslash A)=Y \backslash f(A)$.
+	\end{itemize}
+\end{enon}
+
+\begin{preuve}
+	Soient $X$ et $Y$ deux ensemble non vide et $f : X \rightarrow Y$ une application.
+	\begin{itemize}
+		\item[a)] Montrons que $f$ est injective si, et seulement si pour tout $A \in P(X)$, on a $f^{-1}(f(A)) = A$.\\
+		Supposons que $f$ est injective. Pour tout $A \in P(X)$, nous allons montrer que $f^{-1}(f(A)) = A$.\\
+		D'abord montrons que $A \subseteq f^{-1}(f(A))$, soit $x \in A$. Par définition $f(x) \in f(A)$, or $x \in f^{-1}(f(A))$. D'où $A \subseteq f^{-1}(f(A))$.\\ Ensuite montrons que $f^{-1}(f(A)) \subseteq A$, soit $x \in f^{-1}f(A)$. Par défintion $f(x) \in f(A)$, il existe $x^{'} \in A$ tel que $f(x)=f(x^{'})$ cela implique que $x = x^{'}$ puisque $f$ est injective. Alors $x \in A$. D'où $f^{-1}(f(A)) \subseteq A$.\\ Reciproquement, soit $A \in P(X)$ et on a $f^{-1}(f(A)) = A$. Soient $x,y \in A$ tel que $f(x)=f(y)$. Considerons l'ensemble $A=\{x\}$. Par hypothèse, on a $f^{-1}f(\{x\})=\{x\}$, alors $f(\{x\}) \in f(A)$. On a $f(x)=f(y)$, donc $f(y) \in f(A)$. Par définition de la fonction reciproque, on a $y \in f^{-1}f(A)$ alors $y \in \{x\}$. Donc $x=y$. D'où l'injectivité de $f$. \marginpar{$\square$} 
+	\end{itemize}
+\end{preuve}
+
+\begin{center}\section{Tribus, clan et classe monotone}\end{center}
 \end{document}

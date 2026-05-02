@@ -8,7 +8,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=2cm]{geometry}                            
 \usepackage{lmodern}
-\usepackage{theorem}                                            \usepackage{amsfonts, amsmath, amssymb}
+\usepackage{theorem}                                            
+\usepackage{amsfonts, amsmath, amssymb}
 \usepackage{babel}
 
 \renewcommand{\familydefault}{\sfdefault}  
@@ -29,7 +30,7 @@
 
 \maketitle
 
-Dans cette document, j'apprend la probabilité en résoudrons différents exercices et des preuves des propriété en  probabilité tout en développons mes competences en latex.\\
+Dans cette document, j'apprend la probabilité en résoudrons différents exercices et des preuves des propriétés en  probabilité tout en développons mes competences en latex.\\
 Chaque exercices, énoncés et solutions dans cette document est démontrer et reformuler selon mon propre comprehension avec mon propre raisonnement surtout la démonstration mais si cela peut vous aider, je vous invite à l'explorer.
 
 \section{Espace probabilisé}
@@ -68,5 +69,15 @@ Chaque exercices, énoncés et solutions dans cette document est démontrer et r
 	Enfin montrons la probabilité pour que le joueur 2 gagne. Cela revient à dire que $S_{2} > S_{1}$. Calculons $P(S_{2} > S_{1})$.\\
 	$P(S_{2}> S_{1}) = 1 - P(S_{1} < S_{2}) - P(S_{1}=S_{2})=1 - \frac{1}{2} - \frac{1}{12} = \frac{5}{12}$. Ainsi $P(S_{2} > S_{1})= \frac{5}{12}$.
 	Conclusion, on voit clairement que le joueur 1 est plus avantageux par rapport au joueur 2 car il a une probabilité $50 \%$ pour gagné alors que l'autre a un probabilité de $41,7\%$ de gagné. Donc le jeu n'est pas equilibré. \marginpar{$\square$}
+\end{sol}
+
+\begin{exer}
+	Soit $(\Omega, \mathcal{F}, P)$ un espace probabibilsé. Soit $A,B \in \mathcal{F}$ tel que $P(B) > 0$. On pose $Q(A)=P(A|B)$. Montrer que $Q$ est une probabilité sur $(\Omega, \mathcal{F})$.
+\end{exer}
+
+\begin{sol}
+	Soit $\Omega$ l'ensemble de tous les resultats possibles. On a $Q(\Omega)=P(\Omega | B) = \frac{P(\Omega \cap B)}{P(B)}$ or $\Omega \cap B = B$. Ainsi on a $Q(\Omega)=1$. On a aussi $Q(\emptyset) = P(\emptyset | B) = \frac{P(\emptyset \cap B)}{P(B)}$ or $\emptyset \cap B = \emptyset$ et $P(\emptyset)=0$. Donc $Q(\emptyset)=0$.\\
+	Soit $(A_{i})_{i \in \mathbb{N}}$ une collection d'évènement denombrable ou finie deux a deux disjoints, on a $Q(\bigcup_{i \in \mathbb{N}} A_{i})=P(\bigcup_{i \in \mathbb{N}} A_{i} | B) = \frac{P(\bigcup_{i \in \mathbb{N}} A_{i} \cap B)}{P(B)} = \frac{P(\bigcup_{i \in \mathbb{N}} (A_{i} \cap B))}{P(B)} = \sum_{i \in \mathbb{N}}\frac{P( A_{i} \cap B)}{P(B)} = \sum_{i \in \mathbb{N}} Q(A_{i})$. \\D'où $Q(\bigcup_{i \in \mathbb{N}} A_{i})=\sum_{i \in \mathbb{N}} Q(A_{i})$.\\
+	On conclut alors que $Q$ est bien une probabilité sur $(\Omega, \mathcal{F})$.
 \end{sol}
 \end{document}

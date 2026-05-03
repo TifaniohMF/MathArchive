@@ -9,7 +9,7 @@
 \usepackage[margin=2cm]{geometry}                            
 \usepackage{lmodern}
 \usepackage{theorem}                                            
-\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{amsfonts, amsmath, amssymb, dsfont} % dsfont permet d'afficher la fonction indicatrice avec \mathds
 \usepackage{babel}
 
 \renewcommand{\familydefault}{\sfdefault}  
@@ -79,5 +79,17 @@ Chaque exercices, énoncés et solutions dans cette document est démontrer et r
 	Soit $\Omega$ l'ensemble de tous les resultats possibles. On a $Q(\Omega)=P(\Omega | B) = \frac{P(\Omega \cap B)}{P(B)}$ or $\Omega \cap B = B$. Ainsi on a $Q(\Omega)=1$. On a aussi $Q(\emptyset) = P(\emptyset | B) = \frac{P(\emptyset \cap B)}{P(B)}$ or $\emptyset \cap B = \emptyset$ et $P(\emptyset)=0$. Donc $Q(\emptyset)=0$.\\
 	Soit $(A_{i})_{i \in \mathbb{N}}$ une collection d'évènement denombrable ou finie deux a deux disjoints, on a $Q(\bigcup_{i \in \mathbb{N}} A_{i})=P(\bigcup_{i \in \mathbb{N}} A_{i} | B) = \frac{P(\bigcup_{i \in \mathbb{N}} A_{i} \cap B)}{P(B)} = \frac{P(\bigcup_{i \in \mathbb{N}} (A_{i} \cap B))}{P(B)} = \sum_{i \in \mathbb{N}}\frac{P( A_{i} \cap B)}{P(B)} = \sum_{i \in \mathbb{N}} Q(A_{i})$. \\D'où $Q(\bigcup_{i \in \mathbb{N}} A_{i})=\sum_{i \in \mathbb{N}} Q(A_{i})$.\\
 	On conclut alors que $Q$ est bien une probabilité sur $(\Omega, \mathcal{F})$.
+\end{sol}
+
+\begin{exer}
+	Soit $X$ une variables aléatoires suivant un loi uniforme $\{1, \cdots, 6\}$ et $Y = \mathds{1}_{X \in \{1,6\}}$. Montrer que $cov(X,Y)=0$, mais que $X$ et $Y$ ne sont pas indepandants.
+\end{exer}
+
+\begin{sol}
+	Soit $X$ une variables aléatoires suivant un loi uniforme $\{1, \cdots, 6\}$ et $Y = \mathds{1}_{X \in \{1,6\}}$.\\
+	Montrons que $cov(X,Y)=0$\\
+	Par definition, on sait que $cov(X,Y) = E[XY] - E[X]E[Y]$.\\ Avec $E[X] = \sum_{k=1}^{6} k P(X=k)$ or $X \mbox{ suit } \mathcal{U}(\{1, \cdots, 6\})$, alors $E[X] = \frac{1}{6}\sum_{k=1}^{6} k = \frac{1}{6}(1+2+3+4+5+6) = \frac{7}{2}$ et $E[Y] = E[\mathds{1}_{X \in \{1,6\}}] = P(X \in \{1,6\}) = \frac{1}{6} + \frac{1}{6} = \frac{1}{3}$.\\
+	$E[XY] = 1 \times P(X=1) + 6 \times P(X=6) = \frac{1}{6} + 1 = \frac{7}{6}$.\\ Ainsi on a $cov(X,Y) = \frac{7}{6} - \frac{7}{2} \times \frac{1}{3} = \frac{7}{6} - \frac{7}{6} = 0$. D'où $cov(X,Y)=0$.\\
+	Montrons maintenant que $X$ et $Y$ sont indépandants c'est a dire $P(X \cap Y) = P(X)P(Y)$.\\ $P(X \cap Y) = \frac{1}{3}$ et $P(X)=\frac{1}{6}, \; P(Y)=\frac{1}{3}$. Ainsi $P(X \cap Y) = \frac{1}{3} \not= P(X)P(Y) = \frac{1}{18}$. Donc $X$ et $Y$ ne sont pas indépendants. 
 \end{sol}
 \end{document}

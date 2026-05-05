@@ -1,10 +1,10 @@
 {
   "docs": [
-    { "path": "./diff-banach/exoB.tex", "title": "ExoB" },
-    { "path": "./mesure_integration/exoM.pdf", "title": "ExoM" },
-    { "path": "./mesure_integration/merure_integration.pdf", "title": "Mesure Integration" },
-    { "path": "./probabilite/exoP.pdf", "title": "ExoP" },
-    { "path": "./probabilite/probabilite.pdf", "title": "Probabilite" },
-    { "path": "./topologie/topologie.pdf", "title": "Topologie" }
+    { "path": "/MathArchive/public/diff-banach/exoB.tex", "title": "ExoB" },
+    { "path": "/MathArchive/public/mesure_integration/exoM.pdf", "title": "ExoM" },
+    { "path": "/MathArchive/public/mesure_integration/merure_integration.pdf", "title": "Mesure Integration" },
+    { "path": "/MathArchive/public/exoP.pdf", "title": "ExoP" },
+    { "path": "/MathArchive/public/probabilite.pdf", "title": "Probabilite" },
+    { "path": "/MathArchive/public/topologie.pdf", "title": "Topologie" }
   ]
 }

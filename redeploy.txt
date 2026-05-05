@@ -1,0 +1,2 @@
+Redeploy triggered: temporary marker to verify GitHub Pages publishing.
+Trigger redeploy: updated at 2026-05-05 to force GitHub Pages redeployment

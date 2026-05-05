@@ -121,10 +121,3 @@ git push origin feature/nouvelle-fonctionnalite
 ## 📄 Licence
 
 Ce projet est sous licence [MIT](./LICENSE). Vous êtes libre de l'utiliser, de le modifier et de le distribuer. Consultez le fichier LICENSE pour plus de détails.
-
-## 🔗 Vérifier en ligne
-
-Après push sur `main`, une action CI buildera et déploiera le site sur GitHub Pages. L'URL publique sera :
-
-https://TifaniohMF.github.io/MathArchive
-

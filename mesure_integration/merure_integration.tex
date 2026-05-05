@@ -1,0 +1,124 @@
+\documentclass[a4paper,12pt,french]{report}
+
+% =======================
+% IMPORTATION DES PACKAGES
+% =======================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{theorem}
+\usepackage{lmodern}
+\usepackage{amssymb, amsmath, amsfonts, dsfont}
+\usepackage{babel}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\pagestyle{headings}
+
+\theoremstyle{break}
+\theoremheaderfont{\scshape}
+\theorembodyfont{\upshape}
+
+\newtheorem{defin}{Définition}[section]
+\newtheorem{theo}[defin]{Théorème}
+\newtheorem{prop}[defin]{Proposition}
+
+\title{MÉSURE ET INTÉGRATION}
+\date{\today}
+\author{}
+
+\begin{document}
+\maketitle
+\textsc{Précision} \\
+Ceci est juste des notes pour m'aider à comprendre la théorie de la mesure et intégration tout en apprenant latex.
+Mais si cela peut vous aider, vous pouvez le consulter et le télécharger.
+
+\tableofcontents
+
+\chapter{THÉORIE DES ENSEMBLES}
+
+\section{Théorie des ensembles}
+\begin{defin}
+Soit $X$ un ensemble non vide et $(A_{i})_{i \in \mathbb{N}}.$ 
+      $$\bigcup_{i \in \mathbb{N}} A_{i} := \{ x \in X | \mbox{ il existe } i_{0} \mbox{ tel que } x \in A_{i_{0}}\}.$$
+      $$\bigcap_{i \in \mathbb{N}} A_{i} := \{ x \in X | \mbox{ pour tout } i_{0} \mbox{ tel que } x \in A_{i_{0}}\}.$$
+      $$A \backslash B := \{ x \in A \mbox{ et } x \not\in B\}.$$
+      $$X\backslash A := \{ x \not\in A\}.$$
+      $$ A \triangle B := (A \backslash  B) \cap (B \backslash A).$$ 
+\end{defin}
+
+\begin{prop}[Loi de Morgan]
+     $$X\backslash \left(\bigcup_{i \in \mathbb{N}} A_{i}\right) = \bigcap_{i \in \mathbb{N}} (X \backslash A_{i}).$$
+     $$X\backslash \left(\bigcap_{i \in \mathbb{N}} A_{i}\right) = \bigcup_{i \in \mathbb{N}} (X \backslash A_{i}).$$
+\end{prop}
+
+\begin{prop}[Distributivité]
+     $$A \cap (B \cup C) = (A \cap B) \cup (A \cap C).$$
+     $$A \cup (B \cap C) = (A \cup B) \cap (A \cup C).$$
+\end{prop}
+
+\begin{defin}
+       $$\mathds{1}_{A}(x) = \left\{ \begin{array}{c} 1 \mbox{ si } x \in A \\ 0 \mbox{ si } x \not\in A\end{array}\right.$$
+\end{defin}
+
+\begin{prop}
+       \begin{enumerate}
+              \item $\mathds{1}_{X\backslash A} = 1 - \mathds{1}_{A}$,
+              \item $\mathds{1}_{A \cap B} = \mathds{1}_{A} \mathds{1}_{B}$,
+              \item $\mathds{1}_{A \cup B} = \mathds{1}_{A} + \mathds{1}_{B} - \mathds{1}_{A \cap B}$,
+              \item $\mathds{1}_{A \backslash B} = \mathds{1}_{A} - \mathds{1}_{A \cap B}$,
+              \item $\mathds{1}_{A \triangle B} = \mathds{1}_{A} + \mathds{1}_{B} \mbox{ mod } 2$.
+       \end{enumerate}
+\end{prop}
+
+\section{Ensemble ordonnée}
+\begin{defin}[Relation d'ordre]
+       Soit X un ensemble non vide. On dit que  $\preccurlyeq$ est une relation d'ordre s'il verifie :
+       \begin{itemize}
+              \item[i)] Reflexivité : Soit $x \in X$, $x \preccurlyeq x$,
+              \item[ii)] Anti-symetrie : Soit $x, y \in X$, $x \preccurlyeq y$ et $y \preccurlyeq x$, alors $x=y$,
+              \item[iii)] Transitivité : Soit $x, y, z \in X$, $x \preccurlyeq y$ et $y \preccurlyeq z$, on a $x \preccurlyeq z$.   
+       \end{itemize}
+       On appelle $(X, \preccurlyeq)$ un ensemble ordonnée.
+\end{defin}
+
+\begin{defin}[Relation d'ordre total et partielle]
+       On dit que l'ensemble ordonnée $(X, \preccurlyeq)$ est total si tout élement de X est comparable c'est à dire pour $x, y \in X$, $x \preccurlyeq y$ ou bien $y \preccurlyeq x$.
+       Si c'est le contraire, on dit qu'elle est partielle.
+\end{defin}
+
+\chapter{TRIBUS, CLAN ET CLASSE MONOTONE}
+\section{Terminologie}
+\begin{defin}[Clan]
+      Soit X un ensemble non vide. On dit que $\mathcal{A}$ est un clan sur X si elle verifie :
+      \begin{itemize}
+             \item $\emptyset \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par passage au complémentaire, c'est à dire pour $A \in \mathcal{A}$, on a $X \backslash A \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par réunion, c'est à dire pour $A, B \in \mathcal{A}$, on a $A \cup B \in \mathcal{A}$.
+      \end{itemize}
+\end{defin}
+
+\begin{defin}[Tribus]
+      Soit X un ensemble non vide. On dit que $\mathcal{A}$ est une tribu sur X si elle vérifie :
+      \begin{itemize}
+             \item $\emptyset \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par passage au complémentaire, c'est à dire pour $A \in \mathcal{A}$, on a $X \backslash A \in \mathcal{A}$,
+             \item $\mathcal{A}$ est stable par réunion dénombrable, c'est à dire pour $(A_{n})_{n \in \mathbb{N}} \in \mathcal{A}$, on a $\displaystyle \bigcup_{n \in \mathcal{N}} A_{n} \in \mathcal{A}$.
+      \end{itemize}
+\end{defin}
+
+\begin{defin}[Classe monotone]
+       On dit que $\mathcal{A}$ est une classe monotone si elle vérifie : 
+       \begin{itemize}
+              \item $(A_{n})_{n \in \mathbb{N}} \nearrow A$, alors $\displaystyle\bigcup_{n \in \mathbb{N}} A_{n} \in \mathcal{A}$
+              \item $(A_{n})_{n \in \mathbb{N}} \searrow A$, alors $\displaystyle\bigcap_{n \in \mathbb{N}} A_{n} \in \mathcal{A}$
+       \end{itemize}
+\end{defin}
+
+\chapter{MESURABILITÉ}
+\section{Espace mesurable}
+\begin{defin}
+       Soit X un ensemble non vide. On dit que $(X,\mathcal{A})$ est un espace mesurable si $\mathcal{A}$ est un tribus.
+\end{defin}
+\end{document}

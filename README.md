@@ -26,8 +26,8 @@ MathArchive/
 ├── public
 │   ├── favicon.ico
 │   ├── probabilite
-│   │   ├── ExoP.pdf
-│   │   ├── ExoP.tex
+│   │   ├── exoP.pdf
+│   │   ├── exoP.tex
 │   │   ├── probabilite.pdf
 │   │   └── probabilite.tex
 │   └── topologie
@@ -105,7 +105,7 @@ git checkout -b feature/nouvelle-fonctionnalite
 3. Commitez vos changements :  
 
 ```bash
-git commit -m 'Ajout d'une fonctionnalité'
+git commit -m "Ajout d'une fonctionnalité"
 ```
 
 4. Poussez vers la branche :  

@@ -1,5 +1,7 @@
 [
   "/topologie/topologie",
   "/probabilite/probabilite",
-  "/probabilite/exoP"
+  "/probabilite/exoP",
+  "/mesure_integration/mesure_integration",
+  "/mesure_integration/exoM"
 ]

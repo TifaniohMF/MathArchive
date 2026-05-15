@@ -54,7 +54,7 @@
       \end{enumerate}
 \end{preuve}
 
-\begin{enon}[Injectivite, surjectivité et bijectivité]
+\begin{enon}[Injectivité, surjectivité et bijectivité]
 	Soient $X$ et $Y$ deux ensemble non vide et $f : X \rightarrow Y$ une application. Montrer que
 	\begin{itemize}
 		\item[a)] $f$ est injective si, et seulement si pour tout $A \in P(X)$, on a $f^{-1}(f(A)) = A$.
@@ -74,30 +74,30 @@
 
 \begin{center}\section{Tribus, clan et classe monotone}\end{center}
 \begin{enon}
-      Soit $X$ un ensemble non dénombrable. On pose $$\tau \{ A \in P(X) | A \mbox{ est dénombrable ou } X \backslash A \mbox{ est dénombrable}\}.$$
+      Soit $X$ un ensemble non dénombrable. On pose $$\mathcal{T}:= \{ A \in P(X) | A \mbox{ est dénombrable ou } X \backslash A \mbox{ est dénombrable}\}.$$
       \begin{enumerate}
-              \item Montrer que $\tau$ est un tribu sur $X$.
-              \item Comparer le tribu engendré par $\{x\}$ et $\tau$.
+              \item Montrer que $\mathcal{T}$ est un tribu sur $X$.
+              \item Comparer le tribu engendré par $\{x\}$ et $\mathcal{T}$.
       \end{enumerate}
 \end{enon}
 
 \begin{preuve}
-   Soit $X$ un ensemble non dénombrable. On pose $$\tau := \{ A \in P(X) | A \mbox{ est dénombrable ou } X \backslash A \mbox{ est dénombrable}\}.$$
+   Soit $X$ un ensemble non dénombrable. On pose $$\mathcal{T} := \{ A \in P(X) | A \mbox{ est dénombrable ou } X \backslash A \mbox{ est dénombrable}\}.$$
    \begin{enumerate}
-          \item Montrons que $\tau$ est un tribu sur $X$.
+          \item Montrons que $\mathcal{T}$ est un tribu sur $X$.
           \begin{itemize}
-                     \item On sait que $\emptyset$ et $X \in P(X)$. $\emptyset$ est dénombrable car elle est finie. $X \backslash X = \emptyset$, alors $X\backslash X$ est aussi dénombrable. D'où $\emptyset, X \in \tau$.
-                     \item Soit $A \in \tau$, alors $A \in P(X)$. Par définition de $\tau$, $X\backslash A$ est dénombrable. Donc $X \backslash A \in \tau$. Elle est alors stable par passage au complémentaire.
-                     \item Soit $(A_{n})_{n \in \mathbb{N}} \in \tau$. Deux cas s'offrent à nous 
+                     \item On sait que $\emptyset$ et $X \in P(X)$. $\emptyset$ est dénombrable car elle est finie. $X \backslash X = \emptyset$, alors $X\backslash X$ est aussi dénombrable. D'où $\emptyset, X \in \mathcal{T}$.
+                     \item Soit $A \in \mathcal{T}$, alors $A \in P(X)$. Par définition de $\mathcal{T}$, $X\backslash A$ est dénombrable. Donc $X \backslash A \in \mathcal{T}$. Elle est alors stable par passage au complémentaire.
+                     \item Soit $(A_{n})_{n \in \mathbb{N}} \in \mathcal{T}$. Deux cas s'offrent à nous 
                      \begin{itemize}
                              \item[Cas 1: ] Si $A_{n}$ est dénombrable. \\
                              Pour tout $n \in \mathbb{N}$, $\bigcup_{n} A_{n}$ est dénombrable car union d'ensemble dénombrable est dénombrable. Donc $\bigcup_{n} A_{n} \in \tau$.
                              \item[Cas 2: ] Si $X\backslash A_{n}$ est dénombrable. \\
-                             Pour tout $n \in \mathbb{N}$, $\bigcup_{n} X\backslash A_{n}$ est dénombrable. Donc $\bigcup_{n} X\backslash A_{n} \in \tau$.
+                             Pour tout $n \in \mathbb{N}$, $\bigcup_{n} X\backslash A_{n}$ est dénombrable. Donc $\bigcup_{n} X\backslash A_{n} \in \mathcal{T}$.
                      \end{itemize}
                      Dans les deux cas on a montré qu'elles sont stable par réunion dénombrable.
           \end{itemize}
-          On conclut alors que $\tau$ est bien un tribu sur $X$.
+          On conclut alors que $\mathcal{T}$ est bien un tribu sur $X$.
    \end{enumerate}
 \end{preuve}
 \end{document}

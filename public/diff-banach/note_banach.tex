@@ -1,0 +1,166 @@
+\documentclass[a4paper, 12pt, french]{report}
+
+% ========================
+% IMPORTATION DES PACKAGES
+% ========================
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm]{geometry}
+\usepackage{lmodern}
+\usepackage{theorem}
+\usepackage{amsfonts, amsmath, amssymb}
+\usepackage{babel}
+
+\pagestyle{headings}
+
+\ifpdf
+\usepackage[pdftex=true, hyperindex=true, colorlinks=false]{hyperref}
+\else
+\usepackage[pdftex=true, hyperindex=true, colorlinks=true]{hyperref}
+\fi
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\theoremstyle{break}
+\theoremheaderfont{\scshape}
+\theorembodyfont{\upshape}
+
+\newtheorem{defin}{Définition}[section]
+\newtheorem{prop}[defin]{Proposition}
+\newtheorem{theo}[defin]{Théorème}
+\newtheorem{coro}[defin]{Corollaire}
+
+\title{DIFFERENTIABILITÉ DANS UN BANACH - APPLICATION}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{ESPACE NORME ET ESPACE DE BANACH}
+
+\section{Espace vectoriel norme et espace metrique}
+\begin{defin}[Espace vectoriel norme]
+    Un espace vecoriel norme $E$ est un espace vectoriel dans $\mathbb{K}$ ($\mathbb{R}$ ou $\mathbb{C}$) muni de l'application $\| \cdot \| : E \rightarrow \mathbb{R}_{+}$ verifiant les axiomes suivant:
+    \begin{enumerate}
+        \item Positivite : $\| \cdot \| = 0$ ssi $x = 0$ pour $x \in E$,
+        \item Homogeneite : $\| \lambda x \| = |\lambda| \|x\|$, pour $\lambda \in \mathbb{R}$ et $x \in E$,
+        \item Inegalite triangulaire : $\| x + y \| \leq \|x\| + \|y\|$, pour $x, y \in E$
+    \end{enumerate}
+\end{defin}
+
+\begin{defin}
+    Un espace metrique $E$ est un espace non vide muni de la distance $d$ verifiant les axiomes suivant:
+    \begin{enumerate}
+        \item Separation : $d(x,y) = 0$ ssi $x=y$, pour $x, y \in E$,
+        \item Symetrie : $d(x,y)=d(y,x)$,
+        \item Inegalite triangulaire : $d(x,z) \leq d(x, y) + d(y,z)$.
+    \end{enumerate}
+\end{defin}
+
+\subsection*{Quelques exemple de norme}
+\begin{itemize}
+    \item \textbf{Sur $\mathbb{R}^{n}$}:
+    \begin{itemize}
+        \item[.] $\|x\|_{1} := \displaystyle \sum_{i=0}^{n} |x_{i}|$
+        \item[.] $\|x\|_{2} := \displaystyle (\sum_{i=0}^{n} |x_{i}|^{2})^{\frac{1}{2}}$
+        \item[.] $\|x\|_{\infty} := \displaystyle max_{i \in \{1,2, \cdots, n\}} \{ |x_{i}|\}$
+    \end{itemize}
+    \item \textbf{Sur $l^{p}$} pour $p \in [1, +\infty[$\\
+    On definit $l^{p} := \{x = (x_{n})_{n \in \mathbb{N}}\;  | \; \displaystyle \sum_{i=0}^{n} |x_{i}| < +\infty\}$ 
+    \begin{itemize}
+        \item[.] Si $p = \infty$, $\|x\| := sup_{i \in \mathbb{N}} |x_{i}|$
+    \end{itemize}
+    \item \textbf{Sur $C_{b}(X)$} \\
+    $C_{b}(X) : \{f : X \rightarrow \mathbb{R} | \mbox{ f est continue et borne }\}$
+    \begin{itemize}
+        \item[.] $\|f\|_{\infty} := \displaystyle sup_{x \in X} {|f(x)|}$
+    \end{itemize}
+    \item \textbf{Sur C([a,b])} \\
+    $C([a,b]) := \{ f : [a,b] \rightarrow \mathbb{R} | \mbox{ f est continue }\}$
+    \begin{itemize}
+        \item[.] $\|f\|_{1} := \displaystyle \int_{0}^{1} |f(x)|dx$
+        \item[.] $\|f\|_{2} := \displaystyle (\int_{0}^{1} |f(x)|^{2}dx)^{\frac{1}{2}}$
+        \item[.] $\|f\|_{\infty} := \displaystyle sup_{x \in [a,b]}(|f(x)|)$
+    \end{itemize}
+\end{itemize}
+
+\section{Topologie}
+\begin{defin}
+    On dit que $O$ est un ouvert dans $X$, s'il existe $x \in X$ on peut trouver $r > 0$ telle que $B(x,r) \subset O$.
+    On dit que $F$ est un ferme dans $x$ si son complememtaire est un ouvert c-a-d $X \backslash F$ est  un ouvert.
+\end{defin}
+
+\begin{prop}
+    \begin{itemize}
+        \item $\emptyset$ et $X$ sont a la fois des ouverts et ferme,
+        \item La reunion des ouverts quelconque sont des ouverts,
+        \item L'intersection des ouverts finie sont des ouverts,
+        \item La reunion de ferme finie est un ferme,
+        \item L'intersection de ferme quelconque est un ferme.
+    \end{itemize}
+\end{prop}
+
+\begin{prop}
+    \begin{itemize}
+        \item $\dot{A} := \{ B(x,r) \subset A\}$,
+        \item $\overline{A} := \{ B(x,r) \cap A \not= \emptyset\}$,
+        \item $Fr(A) := \overline{A} \backslash \dot{A}$
+    \end{itemize}
+\end{prop}
+
+\begin{prop}
+    \begin{itemize}
+        \item A est ouvert ssi $A=\dot{A}$,
+        \item A est un ferme ssi $A=\overline{A}$,
+        \item $\bar{A} = Fr(A) \cup \dot{A}$.
+    \end{itemize}
+\end{prop}
+
+\section{Suite de Cauchy et completude}
+\begin{prop}
+    $(x_{n})_{n \in \mathbb{N}}$ est une suite de Cauchy ssi $ \displaystyle \lim_{n, m \rightarrow \infty} \| x_{n} - x_{m}\| = 0$.
+\end{prop}
+
+\begin{prop}
+    Toute suite de cauchy est borne.
+\end{prop}
+
+\begin{prop}
+    Si $(x_{n})_{n \in \mathbb{N}}$ est convergente, alors elle est une suite de Cauchy.\\ En general, la reciproque est fausse pour un espace vectoriel norme quelconque.
+\end{prop}
+
+\begin{prop}
+    Toute espace vectoriel de dimension finie est un espace de Banach. En particulier $(\mathbb{R}, \| \cdot \|_{2})$ est un espae de Banch.
+\end{prop}
+
+\begin{prop}
+    $(l^{p}, \| \cdot \|_{\infty})$ est un espace de Banach pour $1 \leq p< +\infty$.
+\end{prop}
+
+\section{Proprieté fondamentale}
+\begin{prop}
+    $\| \cdot \|_{1}, \| \cdot \|_{2}$ sont equivalente s'il existe deux constante $c_{1}$ et $c_{2}$ telle que: $$c_{1}\| \cdot \|_{1} \leq \| \cdot \|_{2} \leq c_{2}\| \cdot \|_{1}.$$
+\end{prop}
+
+\begin{theo}
+    Toute les normes sont equivalent sur un espace vectorielle.
+\end{theo}
+
+\begin{prop}
+    Soit $E, F$ deux espaces de Banach et $T: E \rightarrow F$ une application. Lasse 
+    \begin{itemize}
+        \item $T$ est continue sur $E$,
+        \item $T$ est continue sur 0,
+        \item $T$ est borne (c-a-d $\|T(x)\|_{F} \leq M \|x\|_{E}$)
+    \end{itemize}
+\end{prop}
+
+\begin{prop}
+    $\|f\|_{\infty} :=  sup_{\|x\| \leq 1} \frac{\|f(x)\|_{F}}{\|x\|_{E}}$
+\end{prop}
+
+\end{document}

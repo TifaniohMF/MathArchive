@@ -16,6 +16,12 @@
 
 \pagestyle{headings}
 
+\ifpdf
+\usepackage[pdftex=true, hyperindex=true, colorlinks=false]{hyperref}
+\else
+\usepackage[pdftex=true, hyperindex=true, colorlinks=true]{hyperref}
+\fi
+
 \title{TOPOLOGIE}
 \date{\today}
 \author{}

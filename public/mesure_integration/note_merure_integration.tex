@@ -8,13 +8,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=2cm]{geometry}
 \usepackage{theorem}
-\usepackage{lmodern}
+\usepackage{fourier}
 \usepackage{amssymb, amsmath, amsfonts, dsfont}
 \usepackage{babel}
 
 \renewcommand{\familydefault}{\sfdefault}
 
 \pagestyle{headings}
+
+\ifpdf
+\usepackage[pdftex=true, hyperindex=true, colorlinks=false]{hyperref}
+\else
+\usepackage[pdftex=true, hyperindex=true, colorlinks=true]{hyperref}
+\fi
 
 \theoremstyle{break}
 \theoremheaderfont{\scshape}
@@ -23,7 +29,10 @@
 \newtheorem{defin}{Définition}[section]
 \newtheorem{theo}[defin]{Théorème}
 \newtheorem{prop}[defin]{Proposition}
+\newtheorem{coro}[defin]{Corollaire}
 \newtheorem{lemme}[defin]{Lemme}
+\newtheorem{rema}[defin]{Remarque}
+
 
 \title{MÉSURE ET INTÉGRATION}
 \date{\today}
@@ -31,11 +40,15 @@
 
 \begin{document}
 \maketitle
+
 \textsc{Précision} \\
+
 Ceci est juste des notes pour m'aider à comprendre la théorie de la mesure et intégration tout en apprenant latex.
 Mais si cela peut vous aider, vous pouvez le consulter et le télécharger.
 
-\tableofcontents
+\tableofcontents % table de matiere
+
+% --- THEORIE DES ENSEMBLES ---
 
 \chapter{THÉORIE DES ENSEMBLES}
 
@@ -88,6 +101,8 @@ Soit $X$ un ensemble non vide et $(A_{i})_{i \in \mathbb{N}}.$
        On dit que l'ensemble ordonnée $(X, \preccurlyeq)$ est total si tout élement de X est comparable c'est à dire pour $x, y \in X$, $x \preccurlyeq y$ ou bien $y \preccurlyeq x$.
        Si c'est le contraire, on dit qu'elle est partielle.
 \end{defin}
+
+% --- TRIBU, CLAN ET CLASSE MONOTONE ---
 
 \chapter{TRIBUS, CLAN ET CLASSE MONOTONE}
 \section{Terminologie}
@@ -168,4 +183,223 @@ Soit $X$ un ensemble non vide et $(A_{i})_{i \in \mathbb{N}}.$
 \begin{defin}
        Soit X un ensemble non vide. On dit que $(X,\mathcal{A})$ est un espace mesurable si $\mathcal{A}$ est un tribus.
 \end{defin}
+
+\begin{prop}[Fonction mesurable]
+       \begin{itemize}
+              \item Soit $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ deux espace mesurable et $f : X \mapsto Y$ une fonction.\\ On dit que $f$ est $\mathcal{A}-\mathcal{B}$-mesurable ou mesurable si pour tout $B \in \mathcal{B}, \; f^{-1}(B) \in \mathcal{A}$.
+              \item Si $X$ et $Y$ sont muni des tribus borelien respectif \textit{B}($X$) et \textit{B}($Y$). Lorsque $f$ est $\mathcal{A}-\mathcal{B}$-mesurable, on dit qu'elle est \textit{B}($X$)-\textit{B}{$Y$}-borelienne ou borelienne.
+       \end{itemize}
+\end{prop}
+
+\begin{rema}
+       \begin{itemize}
+              \item Soient $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ deux espace mesurable $f : X \mapsto Y$ une application. Si f est mesurable on le note $\mathcal{L}(X,Y)$ ou $\mathcal{L}(\mathcal{A}, \mathcal{B})$. 
+              \item Toute fonction continue est mesurable.
+       \end{itemize}
+\end{rema}
+
+\begin{theo}[Tribus initiale]
+	La tribu $f^{-1}(B)$ pour $B \in \mathcal{B}$ est la plus petit tribu qui rende f $\mathcal{A}-\mathcal{B}$-mesurable.
+\end{theo}
+
+\begin{theo}[Principe de recollement]
+	Soit $(X, \mathcal{A})$ et $(Y, \mathcal{B})$ deux espace mesurable, $(A_{n})_{n \in \mathbb{N}} \subseteq \mathcal{A}$ une partition denombrable de X et $f : X \mapsto Y$ une application. Si $f_{| A_{i}}$ est $\mathcal{A}_{A_{i}}-\mathcal{B}$-mesurable, alors $f$ est $\mathcal{A}-\mathcal{B}$-mesurable.
+\end{theo}
+
+% --- CHAPITRE MESURE ---
+
+\chapter{MESURE}
+\section{Géneralité sur les mesures}
+On tavaille sur un espace mesurable $(X, \mathcal{A})$.
+
+\begin{defin}[Application additive vs $\sigma$-additive]
+\begin{itemize}
+       \item Additive: $\mu (A \cup B) := \mu (A) + \mu (B)$, pour tous $A, B \in \mathcal{A}$ disjoints.
+       \item $\sigma$-additivé: Pour toute suite d'ensemble disjoints $(A_{n})_{n \in \mathbb{N}} \subseteq \mathcal{A}$, on a: $$\mu (\bigsqcup_{n \in \mathbb{N}} A_{n}) := \sum_{n \in \mathbb{N}} \mu (A_{n})$$.
+\end{itemize}
+\end{defin}
+
+\begin{defin}[Définition d'une mesure]
+Une application $\mu$ sur $\mathcal{A}$ est une mesure (positive) si elle est à valeurs dans $[0, +\infty]$, verifiant $\mu (\emptyset)$ et $\sigma$-additivé.
+\end{defin}
+
+\begin{prop}[Propriété fondamentale de la mesure]
+\begin{itemize}
+       \item Croissance: Si $A \subseteq B$, alors $\mu (A) \leq \mu (B)$.
+       \item $\sigma$-additivé: Pour toute suite quelconque $a_{n}$, $$\mu (\bigcup_{n \in \mathbb{N}} A_{n}) \leq \sum_{n \in \mathbb{N}} \mu (A_{n}).$$
+       \item Continuité par modification monotone:
+       \begin{itemize}
+              \item Si $A_{n} \nearrow \mathcal{A}$, alors $\displaystyle \lim_{n \rightarrow \infty} \mu (A_{n}) = \mu (\bigcup_{n \in \mathbb{N}} A_{n})$, 
+              \item Si $A_{n} \searrow \mathcal{A}$, alors $\displaystyle \lim_{n \rightarrow \infty} \mu (A_{n}) = \mu (\bigcap_{n \in \mathbb{N}} A_{n})$.
+       \end{itemize}
+\end{itemize}
+\end{prop}
+
+\begin{prop}[Mesure image par une application]
+Si $f : X \rightarrow Y$ est une application $\mathcal{A}-\mathcal{B}$-mesurable, l'application $\nu (B) = \mu(f^{-1}(B))$ définit une mesure sur $\mathcal(B)$ appelé mesure image.
+\end{prop}
+
+\begin{prop}[Mesure finie et $\sigma$-finie]
+\begin{itemize}
+       \item Finie: Si $\mu (X) \le \infty$,
+       \item $\sigma$-finie: S'il existe une suite $(A_{n})_{n \in \mathbb{N}} \subseteq \mathcal{A}$ telle que $X = \bigcup_{n \in \mathbb{N}} A_{n}$ avec $\mu (A_{n} \le \infty)$ pour tout $n$.
+\end{itemize}
+\end{prop}
+
+\begin{defin}[Continuité absolue et etrangeté]
+\begin{itemize}
+       \item $\mu$ est absolument continue par rapport a $\nu \; (\mu \ll \nu)$ si $\nu(A) = 0$, on a $\mu (A) = 0$.
+       \item $\mu$ et $\nu$ sont etrangere ($\mu \perp \nu$) s'il existe une partition de $X = A \cup (X \backslash A)$ telle que $\nu(A)=0$ et $\mu(X \backslash A) = 0$.
+\end{itemize}
+\end{defin}
+
+\section{Classes ensembles negligeable et completion}
+\begin{defin}[Ensemble $\mu$-negligeable]
+Un ensemble $N \subseteq X$ est negligeable s'il est contenue dans un élement $A \in \mathcal{A}$ telle que $\mu (A) = 0$.
+\end{defin}
+
+\begin{defin}[Espace mesure complet]
+Un espace $(X, \mathcal{A}, \mu)$ est dit complet si tout ensemble $\mu$-negligeable appartient à la tribu $\mathcal{A}$.
+\end{defin}
+
+\begin{defin}[Tribu completée $\mathcal{A}_{\mu}$]
+C'est la plus petit tribus contenant $\mathcal{A}$ et tous les ensembles $\mu$-negligeables.\\ Un ensemble $A \in \mathcal{A}_{\mu}$ s'écrit sous la forme $A = B \cup N$ ou $B \in \mathcal{A}$ et $N$ est negligeable.
+\end{defin}
+
+\begin{theo}[Mesure completée]
+La mesure $\mu$ s'etend de manière unique à $\mathcal{A}_{\mu}$ en posant $\mu (B \cup N) = \mu (B)$.
+\end{theo}
+
+\begin{prop}[Propriété presque partout ($\mu-p.p$)]
+Une propriété est vrai $\mu$-p.p si elle est vraie partout sauf sur un ensemble $\mu$-negligeable.
+\end{prop}
+
+\section{Construction de mesure par Carathéodory}
+\begin{prop}[Mesure exterieur]
+       Une application $\mu^{*} : P(X) \rightarrow [0, \infty]$ telle que:
+       \begin{enumerate}
+              \item $\mu^{*}(\emptyset) = 0$,
+              \item $A \subset B \Rightarrow \mu^{*}(A) \leq \mu^{*}(B)$,
+              \item $\displaystyle \mu^{*}(\bigcup_{n \in \mathbb{N}} A_{n}) \leq \sum_{n \in \mathbb{N}} \mu^{*}(A_{n})$.
+       \end{enumerate}
+\end{prop}
+
+\begin{prop}[Ensemble $\mu^{*}$-mesurable]
+       Un ensemble $A \subset X$ est dit $\mu^{*}$-mesurable si pour tout ensemble de test $B \subset X$, $\mu^{*} = \mu^{*}(B \cap A) + \mu^{*}(B \cap A^{c})$.
+\end{prop}
+
+\begin{theo}[Théorème de Carathéodory]
+       L'ensemble des parties $\mu^{*}$-mesurable forme une tribu et la restriction $\mu^{*}$ à cette tribu est une vraie mesure.
+\end{theo}
+
+\section{Mesure borelienne et mesure de Lebesgue}
+C'est la mise en pratique sur la droite réelle $\mathbb{R}$.
+
+\begin{defin}[Mesure de Borel-Stieltjes]
+       Associe à une fonction $\Phi : \mathbb{R} \rightarrow \mathbb{R} \nearrow$ et continue à gauche.
+       Elle est definie sur les intervalles par : $\mu_{\Phi}([a, b[) = \Phi(b) - \Phi(a)$
+\end{defin}
+
+\begin{defin}[Mesure de Borel]
+       C'est le cas particulier où $\Phi (x) = x$ (fonction identité). Elle est définie sur la tribu Borelienne $\mathcal{B}(\mathbb{R})$.
+\end{defin}
+
+\begin{defin}[Mesure de Lebesgue $\lambda$]
+       C'est la completée de la mesure de Borel sur la tribu de Lebesgue $\mathcal{M}_{\mathbb{R}}$
+\end{defin}
+
+\begin{prop}[Proprieté incontournable de la mesure de Lebesgue]
+       \begin{itemize}
+              \item La mesure d'un singleton est nulle $\lambda(\{ x \})=0$,
+              \item Pour tout intervalle borné de borne $a$ et $b$, sa mesure et sa longueur : $$\lambda([a,b[) = \lambda(]a,b[) = \lambda([a,b]) = b-a .$$
+              \item Invariance par translation: pour tout borelien $A$ et tout $x \in \mathbb{R}, \; \lambda(A + x) = \lambda(A)$.
+              \item Invariance par symetrie: $\lambda(-A) = \lambda(A)$.
+       \end{itemize}
+\end{prop}
+
+% --- CHAPITRE INTEGRALE ---
+
+\chapter{INTÉGRALE}
+\section{Les définition fondamentale}
+\begin{defin}[Fonction etagée (ou simple)]
+       Soit $(X, \mathcal{T}, \mu)$ un espace mesuré. Une fonction $f : X \rightarrow [0, \infty[$ est dite etagee si elle est mesurable et ne prend qu'un nombre finie de valeurs positive distincts $\{ \alpha_{1}, \alpha_{2}, \cdots, \alpha_{n}\}$.\\ Elle s'ecrit sous la forme $ \displaystyle f(x) = \sum_{i=1}^{n} \alpha_{i} \mathds{1}_{A_{i}}(x).$ où $A_{i} = s^{-1}(\{ \alpha_{i}\})$ sont des ensemble mesurables disjoints.
+\end{defin}
+
+\begin{defin}[Intégrale d'une fonction etagée positive]
+       L'intégrale de $f$ par rapport à la mesure $\mu$ est définie par $ \displaystyle \int_{X} f d\mu = \sum_{i=1}^{n} \alpha_{i} \mu(A_{i})$ avec la convention $0 \times \infty = 0$.
+\end{defin}
+
+\begin{defin}[Intégrale d'une fonction mesurable positive]
+       Soit $f ; X \rightarrow [0, \infty]$ une fonction mesurable positive de Lebesgue. Son intégrale est définie par la borne superieure des integrales des fonction etagée qui la dominent par en dessous : $$\int_{X} f d\mu = \mbox{ sup } \left\{ \int_{X} s d\mu \; | \; 0 < s < f \mbox{ s est etagée} \right\}$$.
+\end{defin}
+
+\begin{defin}[Fonction intégrale de signe quelconque]
+       Soit $f : X \rightarrow \overline{\mathbb{R}} \mbox{ ou } \mathbb{C}$ une fonction mesurable. On définit ses parties positive et négative : $f^{+} = max(f, 0)$ et $f^{-} = max(-f, 0)$. On dit que $f$ est intégrable au sens de Lebesgue (on note $f \in \mathcal{L}^{1}(\mu)$) si $$\int_{X} |f|d\mu < +\infty \Leftrightarrow \int_{X} f^{+} d\mu < +\infty \mbox{ et } \int_{X} f^{-}d\mu < +\infty.$$
+       Si $f \in \mathcal{L}^{1}(\mu)$, son intégrable est : $ \displaystyle \int_{X} fd\mu = \int_{X} f^{+}d\mu - \int_{X} f^{-} d\mu$.
+\end{defin}
+
+\section{Théorème fondamenataux de passage a la limite}
+\begin{theo}[convergence monotone]
+       Soit $(f_{n})_{n \in \mathbb{N}}$ une suite de fonction mesurable positive de $X$ dans $[0, \infty]$. Si la suite est $\nearrow$ p.p, c'est a dire $0 \leq f_{1}(x) \leq \cdots \leq f_{n}(x) \mu$-p.p. Alors la fonction limite $f(x) = \lim_{n \rightarrow +\infty} f_{n}(x)$ est mesurable et $$\lim_{n \rightarrow +\infty} \int_{X} f_{n} d\mu = \int_{X}\lim_{n \rightarrow +\infty} f_{n} d\mu = \int_{X} f d\mu.$$ 
+\end{theo}
+
+\begin{lemme}[Fatou] 
+       Soit $(f_{n})_{n \in \mathbb{N}}$ une suite de fonction mesurable positive sur $X$ dans $[0, +\infty]$. Alors $$\int_{X} \lim_{n \rightarrow +\infty} inf f_{n} d\mu \leq \lim_{n \rightarrow +\infty} inf \int_{X} f_{n} d\mu.$$
+\end{lemme}
+
+\begin{theo}[Convergence dominé ou théorème de Lebesgue]
+       Soit $(f_{n})_{n \in \mathbb{N}}$ une suite de fonction mesurable (de signe quelconque) à valeurs dans $\mathbb{R}$ ou $\mathbb{C}$.\\ Supposons que :
+       \begin{enumerate}
+              \item La suite $(f_{n})$ converge $\mu$-p.p vers une fonction $f$.
+              \item (Hypothese de domination)\\ Il existe une fonction $g \in \mathcal{L}^{1}(\mu)$ positive et intgrable telle que $|f_{n}(x)| \leq g(x) \forall n \in \mathbb{N} \mu$-p.p.
+       \end{enumerate}
+       Alors $f$ est intégrable et on peut intervertir la limite: $$\lim_{n  \rightarrow +\infty} \int_{X} f_{n} d\mu = \int_{X} f d\mu.$$
+\end{theo}
+
+\section{Proposition importantes}
+\begin{prop}[Linéarité et positivité]
+       L'application $f \rightarrow \int_{X} f d\mu$ est linéaire sur $\mathcal{L}^{1}(\mu)$ et croissante (si $f \leq g \mu$-p.p, alors $\int f \leq \int g$).
+\end{prop}
+
+\begin{prop}[Negligeable et intégration]
+       \begin{itemize}
+              \item Si $f$ est une fonction mesurable positive et $\int_{X} f d\mu = 0$, alors $f=0 \mu$-p.p.
+              \item Si $f \in \mathcal{L}^{1}(\mu)$, alors $|f(x)| < +\infty \mu$-p.p.
+       \end{itemize}
+\end{prop}
+
+\begin{prop}[Intégration sur les sous ensembles]
+       Soit $A \in \mathcal{T}$ un ensemble mesurable.\\ L'intégrale de $f$ sur $A$ est définie par $\displaystyle \int_{A} f d\mu = \int_{X} f \mathds{1}_{A} d\mu$.\\ Si $\mu(A)=0$, alors pour toute fonction mesurable $f$, $\displaystyle \int_{A} f d\mu = 0$.
+\end{prop}
+
+\section{Corollaire cruciaux pour la pratique}
+\begin{coro}[Intégrale des serie et fonction positive]
+       Soit $(u_{n})_{n \in \mathbb{N}}$ une suite de fonction mesurable positives. Alors $\displaystyle \int_{X} \sum_{n=0}^{+\infty} u_{n} (x) d\mu = \sum_{n=0}^{+\infty} \int_{X} u_{n} (x) d\mu$
+\end{coro}
+
+\begin{coro}[Intégration des series de fonction quelconque]
+       Soit $(u_{n})_{n \in \mathbb{N}}$ une suite de fonction mesurable a valeurs réelle ou complexe. Si la serie des intégrales des valeurs absolues converge: $$\sum_{n=0}^{+\infty} \int_{X} |u_{n}|d\mu < +\infty.$$
+       Alors la serie $\displaystyle \sum_{n=0}^{+\infty}$ converge $\mu$-p.p, sa somme est intégrable et $$\int_{X} \sum_{n=0}^{+\infty} u_{n} d\mu = \sum_{n=0}^{+\infty} \int_{X} u_{n} d\mu.$$
+\end{coro}
+
+\section{Théorème à paramètre (continuité et derivation)}
+\begin{theo}[Continuité sous les signes]
+       Soit $I$ un intervalle de $\mathbb{R}$. Si
+       \begin{itemize}
+              \item[i)] Pour $\mu$-presque tout $x \in X$, la fonction $t \mapsto f(t,x)$ est continue sur $I$,
+              \item[ii)] Pour tout $t \in I$, la fonction $x \mapsto f(t,x)$ est mesurable,
+              \item[iii)] (Domination local) \\Pour tout compact $K \subset I, \; \exists \; g_{K} \in \mathcal{L}^{1}(\mu)$ positive telle que $|f(t,x)| \leq g_{K}(x) \; \forall t \in K \mu$-p.p.
+       \end{itemize}
+       Alors $\displaystyle F(t) = \int_{X} f(t,x) d\mu(x)$ est continue sur $I$.
+\end{theo}
+
+\begin{theo}[Dérivation sous le signe $\int$]
+       Soit $I$ un intervalle de $\mathbb{R}$. Si
+       \begin{itemize}
+              \item[i)] $\forall \; t \in I, \; x \mapsto f(t,x)$ est intégrable,
+              \item[ii)] Pour $\mu$-presque tout $x \in X, \; x \mapsto f(t,x)$ est derivable sur $I$ (de dérivé partielle $\frac{\partial}{\partial t} f(t,x)$),
+              \item[iii)] (Domination de al derivé) \\ $\exists \; g \in \mathcal{L}^{1}(\mu)$ positive telle que $\frac{\partial}{\partial t} f(t,x) \leq g(x) \; \forall t \in I, \; \mu$-p.p. 
+       \end{itemize}
+       Alors $F$ est derivable sur $I$, $\frac{\partial}{\partial t} f(t,\cdot)$ est intégrable pour tout $t$ et \begin{align*}  F^{'}(t)  & =  \frac{d}{dt} \int_{X} f(t,x) d\mu(x) \\ & =  \int_{X} \frac{\partial}{\partial t} f(t,x)d\mu(x)\end{align*}
+\end{theo}
 \end{document}
